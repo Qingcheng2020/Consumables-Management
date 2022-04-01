@@ -32,7 +32,7 @@
                       class="btn-add"
                       @click="handleAdd()"
                       style="float: left;
-                      margin-bottom:15px">选择试剂
+                      margin-bottom:15px">选择耗材
            </el-button>
    </el-card>-->
     <div class="table-container">
@@ -104,7 +104,7 @@
         </el-button>
       </el-card>
 
-      <el-dialog title="试剂基础信息" :visible.sync="dialogAddTableVisible" width="84%">
+      <el-dialog title="耗材基础信息" :visible.sync="dialogAddTableVisible" width="84%">
         <el-card shadow="hover" :body-style="{ padding: '10px'}">
           <div>
             <el-button size="small" style="float:right;margin-right: 15px"

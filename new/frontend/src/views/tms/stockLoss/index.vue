@@ -30,7 +30,7 @@
 <!--            </el-select>-->
 <!--          </el-form-item>-->
 <!--          <el-form-item>-->
-<!--            <el-input v-model="listQuery.keyword" class="input-width" placeholder="库存编号/试剂名称"></el-input>-->
+<!--            <el-input v-model="listQuery.keyword" class="input-width" placeholder="库存编号/耗材名称"></el-input>-->
 <!--          </el-form-item>-->
 <!--        </el-form>-->
 <!--      </div>-->

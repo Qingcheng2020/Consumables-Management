@@ -180,7 +180,7 @@ export const asyncRouterMap = [
         path: 'placeOrder',
         name: 'placeOrder',
         component: () => import('@/views/oms/order/placeOrder'),
-        meta: {title: '试剂下单', icon: 'place-order'}
+        meta: {title: '耗材下单', icon: 'place-order'}
       },
       {
         path: 'preInBill',

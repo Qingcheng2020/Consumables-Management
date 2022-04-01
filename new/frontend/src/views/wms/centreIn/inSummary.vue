@@ -23,7 +23,7 @@
         <div style="float:right">
           <el-form :inline="true" :model="listQuery" size="small">
             <el-form-item>
-              <el-input v-model="listQuery.reagentName" class="input-width" placeholder="试剂名称" clearable
+              <el-input v-model="listQuery.reagentName" class="input-width" placeholder="耗材名称" clearable
                         @keyup.enter.native="searchByDate"></el-input>
             </el-form-item>
           </el-form>
@@ -327,7 +327,7 @@ export default {
         orderNumber: formatDate(new Date(), 'yyyyMMddhhmmss'),
         fromWho: `时间：${_startTime}至${_endTime}`,
         createTime: _createTime,
-        title: '试剂入库汇总',
+        title: '耗材入库汇总',
         properties: printFormColumn,
         data: _data,
         showIds: true,

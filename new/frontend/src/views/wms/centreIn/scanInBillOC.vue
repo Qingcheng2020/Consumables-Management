@@ -32,7 +32,7 @@
                       class="btn-add"
                       @click="handleAdd()"
                       style="float: left;
-                      margin-bottom:15px">选择试剂
+                      margin-bottom:15px">选择耗材
            </el-button>
    </el-card>-->
     <div class="table-container">
@@ -45,7 +45,7 @@
         <el-table-column type="selection" width="60" align="center"></el-table-column>
         <el-table-column prop="newId" align="center" label="序号" width="60"></el-table-column>
 
-        <el-table-column label="试剂名称" align="center">
+        <el-table-column label="耗材名称" align="center">
           <template slot-scope="scope">{{ scope.row.reagentName }}</template>
         </el-table-column>
         <el-table-column label="单位" width="120" align="center">
@@ -131,7 +131,7 @@
           <div style="float:right">
             <el-form :inline="true" :model="listQuery" size="small" label-width="140px">
               <el-form-item>
-                <el-input v-model="listQuery.keyword" class="input-width" placeholder="试剂名称/供货商名称"
+                <el-input v-model="listQuery.keyword" class="input-width" placeholder="耗材名称/供货商名称"
                           clearable @keyup.enter.native="handleSearchList"></el-input>
               </el-form-item>
             </el-form>
@@ -155,7 +155,7 @@
                     v-loading="listLoading" border>
             <el-table-column type="selection" width="50" fixed align="center"></el-table-column>
             <el-table-column prop="newId" align="center" label="序号" width="60"></el-table-column>
-            <el-table-column label="试剂名称" align="center">
+            <el-table-column label="耗材名称" align="center">
               <template slot-scope="scope">{{ scope.row.reagentName }}</template>
             </el-table-column>
             <el-table-column label="单位" align="center">
@@ -456,7 +456,7 @@ export default {
         }
       } else {
         this.$message({
-          message: '所选试剂非同一供货商！',
+          message: '所选耗材非同一供货商！',
           type: 'warning',
           duration: 1000
         });
@@ -479,7 +479,7 @@ export default {
     toggleSelection() {
       if (this.multipleSelection == null || this.multipleSelection.length < 1) {
         this.$message({
-          message: '请选择要添加的试剂',
+          message: '请选择要添加的耗材',
           type: 'warning',
           duration: 1000
         });

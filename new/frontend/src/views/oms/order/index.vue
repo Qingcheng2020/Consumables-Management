@@ -47,7 +47,7 @@
               <el-table-column label="订单编号" align="center">
                 <template slot-scope="props">{{ props.row.orderNo }}</template>
               </el-table-column>
-              <el-table-column label="试剂名称" align="center">
+              <el-table-column label="耗材名称" align="center">
                 <template slot-scope="props">{{ props.row.reagentName }}</template>
               </el-table-column>
               <el-table-column label="订货单位" align="center">

@@ -30,7 +30,7 @@
                  class="btn-add"
                  @click="handleAdd()"
                  style="float: left;
-                 margin-bottom:15px">选择试剂
+                 margin-bottom:15px">选择耗材
       </el-button>
     </el-card>
     <div class="table-container">
@@ -45,7 +45,7 @@
           <el-table-column type="selection" width="60" align="center"></el-table-column>
           <el-table-column prop="newId" align="center" label="序号" width="60"></el-table-column>
 
-          <el-table-column label="试剂名称" align="center">
+          <el-table-column label="耗材名称" align="center">
             <template slot-scope="scope">{{ scope.row.reagentName }}</template>
           </el-table-column>
           <el-table-column label="单位" align="center">
@@ -84,7 +84,7 @@
           <el-table-column label="单价" width=auto align="center">
             <template slot-scope="scope">¥ {{ scope.row.price }}</template>
           </el-table-column>
-          <el-table-column label="试剂数量" width="150" align="center">
+          <el-table-column label="耗材数量" width="150" align="center">
             <template slot-scope="scope">
               <el-form-item :prop="'tableData.' + scope.$index + '.quantity'" :rules='model.rules.name'>
                 <el-input-number
@@ -123,7 +123,7 @@
         </el-button>
       </el-card>
 
-      <el-dialog title="试剂基础信息" :visible.sync="dialogAddTableVisible" width="84%">
+      <el-dialog title="耗材基础信息" :visible.sync="dialogAddTableVisible" width="84%">
         <el-card shadow="hover" :body-style="{ padding: '10px'}">
           <div>
             <el-button size="small" style="float:right;margin-right: 15px"
@@ -165,7 +165,7 @@
                     v-loading="listLoading" border>
             <el-table-column type="selection" width="50" fixed align="center"></el-table-column>
             <el-table-column prop="newId" align="center" label="序号" width="60"></el-table-column>
-            <el-table-column label="试剂名称" align="center">
+            <el-table-column label="耗材名称" align="center">
               <template slot-scope="scope">{{ scope.row.reagentName }}</template>
             </el-table-column>
             <el-table-column label="单位" align="center">
@@ -421,7 +421,7 @@ export default {
             this.$router.push("/wms/inBillTC");
           } else {
             this.$message({
-              message: '所选试剂非同一供货商！',
+              message: '所选耗材非同一供货商！',
               type: 'warning',
               duration: 1000
             });
@@ -446,7 +446,7 @@ export default {
     toggleSelection() {
       if (this.multipleSelection == null || this.multipleSelection.length < 1) {
         this.$message({
-          message: '请选择要添加的试剂',
+          message: '请选择要添加的耗材',
           type: 'warning',
           duration: 1000
         });

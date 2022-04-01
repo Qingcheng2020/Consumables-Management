@@ -49,7 +49,7 @@
         <el-table-column label="库存编号" min-width="160%" align="center">
           <template slot-scope="scope">{{ scope.row.stockNo }}</template>
         </el-table-column>
-        <el-table-column label="试剂名称" min-width="160%" align="center">
+        <el-table-column label="耗材名称" min-width="160%" align="center">
           <template slot-scope="scope">{{ scope.row.reagentName }}</template>
         </el-table-column>
         <el-table-column label="科室库名" align="center">
@@ -68,7 +68,7 @@
             </div>
           </template>
         </el-table-column>
-        <el-table-column label="试剂状态" align="center">
+        <el-table-column label="耗材状态" align="center">
           <template slot-scope="scope">
             {{ statusData[(scope.row.reagentStatus)].label }}
           </template>

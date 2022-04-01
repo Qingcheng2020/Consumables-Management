@@ -29,7 +29,7 @@
         <el-table-column label="随货同行单编号" min-width="160%" align="center">
           <template slot-scope="scope">{{ scope.row.billCode }}</template>
         </el-table-column>
-        <el-table-column label="试剂编号" min-width="160%" align="center">
+        <el-table-column label="耗材编号" min-width="160%" align="center">
           <template slot-scope="scope">{{ scope.row.reagentCode }}</template>
         </el-table-column>
         <el-table-column label="二维码" width="350%" align="center">

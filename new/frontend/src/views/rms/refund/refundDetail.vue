@@ -42,7 +42,7 @@
                 v-loading="listLoading" border>
         <el-table-column type="selection" width="40" align="center"></el-table-column>
         <el-table-column prop="newId" align="center" label="序号" width="60"></el-table-column>
-        <el-table-column label="试剂名称" min-width="160%" align="center">
+        <el-table-column label="耗材名称" min-width="160%" align="center">
           <template slot-scope="scope">{{ scope.row.reagentName }}</template>
         </el-table-column>
         <el-table-column label="型号规格" align="center">
@@ -117,7 +117,7 @@ import {PrintForm} from '@/utils/printForm';
 const printFormColumn = [
   {
     field: 'reagentName',
-    name: '试剂名称',
+    name: '耗材名称',
     columnSize: '200%'
   },
   {
@@ -278,9 +278,9 @@ export default {
         this.downloadLoading = true;
         import('@/vendor/Export2Excel').then(excel => {
           //对应表格输出的title
-          const multiHeader = [[' ', ' ', ' ', '检验试剂退货单', '', ' ', ' ', ' ', ' '],
+          const multiHeader = [[' ', ' ', ' ', '检验耗材退货单', '', ' ', ' ', ' ', ' '],
             ['供货单位: ', this.multipleSelection[0].supplierShortName, ' ', '单号: ', this.multipleSelection[0].refundCode, '时间: ', this.getNowFormatDate(), '制表人: ', this.multipleSelection[0].createBy]];
-          const header = ['序号', '试剂名称', '规格型号', '单位', '数量', '单价', '合计金额', '批号', '备注'];
+          const header = ['序号', '耗材名称', '规格型号', '单位', '数量', '单价', '合计金额', '批号', '备注'];
           const filterVal = ['newId', 'reagentName', 'reagentSpecification', 'reagentUnit', 'quantity', 'reagentPrice', 'total', 'batchNo', ' '];
           const merges = [];
           const list = this.multipleSelection;
@@ -325,7 +325,7 @@ export default {
     handleDelete(index, row) {
       // 获取删除订单详情的订单号
       const refundCode = this.refundDetail[0].refundCode;
-      this.$confirm('是否要删除该试剂信息?', '提示', {
+      this.$confirm('是否要删除该耗材信息?', '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
         type: 'warning'

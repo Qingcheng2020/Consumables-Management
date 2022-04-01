@@ -8,8 +8,8 @@
       </div>
       <div style="float:left;margin-top: 8px">
         <el-form :inline="true" :model="listQuery" size="small">
-          <el-form-item label="试剂名称:">
-            <el-input v-model="listQuery.reagentName" class="stock-width" placeholder="试剂名称" clearable
+          <el-form-item label="耗材名称:">
+            <el-input v-model="listQuery.reagentName" class="stock-width" placeholder="耗材名称" clearable
                       @keyup.enter.native="handleSearchList"></el-input>
           </el-form-item>
           <el-form-item label="供货商:">
@@ -119,10 +119,10 @@
       <el-form :model="StockCentre"
                ref="StockCentreForm"
                label-width="150px" size="small">
-        <el-form-item label="试剂编号">
+        <el-form-item label="耗材编号">
           <el-input v-model="StockCentre.reagentId" style="width: 250px"></el-input>
         </el-form-item>
-        <el-form-item label="试剂名称">
+        <el-form-item label="耗材名称">
           <el-input v-model="StockCentre.reagentName" style="width: 250px"></el-input>
         </el-form-item>
         <el-form-item label="型号规格">
@@ -210,7 +210,7 @@ export default {
       dialogVisible: false,
       StockCentre: Object.assign({}, defaultStockCentre),
       editDialogVisible: false,
-      //试剂在库状态
+      //耗材在库状态
       statusData: {
         '1': '已入库',
         '5': '已退货',

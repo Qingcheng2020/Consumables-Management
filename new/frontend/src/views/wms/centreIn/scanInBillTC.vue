@@ -45,7 +45,7 @@
         <el-table-column type="selection" width="60" align="center"></el-table-column>
         <el-table-column prop="newId" align="center" label="序号" width="60"></el-table-column>
 
-        <el-table-column label="试剂名称" align="center">
+        <el-table-column label="耗材名称" align="center">
           <template slot-scope="scope">{{ scope.row.reagentName }}</template>
         </el-table-column>
         <el-table-column label="单位" width="120" align="center">
@@ -122,7 +122,7 @@
           <div style="float:right">
             <el-form :inline="true" :model="listQuery" size="small" label-width="140px">
               <el-form-item>
-                <el-input v-model="listQuery.keyword" class="input-width" placeholder="试剂名称/供货商名称"
+                <el-input v-model="listQuery.keyword" class="input-width" placeholder="耗材名称/供货商名称"
                           clearable @keyup.enter.native="handleSearchList"></el-input>
               </el-form-item>
             </el-form>
@@ -146,7 +146,7 @@
                     v-loading="listLoading" border>
             <el-table-column type="selection" width="50" fixed align="center"></el-table-column>
             <el-table-column prop="newId" align="center" label="序号" width="60"></el-table-column>
-            <el-table-column label="试剂名称" align="center">
+            <el-table-column label="耗材名称" align="center">
               <template slot-scope="scope">{{ scope.row.reagentName }}</template>
             </el-table-column>
             <el-table-column label="单位" align="center">
@@ -398,13 +398,13 @@ export default {
           }, 1000);
         } else if (subStatus == 1) {
           let inStockFlag = true;
-          //草稿中现有试剂数量小于随货单中数量
+          //草稿中现有耗材数量小于随货单中数量
           arr.forEach(item => {
             if (item.quantity < item.preBillNumber) {
               inStockFlag = false;
             }
           });
-          //草稿中现有试剂种类数小于随货单中试剂种类数
+          //草稿中现有耗材种类数小于随货单中耗材种类数
           if (arr.length < this.preBillInfo.length) inStockFlag = false;
 
           if (!inStockFlag) {
@@ -427,13 +427,13 @@ export default {
           }
         } else if (subStatus == 2) {
           let inStockFlag = true;
-          //草稿中现有试剂数量小于随货单中数量
+          //草稿中现有耗材数量小于随货单中数量
           arr.forEach(item => {
             if (item.quantity < item.preBillNumber) {
               inStockFlag = false;
             }
           });
-          //草稿中现有试剂种类数小于随货单中试剂种类数
+          //草稿中现有耗材种类数小于随货单中耗材种类数
           if (arr.length < this.preBillInfo.length) inStockFlag = false;
 
           if (!inStockFlag) {
@@ -457,7 +457,7 @@ export default {
         }
       } else {
         this.$message({
-          message: '所选试剂非同一供货商！',
+          message: '所选耗材非同一供货商！',
           type: 'warning',
           duration: 1000
         });
@@ -480,7 +480,7 @@ export default {
     toggleSelection() {
       if (this.multipleSelection == null || this.multipleSelection.length < 1) {
         this.$message({
-          message: '请选择要添加的试剂',
+          message: '请选择要添加的耗材',
           type: 'warning',
           duration: 1000
         });

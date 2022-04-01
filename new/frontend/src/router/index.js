@@ -62,7 +62,7 @@ export const asyncRouterMap = [
         path: 'placeOrder',
         name: 'placeOrder',
         component: () => import('@/views/oms/order/placeOrder'),
-        meta: {title: '试剂下单', icon: 'place-order'}
+        meta: {title: '耗材下单', icon: 'place-order'}
       },
       {
         path: 'preInBill',
@@ -186,7 +186,7 @@ export const asyncRouterMap = [
         path: 'inSummary',
         name: 'inSummary',
         component: () => import('@/views/wms/centreIn/inSummary'),
-        meta: {title: '时段试剂入库汇总', icon: 'wms-inSummary'}
+        meta: {title: '时段耗材入库汇总', icon: 'wms-inSummary'}
       },
       {
         path: 'inBillTC',
@@ -265,7 +265,7 @@ export const asyncRouterMap = [
         path: 'outSummary',
         name: 'outSummary',
         component: () => import('@/views/dms/centreOut/outSummary'),
-        meta: {title: '时段试剂出库汇总', icon: 'dms-outSummary'}
+        meta: {title: '时段耗材出库汇总', icon: 'dms-outSummary'}
       },
       {
         path: 'centreOutT',
@@ -485,19 +485,19 @@ export const asyncRouterMap = [
         path: 'reagentOutIn',
         name: 'reagentOutIn',
         component: () => import('@/views/bms/reagentOutIn'),
-        meta: {title: '时段试剂出入库报表', icon: 'bms-reagentOutIn'}
+        meta: {title: '时段耗材出入库报表', icon: 'bms-reagentOutIn'}
       },
       {
         path: 'reagentOverall',
         name: 'reagentOverall',
         component: () => import('@/views/bms/reagentOverall'),
-        meta: {title: '试剂总库存', icon: 'bms-reagentOverall'}
+        meta: {title: '耗材总库存', icon: 'bms-reagentOverall'}
       },
       {
         path: 'reagentUseLog',
         name: 'reagentUseLog',
         component: () => import('@/views/bms/reagentUseLog'),
-        meta: {title: '试剂使用记录报表', icon: 'bms-reagentUseLog'}
+        meta: {title: '耗材使用记录报表', icon: 'bms-reagentUseLog'}
       },
       {
         path: 'countCollect',
@@ -566,7 +566,7 @@ export const asyncRouterMap = [
         path: 'baseInfo',
         name: 'baseInfo',
         component: () => import('@/views/ums/baseInfo/index'),
-        meta: {title: '试剂基础管理', icon: 'ums-baseInfo'}
+        meta: {title: '耗材基础管理', icon: 'ums-baseInfo'}
       },
       {
         path: 'device',

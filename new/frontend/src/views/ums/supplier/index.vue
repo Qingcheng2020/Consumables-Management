@@ -364,7 +364,7 @@ export default {
           if (this.inStockFlag > 0) {
             this.$message({
               type: 'warning',
-              message: '关联试剂未终结!'
+              message: '关联耗材未终结!'
             });
           } else if (this.inStockFlag == 0) {
             deleteSupplier(row.id).then(response => {

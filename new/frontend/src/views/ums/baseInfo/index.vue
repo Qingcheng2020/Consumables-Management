@@ -3,11 +3,11 @@
     <el-card class="filter-container" shadow="never">
       <div>
         <i class="el-icon-tickets"></i>
-        <span>试剂基础信息列表</span>
+        <span>耗材基础信息列表</span>
       </div>
       <el-button size="small" style="float:left;margin-top: 8px"
                  type="primary" icon="el-icon-circle-plus"
-                 @click="handleAdd()">添加试剂
+                 @click="handleAdd()">添加耗材
       </el-button>
 
       <el-upload
@@ -26,8 +26,8 @@
 
       <div style="float:left;margin-top: 8px">
         <el-form :inline="true" :model="listQuery" size="small" label-width="100px">
-          <el-form-item label="试剂名称：">
-            <el-input v-model="listQuery.name" class="input-width" placeholder="试剂名称" clearable
+          <el-form-item label="耗材名称：">
+            <el-input v-model="listQuery.name" class="input-width" placeholder="耗材名称" clearable
                       @keyup.enter.native="handleSearchList"></el-input>
           </el-form-item>
           <el-form-item label="生产厂家：">
@@ -58,7 +58,7 @@
                 style="width: 100%;"
                 v-loading="listLoading" border>
         <el-table-column prop="newId" align="center" label="序号" width="60"></el-table-column>
-        <el-table-column label="试剂名称" align="center">
+        <el-table-column label="耗材名称" align="center">
           <template slot-scope="scope">{{ scope.row.name }}</template>
         </el-table-column>
         <el-table-column label="单位" align="center">
@@ -121,7 +121,7 @@
       </el-pagination>
     </div>
 
-    <el-dialog title="导入失败试剂" :visible.sync="errorTableVisible" width="84%">
+    <el-dialog title="导入失败耗材" :visible.sync="errorTableVisible" width="84%">
       <div class="table-container">
         <el-table ref="errorTable"
                   :data="errorList"
@@ -132,7 +132,7 @@
                   v-loading="listLoading" border>
 
           <el-table-column prop="newId" align="center" label="序号" width="60"></el-table-column>
-          <el-table-column label="试剂名称" align="center">
+          <el-table-column label="耗材名称" align="center">
             <template slot-scope="scope">{{ scope.row.name }}</template>
           </el-table-column>
           <el-table-column label="单位" align="center">
@@ -170,14 +170,14 @@
 
     </el-dialog>
     <el-dialog
-      :title="'添加试剂信息'"
+      :title="'添加耗材信息'"
       :visible.sync="dialogVisible"
       width="40%">
       <el-form :model="BaseInfoForm"
                :rules="BaseInfoRules"
                ref="BaseInfoForm"
                label-width="150px" size="small">
-        <el-form-item label="试剂名称" prop="name">
+        <el-form-item label="耗材名称" prop="name">
           <el-input v-model="BaseInfoForm.name" style="width: 250px"></el-input>
         </el-form-item>
         <el-form-item label="单位" prop="unit">
@@ -232,7 +232,7 @@
       </span>
     </el-dialog>
     <el-dialog
-      :title="'编辑试剂信息'"
+      :title="'编辑耗材信息'"
       :visible.sync="editDialogVisible"
       width="40%">
       <el-form :model="BaseInfoForm"
@@ -240,7 +240,7 @@
                ref="BaseInfoForm"
                :disabled="supplierStatus"
                label-width="150px" size="small">
-        <el-form-item label="试剂名称" prop="name">
+        <el-form-item label="耗材名称" prop="name">
           <el-input v-model="BaseInfoForm.name" style="width: 250px"></el-input>
         </el-form-item>
         <el-form-item label="单位" prop="unit">
@@ -364,7 +364,7 @@ export default {
       }],
       BaseInfoRules: {
         name: [
-          {required: true, message: '请输入试剂名称', trigger: 'blur'},
+          {required: true, message: '请输入耗材名称', trigger: 'blur'},
           {validator: validateUsername, trigger: 'blur'}
         ],
         unit: [
@@ -523,9 +523,9 @@ export default {
       this.errorList = res.data.list;
       if (this.errorList.length > 0) {
         this.errorTableVisible = true;
-        this.$message.warning("试剂信息部分导入成功，存在导入失败试剂！");
+        this.$message.warning("耗材信息部分导入成功，存在导入失败耗材！");
       } else {
-        this.$message.success("试剂信息全部导入成功！");
+        this.$message.success("耗材信息全部导入成功！");
       }
 
       //把接收到的res存入data的result
@@ -573,7 +573,7 @@ export default {
       this.BaseInfoForm = Object.assign({}, defaultBaseInfoForm);
     },
     handleDelete(index, row) {
-      this.$confirm('是否要删除该试剂信息?', '提示', {
+      this.$confirm('是否要删除该耗材信息?', '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
         type: 'warning'
@@ -584,7 +584,7 @@ export default {
           if (this.inStockFlag > 0) {
             this.$message({
               type: 'warning',
-              message: '试剂在库!'
+              message: '耗材在库!'
             });
           } else if (this.inStockFlag == 0) {
             deleteBaseInfo(row.id).then(response => {

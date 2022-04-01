@@ -9,7 +9,7 @@
       <div style="float:left;margin-top: 8px">
         <el-form :inline="true" :model="listQuery" size="small">
           <el-form-item>
-            <el-input v-model="listQuery.keyword" class="input-width" placeholder="试剂编号/试剂名称"
+            <el-input v-model="listQuery.keyword" class="input-width" placeholder="耗材编号/耗材名称"
                       clearable @keyup.enter.native="handleSearchList"></el-input>
           </el-form-item>
         </el-form>
@@ -33,10 +33,10 @@
                 style="width: 100%;"
                 v-loading="listLoading" border>
         <el-table-column prop="newId" align="center" label="序号" width="60"></el-table-column>
-        <el-table-column label="试剂名称" min-width="160%" align="center">
+        <el-table-column label="耗材名称" min-width="160%" align="center">
           <template slot-scope="scope">{{ scope.row.reagentName }}</template>
         </el-table-column>
-        <el-table-column label="试剂状态" align="center">
+        <el-table-column label="耗材状态" align="center">
           <template slot-scope="scope">
             {{ statusData[(scope.row.reagentStatus)].label }}
           </template>

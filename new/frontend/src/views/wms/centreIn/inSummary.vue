@@ -2,7 +2,7 @@
   <div class="app-container">
     <el-card class="filter-container" shadow="never">
       <i class="el-icon-tickets"></i>
-      <span>时段试剂入库汇总列表</span>
+      <span>时段耗材入库汇总列表</span>
       <div style="float: right">
         <el-button
           style="float:right;margin-bottom: 10px"
@@ -71,10 +71,10 @@
                 v-loading="listLoading" border>
 
         <el-table-column prop="newId" align="center" label="序号" width="60"></el-table-column>
-        <el-table-column label="试剂名称" width="240" align="center">
+        <el-table-column label="耗材名称" width="240" align="center">
           <template slot-scope="scope">{{ scope.row.reagentName }}</template>
         </el-table-column>
-        <el-table-column label="试剂编号" align="center">
+        <el-table-column label="耗材编号" align="center">
           <template slot-scope="scope">{{ scope.row.updateBy }}</template>
         </el-table-column>
         <el-table-column label="批号" align="center">
@@ -119,7 +119,7 @@ import {PrintForm} from "../../../utils/printForm";
 const printFormColumn = [
   {
     field: 'reagentName',
-    name: '试剂名称',
+    name: '耗材名称',
     columnSize: '200%'
   },
   {
@@ -128,7 +128,7 @@ const printFormColumn = [
   },
   {
     field: 'updateBy',
-    name: '试剂编号',
+    name: '耗材编号',
     columnSize: '120%'
   },
   {
@@ -290,10 +290,10 @@ export default {
       this.downloadLoading = true;
       import('@/vendor/Export2Excel').then(excel => {
         //对应表格输出的title
-        const multiHeader = [[' ', ' ', ' ', '时段试剂入库汇总表', ' ', ' ', ' ', ' '],
+        const multiHeader = [[' ', ' ', ' ', '时段耗材入库汇总表', ' ', ' ', ' ', ' '],
           [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
           [this.listQuery.startTime, '至', this.listQuery.endTime, ' ', ' ', ' ', '制表人: ', getCookie("username"), '科室: ', this.branch]];
-        const header = ['试剂名称', '试剂编号', '批号', '供货商', '单位', '入库时间', '领用人'];
+        const header = ['耗材名称', '耗材编号', '批号', '供货商', '单位', '入库时间', '领用人'];
         const filterVal = ['reagentName', 'updateBy', 'batchNo', 'factory', 'reagentUnit', 'createTime', 'createBy'];
 
         const list = this.formatList;

@@ -22,8 +22,8 @@
             <el-input v-model="listQuery.supplierShortName" class="input-width" placeholder="公司简称" clearable
                       @keyup.enter.native="handleSearchList"></el-input>
           </el-form-item>
-          <el-form-item label="试剂名称：">
-            <el-input v-model="listQuery.reagentName" class="input-width" placeholder="试剂名称" clearable
+          <el-form-item label="耗材名称：">
+            <el-input v-model="listQuery.reagentName" class="input-width" placeholder="耗材名称" clearable
                       @keyup.enter.native="handleSearchList"></el-input>
           </el-form-item>
         </el-form>
@@ -41,7 +41,7 @@
         <el-table-column label="公司简称" width="160%" align="center">
           <template slot-scope="scope">{{ scope.row.supplierShortName }}</template>
         </el-table-column>
-        <el-table-column label="试剂名称" width="160%" align="center">
+        <el-table-column label="耗材名称" width="160%" align="center">
           <template slot-scope="scope">{{ scope.row.reagentName }}</template>
         </el-table-column>
         <el-table-column label="生产厂家营业执照" width="190%" align="center">

@@ -41,7 +41,7 @@
         <el-table-column label="订单编号" align="center">
           <template slot-scope="scope">{{ scope.row.orderNo }}</template>
         </el-table-column>
-        <el-table-column label="试剂名称" align="center">
+        <el-table-column label="耗材名称" align="center">
           <template slot-scope="scope">{{ scope.row.reagentName }}</template>
         </el-table-column>
         <el-table-column label="订货单位" align="center">
@@ -113,7 +113,7 @@ import {PrintForm} from '@/utils/printForm';
 const printFormColumn = [
   {
     field: 'reagentName',
-    name: '试剂名称',
+    name: '耗材名称',
     columnSize: '200%'
   },
   {
@@ -284,7 +284,7 @@ export default {
     handleDelete(index, row) {
       // 获取删除订单详情的订单号
       const orderNo = this.orderDetail[0].orderNo;
-      this.$confirm('是否要删除该试剂信息?', '提示', {
+      this.$confirm('是否要删除该耗材信息?', '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
         type: 'warning'

@@ -26,7 +26,7 @@
         <div style="float:left;margin-top: 8px">
           <el-form :inline="true" :model="listQuery" size="small">
             <el-form-item>
-              <el-input v-model="listQuery.reagentCode" style="width: 130px" placeholder="试剂编号" clearable
+              <el-input v-model="listQuery.reagentCode" style="width: 130px" placeholder="耗材编号" clearable
                         @keyup.enter.native="handleSearchList"></el-input>
             </el-form-item>
             <el-form-item>
@@ -105,7 +105,7 @@
                 :data="stockCentre"
                 style="width: 120%;"
                 v-loading="listLoading" border>
-        <el-table-column label="试剂名称" min-width="160%" align="center">
+        <el-table-column label="耗材名称" min-width="160%" align="center">
           <template slot-scope="scope">{{ scope.row.reagentName }}</template>
         </el-table-column>
         <el-table-column label="型号规格" align="center">
@@ -143,7 +143,7 @@
                 style="width: 120%;"
                 v-loading="listLoading" border>
         <el-table-column prop="newId" align="center" label="序号" width="50" fixed="left"></el-table-column>
-        <el-table-column label="试剂编号" min-width="110%" align="center">
+        <el-table-column label="耗材编号" min-width="110%" align="center">
           <template slot-scope="scope">{{ scope.row.reagentCode }}</template>
         </el-table-column>
         <el-table-column label="产品批号" min-width="90%" align="center">
@@ -246,7 +246,7 @@ import {PrintForm} from '@/utils/printForm';
 const printFormColumn = [
   {
     field: 'reagentName',
-    name: '试剂名称',
+    name: '耗材名称',
   },
   {
     field: 'specification',
@@ -260,7 +260,7 @@ const printFormColumn = [
   },
   {
     field: 'reagentCode',
-    name: '试剂编号',
+    name: '耗材编号',
     columnSize: '50%'
   },
   {

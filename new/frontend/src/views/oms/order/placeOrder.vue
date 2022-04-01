@@ -3,7 +3,7 @@
     <!--    <el-button size="small" @click="back()">返回</el-button>-->
     <el-card class="filter-container" shadow="never">
       <i class="el-icon-tickets"></i>
-      <span>试剂下单</span>
+      <span>耗材下单</span>
     </el-card>
     <div class="table-container">
       <el-form :inline="false" :model="placeOrder" size="medium " label-width="100px">
@@ -31,7 +31,7 @@
                  class="btn-add"
                  @click="handleAdd()"
                  style="float: left;
-                 margin-bottom:15px">选择试剂
+                 margin-bottom:15px">选择耗材
       </el-button>
     </el-card>
 
@@ -46,7 +46,7 @@
         <el-table-column type="selection" width="60" align="center"></el-table-column>
         <el-table-column prop="newId" align="center" label="序号" width="60"></el-table-column>
 
-        <el-table-column label="试剂名称" align="center">
+        <el-table-column label="耗材名称" align="center">
           <template slot-scope="scope">{{ scope.row.name }}</template>
         </el-table-column>
         <el-table-column label="单位" align="center">
@@ -101,7 +101,7 @@
         </el-button>
       </el-card>
 
-      <el-dialog title="试剂基础信息" :visible.sync="dialogAddTableVisible" width="84%">
+      <el-dialog title="耗材基础信息" :visible.sync="dialogAddTableVisible" width="84%">
         <el-card shadow="hover" :body-style="{ padding: '10px'}">
           <div>
             <el-button size="small" style="float:right;margin-right: 15px"
@@ -117,7 +117,7 @@
           <div style="float:right">
             <el-form :inline="true" :model="listQuery" size="small" label-width="140px">
               <el-form-item>
-                <el-input v-model="listQuery.keyword" class="input-width" placeholder="供货商名/试剂名称"
+                <el-input v-model="listQuery.keyword" class="input-width" placeholder="供货商名/耗材名称"
                           clearable @keyup.enter.native="handleSearchList"></el-input>
               </el-form-item>
             </el-form>
@@ -142,7 +142,7 @@
             <el-table-column type="selection" width="50" fixed align="center"></el-table-column>
             <el-table-column prop="newId" align="center" label="序号" width="60"></el-table-column>
 
-            <el-table-column label="试剂名称" align="center">
+            <el-table-column label="耗材名称" align="center">
               <template slot-scope="scope">{{ scope.row.reagentName }}</template>
             </el-table-column>
             <el-table-column label="单位" align="center">
@@ -317,7 +317,7 @@ export default {
     toggleSelection() {
       if (this.multipleSelection == null || this.multipleSelection.length < 1) {
         this.$message({
-          message: '请选择要添加的试剂',
+          message: '请选择要添加的耗材',
           type: 'warning',
           duration: 1000
         });

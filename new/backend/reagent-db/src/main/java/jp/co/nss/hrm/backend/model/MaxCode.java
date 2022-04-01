@@ -4,7 +4,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 
 public class MaxCode implements Serializable {
-    @ApiModelProperty(value = "试剂耗材编号")
+    @ApiModelProperty(value = "耗材编号")
     private String code;
 
     private static final long serialVersionUID = 1L;

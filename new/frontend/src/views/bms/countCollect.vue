@@ -2,7 +2,7 @@
   <div class="app-container">
     <el-card class="filter-container" shadow="never">
       <i class="el-icon-tickets"></i>
-      <span>时段试剂领用统计列表</span>
+      <span>时段耗材领用统计列表</span>
       <el-button
         style="float:right;margin-bottom: 10px"
         size="large"
@@ -177,7 +177,7 @@ export default {
         this.downloadLoading = true;
         import('@/vendor/Export2Excel').then(excel => {
           //对应表格输出的title
-          const multiHeader = [[' ', '时段组别试剂领用统计表', ' '],
+          const multiHeader = [[' ', '时段组别耗材领用统计表', ' '],
             [' 年    月    日 至', '  年    月    日', '制表人: ']];
           const header = ['组别', '数量', '金额'];
           const filterVal = ['reagentStatus', 'statusCount', 'sumPrice'];

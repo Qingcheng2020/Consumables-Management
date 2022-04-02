@@ -377,7 +377,7 @@ export default {
         name: '科室已出库'
       }],
       statusDataList: [],
-      //试剂状态
+      //耗材状态
       statusData: {
         '0': '丢失',
         '1': '破损',
@@ -389,7 +389,7 @@ export default {
         '1998': '在库',
         '1999': '科室已出库',
       },
-      //试剂在库状态
+      //耗材在库状态
       statusData1: {
         '1': '已入库',
       },

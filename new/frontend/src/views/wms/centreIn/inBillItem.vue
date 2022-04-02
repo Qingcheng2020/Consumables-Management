@@ -91,7 +91,7 @@ export default {
       multipleSelection: [],
       //imageUrl: require("E:\\Postgraduate\\Files\\Picture\\big_hammer.png"),
 
-      //试剂状态
+      //耗材状态
       statusData: {
         '0': '未入库',
         '1': '已入库',

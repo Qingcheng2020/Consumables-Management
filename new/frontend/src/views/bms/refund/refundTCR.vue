@@ -58,7 +58,7 @@
         <el-table-column label="退货单详细编号" min-width="160%" align="center">
           <template slot-scope="scope">{{ scope.row.refundDetailId }}</template>
         </el-table-column>
-        <el-table-column label="试剂名称" min-width="160%" align="center">
+        <el-table-column label="耗材名称" min-width="160%" align="center">
           <template slot-scope="scope">{{ scope.row.reagentName }}</template>
         </el-table-column>
         <el-table-column label="供货商名" align="center">
@@ -222,7 +222,7 @@ export default {
           //对应表格输出的title
           const multiHeader = [[' ', ' ', '时段退货统计表', ' ', ' ', ' '],
             ['中心库', '     年    月    日 至     年    月    日 ', ' ', ' ', '制表人: ', ' ']];
-          const header = ['序号', '试剂名称', '供货商名', '生产厂家', '数量', '金额'];
+          const header = ['序号', '耗材名称', '供货商名', '生产厂家', '数量', '金额'];
           const filterVal = ['id', 'reagentName', 'supplierShortName', 'factory', 'quantity', 'total'];
 
           //进行所有表头的单元格合并,按行合并

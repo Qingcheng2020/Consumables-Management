@@ -46,8 +46,8 @@
       <el-row :gutter="20">
         <el-col :span="12">
           <div class="out-border">
-            <!--   试剂供货商分布总览饼图-->
-            <div class="layout-title">试剂供货商分布总览</div>
+            <!--   耗材供货商分布总览饼图-->
+            <div class="layout-title">耗材供货商分布总览</div>
             <div id="chartPie" style="width: auto;height: 300px" class="myChart" v-loading="loading">
             </div>
           </div>
@@ -55,7 +55,7 @@
         <el-col :span="12">
           <div class="out-border">
             <!--   出库排行榜柱状图-->
-            <div class="layout-title">试剂出库排行榜</div>
+            <div class="layout-title">耗材出库排行榜</div>
             <div id="chartBarTop" style="width: auto;height: 300px" class="myChart" v-loading="loading">
             </div>
           </div>
@@ -66,8 +66,8 @@
       <el-row :gutter="20">
         <el-col>
           <div class="out-border">
-            <!--   试剂总览柱状图-->
-            <div class="layout-title">试剂总览</div>
+            <!--   耗材总览柱状图-->
+            <div class="layout-title">耗材总览</div>
             <div id="chartBar" style="width: auto;height: 400px;" class="myChart" v-loading="loading">
             </div>
           </div>
@@ -201,7 +201,7 @@ export default {
             this.timer = window.setTimeout(() => {
               this.$notify({
                 title: '提示',
-                message: '存在达到过期预警试剂，请及时查看！',
+                message: '存在达到过期预警耗材，请及时查看！',
                 type: 'warning',
                 position: 'bottom-right',
                 // duration: 0
@@ -212,7 +212,7 @@ export default {
             this.timer = window.setTimeout(() => {
               this.$notify({
                 title: '提示',
-                message: '存在达到低库存预警试剂，请及时查看！',
+                message: '存在达到低库存预警耗材，请及时查看！',
                 type: 'warning',
                 position: 'bottom-right',
                 // duration: 0
@@ -362,7 +362,7 @@ export default {
         this.chartPie.setOption({
           //设置标题,副标题,以及标题位置居中
           title: {
-            text: '试剂供货商统计图',
+            text: '耗材供货商统计图',
             //subtext: '纯属虚构',
             x: 'center'
           },
@@ -417,7 +417,7 @@ export default {
         this.chartBar.setOption({
           //设置标题,副标题,以及标题位置居中
           title: {
-            text: '试剂统计图',
+            text: '耗材统计图',
             //subtext: '纯属虚构',
             x: 'center'
           },
@@ -501,7 +501,7 @@ export default {
         this.chartBar = this.$echarts.init(document.getElementById("chartBarTop"));
         this.chartBar.setOption({
           title: {
-            text: '试剂出库排行榜Top5',
+            text: '耗材出库排行榜Top5',
             x: 'center'
           },
           tooltip: {
@@ -629,7 +629,7 @@ export default {
             this.timer = window.setTimeout(() => {
               this.$notify({
                 title: '提示',
-                message: '存在达到过期预警试剂，请及时查看！',
+                message: '存在达到过期预警耗材，请及时查看！',
                 type: 'warning',
                 position: 'bottom-right',
                 // duration: 0
@@ -640,7 +640,7 @@ export default {
             this.timer = window.setTimeout(() => {
               this.$notify({
                 title: '提示',
-                message: '存在达到低库存预警试剂，请及时查看！',
+                message: '存在达到低库存预警耗材，请及时查看！',
                 type: 'warning',
                 position: 'bottom-right',
                 // duration: 0

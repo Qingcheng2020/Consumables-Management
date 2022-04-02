@@ -142,7 +142,7 @@ export default {
       StockLoss: Object.assign({}, defaultStockLoss),
       editDialogVisible: false,
       allStockLossList: [],
-      //试剂状态
+      //耗材状态
       statusData: [
         {
           value: '0',

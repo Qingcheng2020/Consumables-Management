@@ -2,7 +2,7 @@
   <div class="app-container">
     <el-card class="filter-container" shadow="never">
       <i class="el-icon-tickets"></i>
-      <span>试剂使用记录列表</span>
+      <span>耗材使用记录列表</span>
       <el-button
         style="float:right;margin-bottom: 10px"
         size="small"
@@ -27,8 +27,8 @@
 
       <div style="float:right">
         <el-form :inline="true" :model="listQuery" size="small">
-          <el-form-item label="试剂名称：">
-            <el-input v-model="listQuery.reagentName" class="input-width" placeholder="试剂名称" clearable
+          <el-form-item label="耗材名称：">
+            <el-input v-model="listQuery.reagentName" class="input-width" placeholder="耗材名称" clearable
                       @keyup.enter.native="searchByDate"></el-input>
           </el-form-item>
           <el-form-item label="设备名称">
@@ -91,7 +91,7 @@
         <el-table-column label="日期" width="240" align="center">
           <template slot-scope="scope">{{ scope.row.useTime | formatDateTime }}</template>
         </el-table-column>
-        <el-table-column label="试剂名称" width="240" align="center">
+        <el-table-column label="耗材名称" width="240" align="center">
           <template slot-scope="scope">{{ scope.row.reagentName }}</template>
         </el-table-column>
         <el-table-column label="规格型号" align="center">
@@ -103,7 +103,7 @@
         <el-table-column label="批号" align="center">
           <template slot-scope="scope">{{ scope.row.batchNo }}</template>
         </el-table-column>
-        <el-table-column label="试剂编号" align="center">
+        <el-table-column label="耗材编号" align="center">
           <template slot-scope="scope">{{ scope.row.reagentCode }}</template>
         </el-table-column>
         <el-table-column label="有效期" align="center">
@@ -149,7 +149,7 @@ const printFormColumn = [
   },
   {
     field: 'reagentName',
-    name: '试剂名称',
+    name: '耗材名称',
     columnSize: '200%'
   },
   {
@@ -167,7 +167,7 @@ const printFormColumn = [
   },
   {
     field: 'reagentCode',
-    name: '试剂编号',
+    name: '耗材编号',
     columnSize: '80%'
   },
   {
@@ -296,9 +296,9 @@ export default {
       this.downloadLoading = true;
       import('@/vendor/Export2Excel').then(excel => {
         //对应表格输出的title
-        const multiHeader = [[' ', ' ', ' ', '试剂使用记录列表', ' ', ' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+        const multiHeader = [[' ', ' ', ' ', '耗材使用记录列表', ' ', ' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
           [this.listQuery.startTime, '至', this.listQuery.endTime, ' ', ' ', '制表人: ', getCookie("username"), '科室: ', this.branch]];
-        const header = ['日期', '试剂名称', '规格型号', '单位', '批号', '试剂编号', '有效期', '设备名称', '更换人员'];
+        const header = ['日期', '耗材名称', '规格型号', '单位', '批号', '耗材编号', '有效期', '设备名称', '更换人员'];
         const filterVal = ['useTime', 'reagentName', 'reagentSpecification', 'reagentUnit', 'batchNo', 'reagentCode', 'expireDate', 'deviceName', 'updateBy'];
 
         //进行所有表头的单元格合并,按行合并
@@ -333,7 +333,7 @@ export default {
       const pf = new PrintForm({
         orderNumber: formatDate(new Date(), 'yyyyMMddhhmmss'),
         createTime: _createTime,
-        title: '试剂使用记录',
+        title: '耗材使用记录',
         properties: printFormColumn,
         data: _data,
         showIds: true,

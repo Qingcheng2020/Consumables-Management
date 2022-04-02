@@ -403,13 +403,13 @@ export default {
           this.$router.push("/wms/inBillOC");
         } else if (subStatus == 1) {
           let inStockFlag = true;
-          //草稿中现有试剂数量小于随货单中数量
+          //草稿中现有耗材数量小于随货单中数量
           arr.forEach(item => {
             if (item.quantity < item.preBillNumber) {
               inStockFlag = false;
             }
           });
-          //草稿中现有试剂种类数小于随货单中试剂种类数
+          //草稿中现有耗材种类数小于随货单中耗材种类数
           if (arr.length < this.preBillInfo.length) inStockFlag = false;
 
           if (!inStockFlag) {
@@ -429,13 +429,13 @@ export default {
           }
         } else if (subStatus == 2) {
           let inStockFlag = true;
-          //草稿中现有试剂数量小于随货单中数量
+          //草稿中现有耗材数量小于随货单中数量
           arr.forEach(item => {
             if (item.quantity < item.preBillNumber) {
               inStockFlag = false;
             }
           });
-          //草稿中现有试剂种类数小于随货单中试剂种类数
+          //草稿中现有耗材种类数小于随货单中耗材种类数
           if (arr.length < this.preBillInfo.length) inStockFlag = false;
 
           if (!inStockFlag) {

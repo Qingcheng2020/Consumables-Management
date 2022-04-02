@@ -34,7 +34,7 @@
                  class="btn-add"
                  @click="handleAdd()"
                  style="float: left;
-                 margin-bottom:15px">选择试剂
+                 margin-bottom:15px">选择耗材
       </el-button>
     </el-card>
 
@@ -102,7 +102,7 @@
         </el-button>
       </el-card>
 
-      <el-dialog title="试剂基础信息" :visible.sync="dialogAddTableVisible" width="84%">
+      <el-dialog title="耗材基础信息" :visible.sync="dialogAddTableVisible" width="84%">
         <el-card shadow="hover" :body-style="{ padding: '10px'}">
           <el-button icon="el-icon-circle-plus"
                      type="primary"
@@ -122,7 +122,7 @@
                     v-loading="listLoading" border>
             <el-table-column prop="newId" align="center" label="序号" width="60"></el-table-column>
 
-            <el-table-column label="试剂名称" align="center">
+            <el-table-column label="耗材名称" align="center">
               <template slot-scope="scope">{{ scope.row.name }}</template>
             </el-table-column>
             <el-table-column label="单位" align="center">
@@ -298,7 +298,7 @@ export default {
     toggleSelection() {
       if (this.multipleSelection == null || this.multipleSelection.length < 1) {
         this.$message({
-          message: '请选择要添加的试剂',
+          message: '请选择要添加的耗材',
           type: 'warning',
           duration: 1000
         });

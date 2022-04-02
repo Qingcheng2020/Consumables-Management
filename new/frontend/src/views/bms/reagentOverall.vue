@@ -2,7 +2,7 @@
   <div class="app-container">
     <el-card class="filter-container" shadow="never">
       <i class="el-icon-tickets"></i>
-      <span>试剂总库存</span>
+      <span>耗材总库存</span>
       <el-button
         style="float:right;margin-bottom: 10px"
         size="small"
@@ -28,7 +28,7 @@
       <div style="float:right">
         <el-form :inline="true" :model="listQuery" size="small">
           <el-form-item>
-            <el-input v-model="listQuery.reagentName" style="width: 120px" placeholder="试剂名称" clearable
+            <el-input v-model="listQuery.reagentName" style="width: 120px" placeholder="耗材名称" clearable
                       @keyup.enter.native="searchByDate"></el-input>
           </el-form-item>
         </el-form>
@@ -82,7 +82,7 @@
                 v-loading="listLoading" border>
 
         <el-table-column prop="newId" align="center" label="序号" width="60"></el-table-column>
-        <el-table-column label="试剂名称" width="240" align="center">
+        <el-table-column label="耗材名称" width="240" align="center">
           <template slot-scope="scope">{{ scope.row.reagentName }}</template>
         </el-table-column>
         <el-table-column label="型号规格" align="center">
@@ -131,7 +131,7 @@ import {PrintForm} from "../../utils/printForm";
 const printFormColumn = [
   {
     field: 'reagentName',
-    name: '试剂名称',
+    name: '耗材名称',
     columnSize: '200%'
   },
   {
@@ -270,7 +270,7 @@ export default {
                 return prev;
               }
             }, 0);
-            if (index % 2 === 0) {  //试剂数量不加人民币符号和取两位小数
+            if (index % 2 === 0) {  //耗材数量不加人民币符号和取两位小数
               sums[index] = sum;
             } else {  //金额加人民币符号和取两位小数
               sums[index] = sums[index] + sum.toFixed(2);
@@ -334,10 +334,10 @@ export default {
       this.downloadLoading = true;
       import('@/vendor/Export2Excel').then(excel => {
         //对应表格输出的title
-        const multiHeader = [[' ', ' ', '试剂总库存', ' ', ' ', ' ', ' '],
+        const multiHeader = [[' ', ' ', '耗材总库存', ' ', ' ', ' ', ' '],
           [' ', ' ', ' ', ' ', ' ', ' ', ' '],
           [' ', ' ', ' ', ' ', '制表人: ', getCookie("username")]];
-        const header = ['试剂名称', '型号规格', '生产厂家', '供货商', '单位', '数量', '备注'];
+        const header = ['耗材名称', '型号规格', '生产厂家', '供货商', '单位', '数量', '备注'];
         const filterVal = ['reagentName', 'reagentType', 'factory', 'supplierName', 'reagentUnit', 'quantity', ' '];
 
         const list = this.formatList;
@@ -368,7 +368,7 @@ export default {
       const pf = new PrintForm({
         orderNumber: formatDate(new Date(), 'yyyyMMddhhmmss'),
         createTime: _createTime,
-        title: '试剂总库存',
+        title: '耗材总库存',
         properties: printFormColumn,
         data: _data,
         showIds: true,

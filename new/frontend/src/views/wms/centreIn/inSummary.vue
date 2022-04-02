@@ -231,7 +231,7 @@ export default {
     //             return prev;
     //           }
     //         }, 0);
-    //         if (index === 5) {  //试剂数量不加人民币符号和取两位小数
+    //         if (index === 5) {  //耗材数量不加人民币符号和取两位小数
     //           sums[index] = sum;
     //         } else {  //金额加人民币符号和取两位小数
     //           sums[index] = sums[index] + sum.toFixed(2);

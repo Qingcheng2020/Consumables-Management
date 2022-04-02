@@ -2,7 +2,7 @@
   <div class="app-container">
     <el-card class="filter-container" shadow="never">
       <i class="el-icon-tickets"></i>
-      <span>时段试剂出库汇总列表</span>
+      <span>时段耗材出库汇总列表</span>
       <div style="float: right">
         <el-button
           size="small"
@@ -22,7 +22,7 @@
         <div style="float:right">
           <el-form :inline="true" :model="listQuery" size="small">
             <el-form-item>
-              <el-input v-model="listQuery.reagentName" class="input-width" clearable placeholder="试剂名称"
+              <el-input v-model="listQuery.reagentName" class="input-width" clearable placeholder="耗材名称"
                         @keyup.enter.native="searchByDate"></el-input>
             </el-form-item>
           </el-form>
@@ -71,10 +71,10 @@
                 style="width: 100%;" @selection-change="handleSelectionChange">
 
         <el-table-column align="center" label="序号" prop="newId" width="60"></el-table-column>
-        <el-table-column align="center" label="试剂名称" width="240">
+        <el-table-column align="center" label="耗材名称" width="240">
           <template slot-scope="scope">{{ scope.row.reagentName }}</template>
         </el-table-column>
-        <el-table-column align="center" label="试剂编号">
+        <el-table-column align="center" label="耗材编号">
           <template slot-scope="scope">{{ scope.row.updateBy }}</template>
         </el-table-column>
         <el-table-column align="center" label="批号">
@@ -119,7 +119,7 @@ import {PrintForm} from "../../../utils/printForm";
 const printFormColumn = [
   {
     field: 'reagentName',
-    name: '试剂名称',
+    name: '耗材名称',
     columnSize: '200%'
   },
   {
@@ -128,7 +128,7 @@ const printFormColumn = [
   },
   {
     field: 'updateBy',
-    name: '试剂编号',
+    name: '耗材编号',
     columnSize: '120%'
   },
   {
@@ -231,7 +231,7 @@ export default {
     //             return prev;
     //           }
     //         }, 0);
-    //         if (index === 5) {  //试剂数量不加人民币符号和取两位小数
+    //         if (index === 5) {  //耗材数量不加人民币符号和取两位小数
     //           sums[index] = sum;
     //         } else {  //金额加人民币符号和取两位小数
     //           sums[index] = sums[index] + sum.toFixed(2);
@@ -290,10 +290,10 @@ export default {
       this.downloadLoading = true;
       import('@/vendor/Export2Excel').then(excel => {
         //对应表格输出的title
-        const multiHeader = [[' ', ' ', ' ', '时段试剂出库汇总表', ' ', ' ', ' ', ' '],
+        const multiHeader = [[' ', ' ', ' ', '时段耗材出库汇总表', ' ', ' ', ' ', ' '],
           [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
           [this.listQuery.startTime, '至', this.listQuery.endTime, ' ', ' ', ' ', '制表人: ', getCookie("username"), '科室: ', this.branch]];
-        const header = ['试剂名称', '试剂编号', '批号', '供货商', '单位', '出库时间', '领用人'];
+        const header = ['耗材名称', '耗材编号', '批号', '供货商', '单位', '出库时间', '领用人'];
         const filterVal = ['reagentName', 'updateBy', 'batchNo', 'supplierShortName', 'reagentUnit', 'createTime', 'applicationUser'];
 
         const list = this.formatList;
@@ -327,7 +327,7 @@ export default {
         orderNumber: formatDate(new Date(), 'yyyyMMddhhmmss'),
         fromWho: `时间：${_startTime}至${_endTime}`,
         createTime: _createTime,
-        title: '试剂出库汇总',
+        title: '耗材出库汇总',
         properties: printFormColumn,
         data: _data,
         showIds: true,

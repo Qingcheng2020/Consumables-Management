@@ -187,7 +187,7 @@ export default {
         this.downloadLoading = true;
         import('@/vendor/Export2Excel').then(excel => {
           //对应表格输出的title
-          const multiHeader = [[' ', '时段试剂出入库统计表', ' '],
+          const multiHeader = [[' ', '时段耗材出入库统计表', ' '],
             [' 年    月    日 至', '  年    月    日', '制表人: ', '供货商:']];
           const header = ['类型', '数量', '金额'];
           const filterVal = ['reagentStatus', 'statusCount', 'sumPrice'];

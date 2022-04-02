@@ -215,7 +215,7 @@ export default {
       roleId: 0,
       dialogReportVisible: false,
       uploadUrl: preUploadUrl,
-      //试剂状态
+      //耗材状态
       statusData: {
         '0': '未入库',
         '1': '已入库',

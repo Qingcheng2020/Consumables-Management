@@ -2,7 +2,7 @@
   <div class="app-container">
     <el-card class="filter-container" shadow="never">
       <i class="el-icon-tickets"></i>
-      <span>时段试剂库损统计列表</span>
+      <span>时段耗材库损统计列表</span>
 
       <el-button
         style="float:right;margin-bottom: 10px"

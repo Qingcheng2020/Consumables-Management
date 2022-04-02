@@ -254,7 +254,7 @@ export default {
       editDialogVisible: false,
       downloadLoading: false,
       trueName: null,
-      //试剂在库状态
+      //耗材在库状态
       statusData: {
         '1': '中心已入库',
         '5': '已退货',

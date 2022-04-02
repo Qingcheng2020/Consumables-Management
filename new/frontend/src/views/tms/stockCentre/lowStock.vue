@@ -210,7 +210,7 @@ export default {
       dialogVisible: false,
       StockCentre: Object.assign({}, defaultStockCentre),
       editDialogVisible: false,
-      //试剂在库状态
+      //耗材在库状态
       statusData: {
         '1': '已入库',
         '5': '已退货',

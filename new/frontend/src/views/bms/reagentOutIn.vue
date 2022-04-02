@@ -2,7 +2,7 @@
   <div class="app-container">
     <el-card class="filter-container" shadow="never">
       <i class="el-icon-tickets"></i>
-      <span>时段试剂出入库统计列表</span>
+      <span>时段耗材出入库统计列表</span>
       <el-button
         style="float:right;margin-bottom: 10px"
         size="small"
@@ -37,7 +37,7 @@
       <div style="float:right">
         <el-form :inline="true" :model="listQuery" size="small">
           <el-form-item>
-            <el-input v-model="listQuery.reagentName" style="width: 120px" placeholder="试剂名称" clearable
+            <el-input v-model="listQuery.reagentName" style="width: 120px" placeholder="耗材名称" clearable
                       @keyup.enter.native="searchByDate"></el-input>
           </el-form-item>
         </el-form>
@@ -94,7 +94,7 @@
                 v-loading="listLoading" border>
         <!--        <el-table-column type="selection" width="40" align="center"></el-table-column>-->
         <el-table-column prop="newId" align="center" label="序号" width="60"></el-table-column>
-        <el-table-column label="试剂名称" width="240" align="center">
+        <el-table-column label="耗材名称" width="240" align="center">
           <template slot-scope="scope">{{ scope.row.reagentName }}</template>
         </el-table-column>
         <el-table-column label="供货商" align="center">
@@ -154,7 +154,7 @@ import {PrintForm} from "../../utils/printForm";
 const printFormColumn = [
   {
     field: 'reagentName',
-    name: '试剂名称',
+    name: '耗材名称',
     columnSize: '200%'
   },
   {
@@ -314,7 +314,7 @@ export default {
                 return prev;
               }
             }, 0);
-            if (index % 2 === 1) {  //试剂数量不加人民币符号和取两位小数
+            if (index % 2 === 1) {  //耗材数量不加人民币符号和取两位小数
               sums[index] = sum;
             } else {  //金额加人民币符号和取两位小数
               sums[index] = sums[index] + sum.toFixed(2);
@@ -378,10 +378,10 @@ export default {
       this.downloadLoading = true;
       import('@/vendor/Export2Excel').then(excel => {
         //对应表格输出的title
-        const multiHeader = [[' ', ' ', ' ', ' ', '时段试剂出入库统计表', ' ', ' ', ' ', ' ', ' '],
+        const multiHeader = [[' ', ' ', ' ', ' ', '时段耗材出入库统计表', ' ', ' ', ' ', ' ', ' '],
           [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
           [this.listQuery.startTime, '至', this.listQuery.endTime, ' ', ' ', ' ', '制表人: ', getCookie("username"), '科室: ', this.branch]];
-        const header = ['试剂名称', '供货商', '入库数量', '入库金额（元）', '退货数量', '退货金额（元）', '出库数量', '出库金额（元）', '净入库数量', '净入库金额（元）'];
+        const header = ['耗材名称', '供货商', '入库数量', '入库金额（元）', '退货数量', '退货金额（元）', '出库数量', '出库金额（元）', '净入库数量', '净入库金额（元）'];
         const filterVal = ['reagentName', 'supplierName', 'inQuantity', 'inTotal', 'refundQuantity', 'refundTotal', 'outQuantity', 'outTotal', 'cleanQuantity', 'cleanTotal'];
 
         const list = this.formatList;
@@ -415,7 +415,7 @@ export default {
         orderNumber: formatDate(new Date(), 'yyyyMMddhhmmss'),
         fromWho: `时间：${_startTime}至${_endTime}`,
         createTime: _createTime,
-        title: '试剂出入库统计',
+        title: '耗材出入库统计',
         properties: printFormColumn,
         data: _data,
         showIds: true,

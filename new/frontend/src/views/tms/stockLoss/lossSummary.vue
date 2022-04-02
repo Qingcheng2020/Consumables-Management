@@ -91,7 +91,7 @@ export default {
       total: null,
       loading: false,
       listLoading: false,
-      //试剂状态
+      //耗材状态
       statusData: [
         {
           value: '0',

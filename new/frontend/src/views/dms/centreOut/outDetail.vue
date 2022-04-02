@@ -49,7 +49,7 @@
         <el-table-column label="出库单号" align="center">
           <template slot-scope="scope">{{ scope.row.billCode }}</template>
         </el-table-column>
-        <el-table-column label="试剂名称" min-width="150%" align="center">
+        <el-table-column label="耗材名称" min-width="150%" align="center">
           <template slot-scope="scope">{{ scope.row.reagentName }}</template>
         </el-table-column>
         <el-table-column label="规格型号" align="center">
@@ -125,7 +125,7 @@ import {PrintForm} from '@/utils/printForm';
 const printFormColumn = [
   {
     field: 'reagentName',
-    name: '试剂名称',
+    name: '耗材名称',
     columnSize: '200%'
   },
   {
@@ -274,9 +274,9 @@ export default {
         this.downloadLoading = true
         import('@/vendor/Export2Excel').then(excel => {
           //对应表格输出的title
-          const multiHeader = [[' ', ' ', ' ', '检验试剂出库单 ', ' ', ' ', ' ', ' ', ' '],
+          const multiHeader = [[' ', ' ', ' ', '检验耗材出库单 ', ' ', ' ', ' ', ' ', ' '],
             ['申领人:', this.multipleSelection[0].createBy, ' ', ' ', '单号:', this.multipleSelection[0].billCode, ' ', '时间:', this.getNowFormatDate()]];
-          const header = ['序号', '试剂名称', '规格型号', '单位', '数量', '单价', '合计金额', '批号', '备注'];
+          const header = ['序号', '耗材名称', '规格型号', '单位', '数量', '单价', '合计金额', '批号', '备注'];
           const filterVal = ['newId', 'reagentName', 'reagentSpecification', 'reagentUnit', 'quantity', 'price', 'total', 'batchNo', 'remark'];
 
           //进行所有表头的单元格合并,按行合并

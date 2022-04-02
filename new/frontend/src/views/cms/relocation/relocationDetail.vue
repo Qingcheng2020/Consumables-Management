@@ -36,7 +36,7 @@
                 max-height="550"
                 v-loading="listLoading" border>
         <el-table-column prop="newId" align="center" label="序号" width="60"></el-table-column>
-        <el-table-column label="试剂名称" min-width="200%" align="center">
+        <el-table-column label="耗材名称" min-width="200%" align="center">
           <template slot-scope="scope">{{ scope.row.reagentName }}</template>
         </el-table-column>
         <el-table-column label="供货商" align="center">
@@ -102,7 +102,7 @@ import {PrintForm} from '@/utils/printForm';
 const printFormColumn = [
   {
     field: 'reagentName',
-    name: '试剂名称',
+    name: '耗材名称',
   },
   {
     field: 'supplierShortName',
@@ -226,7 +226,7 @@ export default {
     },
     //编辑操作
     handleEditConfirm() {
-      //存储试剂是否可更新数组
+      //存储耗材是否可更新数组
       let status = [];
       //对表格中的每一项数据使用set更新
       (this.collectDetail || []).map((i, index) => {
@@ -239,7 +239,7 @@ export default {
             if (response.data > 0) {
               this.option = this.$message({
                 showClose: true,
-                message: "申请试剂：" + i.reagentName + "超出库存" + response.data + "支，申请失败！",
+                message: "申请耗材：" + i.reagentName + "超出库存" + response.data + "支，申请失败！",
                 type: 'warning',
                 duration: 0,
               });
@@ -252,7 +252,7 @@ export default {
                 this.listLoading = false;
               });
               this.$message({
-                message: "申请试剂：" + i.reagentName + "保存成功！",
+                message: "申请耗材：" + i.reagentName + "保存成功！",
                 type: 'success',
                 duration: 1000,
               });
@@ -286,7 +286,7 @@ export default {
     handleDelete(index, row) {
       // 获取删除订单详情的订单号
       const collectNo = this.collectDetail[0].collectNo;
-      this.$confirm('是否要删除该试剂信息?', '提示', {
+      this.$confirm('是否要删除该耗材信息?', '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
         type: 'warning'

@@ -192,7 +192,7 @@
         <el-form-item label="耗材名称" prop="name">
           <el-input v-model="BaseInfoForm.name" style="width: 250px"></el-input>
         </el-form-item>
-        <el-form-item label="分类" prop="stockType">
+        <el-form-item label="分类" prop="classify">
           <el-select v-model="BaseInfoForm.classify" placeholder="请选择" size="small" style="width: 250px">
             <el-option
               v-for="item in tempList3"
@@ -246,7 +246,7 @@
         <el-form-item label="开启有效期限" prop="useDayLimit">
           <el-input v-model="BaseInfoForm.useDayLimit" style="width: 250px"></el-input>
         </el-form-item>
-        <el-form-item label="是否二维码管理" prop="stockType">
+        <el-form-item label="是否二维码管理" prop="isManagedByQR">
           <el-select v-model="BaseInfoForm.isManagedByQR" placeholder="请选择" size="small" style="width: 250px">
             <el-option
               v-for="item in tempList2"
@@ -275,7 +275,7 @@
         <el-form-item label="耗材名称" prop="name">
           <el-input v-model="BaseInfoForm.name" style="width: 250px"></el-input>
         </el-form-item>
-        <el-form-item label="分类" prop="stockType">
+        <el-form-item label="分类" prop="classify">
           <el-select v-model="BaseInfoForm.classify" placeholder="请选择" size="small" style="width: 250px">
             <el-option
               v-for="item in tempList3"

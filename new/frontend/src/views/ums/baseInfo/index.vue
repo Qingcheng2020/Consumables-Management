@@ -61,10 +61,10 @@
         <el-table-column label="耗材名称" align="center">
           <template slot-scope="scope">{{ scope.row.name }}</template>
         </el-table-column>
-        <el-table-column label="分类" align="center" dialog_visiable:false>
-            <template slot-scope="scope">{{ scope.row.classify }}</template>
+        <el-table-column label="分类" align="center">
+          <template slot-scope="scope">{{ scope.row.name }}</template>
         </el-table-column>
-        <el-table-column label="单位" align="center">
+        <el-table-column label="单位" align="center" >
           <template slot-scope="scope">{{ scope.row.unit }}</template>
         </el-table-column>
         <el-table-column label="规格型号" align="center">
@@ -93,9 +93,6 @@
         </el-table-column>
         <el-table-column label="开启有效期限（天）" align="center">
           <template slot-scope="scope">{{ scope.row.useDayLimit }}</template>
-        </el-table-column>
-        <el-table-column label="是否二维码管理" align="center">
-          <template slot-scope="scope">{{ scope.row.isManagedByQR }}</template>
         </el-table-column>
         <el-table-column label="操作" width="180" align="center">
           <template slot-scope="scope">
@@ -141,9 +138,7 @@
           <el-table-column label="耗材名称" align="center">
             <template slot-scope="scope">{{ scope.row.name }}</template>
           </el-table-column>
-           <el-table-column label="分类" align="center">
-            <template slot-scope="scope">{{ scope.row.classify }}</template>
-          </el-table-column>
+
           <el-table-column label="单位" align="center">
             <template slot-scope="scope">{{ scope.row.unit }}</template>
           </el-table-column>
@@ -174,9 +169,6 @@
           <el-table-column label="开启有效期限（天）" align="center">
             <template slot-scope="scope">{{ scope.row.useDayLimit }}</template>
           </el-table-column>
-          <el-table-column label="是否二维码管理" align="center">
-            <template slot-scope="scope">{{ scope.row.isManagedByQR }}</template>
-          </el-table-column>
         </el-table>
       </div>
 
@@ -192,14 +184,22 @@
         <el-form-item label="耗材名称" prop="name">
           <el-input v-model="BaseInfoForm.name" style="width: 250px"></el-input>
         </el-form-item>
-        <el-form-item label="分类" prop="classify">
-          <el-select v-model="BaseInfoForm.classify" placeholder="请选择" size="small" style="width: 250px">
+        <el-form-item label="分类" >
+          <el-select
+            v-model="BaseInfoForm.itemParentId"
+            placeholder="一级分类" >
             <el-option
-              v-for="item in tempList3"
+              v-for="item in itemOneList"
               :key="item.value"
               :label="item.value"
-              :value="item.value">
-            </el-option>
+              :value="item.value"/>
+          </el-select>
+          <el-select v-model="BaseInfoForm.itemId" placeholder="二级分类" v-if="BaseInfoForm.itemParentId == '耗材'">
+            <el-option
+              v-for="item in itemTwoList"
+              :key="item.value"
+              :label="item.value"
+              :value="item.value"/>
           </el-select>
         </el-form-item>
         <el-form-item label="单位" prop="unit">
@@ -227,7 +227,7 @@
         <el-form-item label="单价" prop="price">
           <el-input v-model="BaseInfoForm.price" style="width: 250px"></el-input>
         </el-form-item>
-        <el-form-item label="储存温度" prop="stockType">
+        <el-form-item label="储存温度" prop="stockType" v-if="BaseInfoForm.itemParentId != '办公用品'">
           <el-select v-model="BaseInfoForm.stockType" placeholder="请选择" size="small" style="width: 250px">
             <el-option
               v-for="item in tempList"
@@ -245,16 +245,6 @@
         </el-form-item>
         <el-form-item label="开启有效期限" prop="useDayLimit">
           <el-input v-model="BaseInfoForm.useDayLimit" style="width: 250px"></el-input>
-        </el-form-item>
-        <el-form-item label="是否二维码管理" prop="isManagedByQR">
-          <el-select v-model="BaseInfoForm.isManagedByQR" placeholder="请选择" size="small" style="width: 250px">
-            <el-option
-              v-for="item in tempList2"
-              :key="item.value"
-              :label="item.value"
-              :value="item.value">
-            </el-option>
-          </el-select>
         </el-form-item>
       </el-form>
 
@@ -274,16 +264,6 @@
                label-width="150px" size="small">
         <el-form-item label="耗材名称" prop="name">
           <el-input v-model="BaseInfoForm.name" style="width: 250px"></el-input>
-        </el-form-item>
-        <el-form-item label="分类" prop="classify">
-          <el-select v-model="BaseInfoForm.classify" placeholder="请选择" size="small" style="width: 250px">
-            <el-option
-              v-for="item in tempList3"
-              :key="item.value"
-              :label="item.value"
-              :value="item.value">
-            </el-option>
-          </el-select>
         </el-form-item>
         <el-form-item label="单位" prop="unit">
           <el-input v-model="BaseInfoForm.unit" style="width: 250px"></el-input>
@@ -328,16 +308,6 @@
         </el-form-item>
         <el-form-item label="开启有效期限" prop="useDayLimit">
           <el-input v-model="BaseInfoForm.useDayLimit" style="width: 250px"></el-input>
-        </el-form-item>
-        <el-form-item label="是否二维码管理" prop="stockType">
-          <el-select v-model="BaseInfoForm.isManagedByQR" placeholder="请选择" size="small" style="width: 250px">
-            <el-option
-              v-for="item in tempList2"
-              :key="item.value"
-              :label="item.value"
-              :value="item.value">
-            </el-option>
-          </el-select>
         </el-form-item>
       </el-form>
 
@@ -385,9 +355,8 @@ const defaultBaseInfoForm = {
   expirationLimit: '',
   stockLimit: '',
   useDayLimit: '',
-  isManagedByQR: '',
-  classify: '',
-  consumClass: ''
+  itemId: '',
+  itemParentId:'',
 };
 export default {
   name: 'BaseInfoList',
@@ -406,13 +375,6 @@ export default {
         callback()
       }
     };
-    const validateCheck = (rule, value, callback) => {
-      if (!"耗材".test(value)) {
-        callback(show1 = false)
-      } else {
-        callback()
-      }
-    };
     return {
       importDataIcon: 'el-icon-upload2',
       importDisabled: null,
@@ -424,37 +386,27 @@ export default {
       }, {
         value: '冷冻'
       }],
-      tempList2: [{
-        value: '是'
-      }, {
-        value: '否'
-      }],
-      tempList3: [{
+      itemOneList: [{
         value: '药品'
       }, {
+        value: '耗材'
+      }, {
+        value: '办公用品'
+      }],
+      itemTwoList:[{
         value: '医用耗材'
       }, {
         value: '卫生耗材'
-      },{
-        value: '办公用品'
       }],
       BaseInfoRules: {
         name: [
-          {required: true, message: '请输入名称', trigger: 'blur'},
+          {required: true, message: '请输入耗材名称', trigger: 'blur'},
           {validator: validateUsername, trigger: 'blur'}
         ],
-        classify: [
-          {required: true, message: '请输入分类', trigger: 'blur'},
-          {validator: validateUsername, trigger: 'blur'}
-        ],
-        classify: [
-          {required: true, message: '请输入分类', trigger: 'blur'},
-          {validator: validateCheck, trigger: 'blur'}
-        ],
-        consumClass: [
-          {required: true, message: '耗材详细分类', trigger: 'blur'},
-          {validator: validateUsername, trigger: 'blur'}
-        ],
+        // classification: [
+        //   {required: true, message: '请输入类别', trigger: 'blur'},
+        //   {validator: validateUsername, trigger: 'blur'}
+        // ],
         unit: [
           {required: true, message: '请输入单位', trigger: 'blur'},
           {validator: validateUsername, trigger: 'blur'}
@@ -498,10 +450,8 @@ export default {
           {required: true, message: '请输入开启有效期限', trigger: 'blur'},
           {validator: validateTest, trigger: 'blur'}
         ],
-        isManagedByQR: [
-          {required: true, message: '是否二维码管理', trigger: 'blur'},
-          {validator: validateUsername, trigger: 'blur'}
-        ],
+        itemId: '',
+        itemParentId:'',
       },
       listQuery: Object.assign({}, defaultListQuery),
       list: null,
@@ -518,6 +468,7 @@ export default {
       allSupplierList: [],
       supplierStatus: false,
       uploadUrl: baseInfoUploadUrl,
+
     }
   },
   created() {
@@ -595,6 +546,7 @@ export default {
           background: 'red'
         }
       }
+
     },
     onError(response, file, fileList) {
       alert("文件上传失败！");

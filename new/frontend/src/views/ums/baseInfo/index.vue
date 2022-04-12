@@ -62,7 +62,7 @@
           <template slot-scope="scope">{{ scope.row.name }}</template>
         </el-table-column>
         <el-table-column label="分类" align="center">
-          <template slot-scope="scope">{{ scope.row.name }}</template>
+          <template slot-scope="scope">{{ scope.row.classify }}</template>
         </el-table-column>
         <el-table-column label="单位" align="center" >
           <template slot-scope="scope">{{ scope.row.unit }}</template>
@@ -93,6 +93,9 @@
         </el-table-column>
         <el-table-column label="开启有效期限（天）" align="center">
           <template slot-scope="scope">{{ scope.row.useDayLimit }}</template>
+        </el-table-column>
+        <el-table-column label="是否二维码管理" align="center">
+          <template slot-scope="scope">{{ scope.row.isQR }}</template>
         </el-table-column>
         <el-table-column label="操作" width="180" align="center">
           <template slot-scope="scope">
@@ -169,6 +172,9 @@
           <el-table-column label="开启有效期限（天）" align="center">
             <template slot-scope="scope">{{ scope.row.useDayLimit }}</template>
           </el-table-column>
+          <el-table-column label="是否二维码管理" align="center">
+            <template slot-scope="scope">{{ scope.row.isQR }}</template>
+          </el-table-column>
         </el-table>
       </div>
 
@@ -186,15 +192,15 @@
         </el-form-item>
         <el-form-item label="分类" >
           <el-select
-            v-model="BaseInfoForm.itemParentId"
-            placeholder="一级分类" >
+            v-model="BaseInfoForm.classify"
+            placeholder="请选择" >
             <el-option
               v-for="item in itemOneList"
               :key="item.value"
               :label="item.value"
               :value="item.value"/>
           </el-select>
-          <el-select v-model="BaseInfoForm.itemId" placeholder="二级分类" v-if="BaseInfoForm.itemParentId == '耗材'">
+          <el-select v-model="BaseInfoForm.consumClassify" placeholder="详细分类" v-if="BaseInfoForm.classify == '耗材'">
             <el-option
               v-for="item in itemTwoList"
               :key="item.value"
@@ -227,7 +233,7 @@
         <el-form-item label="单价" prop="price">
           <el-input v-model="BaseInfoForm.price" style="width: 250px"></el-input>
         </el-form-item>
-        <el-form-item label="储存温度" prop="stockType" v-if="BaseInfoForm.itemParentId != '办公用品'">
+        <el-form-item label="储存温度" prop="stockType" v-if="BaseInfoForm.classify != '办公用品'">
           <el-select v-model="BaseInfoForm.stockType" placeholder="请选择" size="small" style="width: 250px">
             <el-option
               v-for="item in tempList"
@@ -245,6 +251,16 @@
         </el-form-item>
         <el-form-item label="开启有效期限" prop="useDayLimit">
           <el-input v-model="BaseInfoForm.useDayLimit" style="width: 250px"></el-input>
+        </el-form-item>
+        <el-form-item label="是否二维码管理" prop="isQR">
+          <el-select v-model="BaseInfoForm.isQR" placeholder="请选择" size="small" style="width: 250px">
+            <el-option
+              v-for="item in QRList"
+              :key="item.value"
+              :label="item.value"
+              :value="item.value">
+            </el-option>
+          </el-select>
         </el-form-item>
       </el-form>
 
@@ -264,6 +280,24 @@
                label-width="150px" size="small">
         <el-form-item label="耗材名称" prop="name">
           <el-input v-model="BaseInfoForm.name" style="width: 250px"></el-input>
+        </el-form-item>
+        <el-form-item label="分类" >
+          <el-select
+            v-model="BaseInfoForm.classify"
+            placeholder="请选择" >
+            <el-option
+              v-for="item in itemOneList"
+              :key="item.value"
+              :label="item.value"
+              :value="item.value"/>
+          </el-select>
+          <el-select v-model="BaseInfoForm.consumClassify" placeholder="详细分类" v-if="BaseInfoForm.classify == '耗材'">
+            <el-option
+              v-for="item in itemTwoList"
+              :key="item.value"
+              :label="item.value"
+              :value="item.value"/>
+          </el-select>
         </el-form-item>
         <el-form-item label="单位" prop="unit">
           <el-input v-model="BaseInfoForm.unit" style="width: 250px"></el-input>
@@ -290,7 +324,7 @@
         <el-form-item label="单价" prop="price">
           <el-input v-model="BaseInfoForm.price" style="width: 250px"></el-input>
         </el-form-item>
-        <el-form-item label="储存温度" prop="stockType">
+        <el-form-item label="储存温度" prop="stockType" v-if="BaseInfoForm.classify != '办公用品'">
           <el-select v-model="BaseInfoForm.stockType" placeholder="请选择" size="small" style="width: 250px">
             <el-option
               v-for="item in tempList"
@@ -308,6 +342,16 @@
         </el-form-item>
         <el-form-item label="开启有效期限" prop="useDayLimit">
           <el-input v-model="BaseInfoForm.useDayLimit" style="width: 250px"></el-input>
+        </el-form-item>
+        <el-form-item label="是否二维码管理" prop="isQR">
+          <el-select v-model="BaseInfoForm.isQR" placeholder="请选择" size="small" style="width: 250px">
+            <el-option
+              v-for="item in QRList"
+              :key="item.value"
+              :label="item.value"
+              :value="item.value">
+            </el-option>
+          </el-select>
         </el-form-item>
       </el-form>
 
@@ -355,8 +399,9 @@ const defaultBaseInfoForm = {
   expirationLimit: '',
   stockLimit: '',
   useDayLimit: '',
-  itemId: '',
-  itemParentId:'',
+  consumClassify: '',//详细分类
+  classify:'',//分类
+  isQR: ''//是否二维码管理
 };
 export default {
   name: 'BaseInfoList',
@@ -385,6 +430,11 @@ export default {
         value: '冷藏'
       }, {
         value: '冷冻'
+      }],
+      QRList: [{
+        value: '是'
+      }, {
+        value: '否'
       }],
       itemOneList: [{
         value: '药品'
@@ -450,8 +500,8 @@ export default {
           {required: true, message: '请输入开启有效期限', trigger: 'blur'},
           {validator: validateTest, trigger: 'blur'}
         ],
-        itemId: '',
-        itemParentId:'',
+        consumClassify: '',
+        classify:'',
       },
       listQuery: Object.assign({}, defaultListQuery),
       list: null,

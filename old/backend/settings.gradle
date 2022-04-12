@@ -1,5 +1,0 @@
-rootProject.name = 'backend'
-include 'reagent-api'
-include 'reagent-common'
-include 'reagent-db'
-include 'reagent-security'

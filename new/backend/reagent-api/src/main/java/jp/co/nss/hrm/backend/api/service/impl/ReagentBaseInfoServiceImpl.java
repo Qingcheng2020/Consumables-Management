@@ -90,6 +90,9 @@ public class ReagentBaseInfoServiceImpl implements ReagentBaseInfoService {
 
         prodQualificationMapper.insert(prodQualification);
 
+        System.out.println("-----------------------------------------------------------------");
+        System.out.println(baseInfo.toString());
+        System.out.println("-----------------------------------------------------------------");
         return baseInfoMapper.insert(baseInfo);
     }
 

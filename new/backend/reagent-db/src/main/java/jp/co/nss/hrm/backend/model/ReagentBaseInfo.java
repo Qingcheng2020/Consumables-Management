@@ -61,6 +61,12 @@ public class ReagentBaseInfo implements Serializable {
 
     private String deleteBy;
 
+    private String classify;
+
+    private String consumClassify;
+
+    private String isQR;
+
     private static final long serialVersionUID = 1L;
 
     public Long getId() {
@@ -231,6 +237,23 @@ public class ReagentBaseInfo implements Serializable {
         this.deleteBy = deleteBy;
     }
 
+    public String getclassify() {return classify;}
+
+    public void setclassify(String classify) {
+        this.classify = classify;
+    }
+
+    public String getconsumClassify() {return consumClassify;}
+
+    public void setconsumClassify(String consumClassify) {
+        this.consumClassify = consumClassify;
+    }
+
+    public String getisQR() {return isQR;}
+
+    public void setisQR(String isQR) {
+        this.isQR = isQR;
+    }
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

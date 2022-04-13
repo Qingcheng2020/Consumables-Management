@@ -23,6 +23,9 @@
     <result column="delete_flag" jdbcType="TINYINT" property="deleteFlag" />
     <result column="delete_time" jdbcType="TIMESTAMP" property="deleteTime" />
     <result column="delete_by" jdbcType="VARCHAR" property="deleteBy" />
+    <result column="classify" jdbcType="VARCHAR" property="classify"/>
+    <result column="consumClassify" jdbcType="VARCHAR" property="consumClassify"/>
+    <result column="isQR" jdbcType="VARCHAR" property="isQR"/>
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -85,7 +88,7 @@
   <sql id="Base_Column_List">
     id, code, name, unit, specification, manufacturer_name, registration_no, supplier_id, 
     supplier_short_name, price, stock_type, expiration_limit, stock_limit, use_day_limit, 
-    create_time, create_by, update_time, update_by, delete_flag, delete_time, delete_by
+    create_time, create_by, update_time, update_by, delete_flag, delete_time, delete_by,classify,consumClassify,isQR
   </sql>
   <select id="selectByExample" parameterType="jp.co.nss.hrm.backend.model.ReagentBaseInfoExample" resultMap="BaseResultMap">
     select
@@ -127,14 +130,15 @@
       stock_type, expiration_limit, stock_limit, 
       use_day_limit, create_time, create_by, 
       update_time, update_by, delete_flag, 
-      delete_time, delete_by)
+      delete_time, delete_by,classify,consumClassify,isQR)
     values (#{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{unit,jdbcType=VARCHAR}, 
       #{specification,jdbcType=VARCHAR}, #{manufacturerName,jdbcType=VARCHAR}, #{registrationNo,jdbcType=VARCHAR}, 
       #{supplierId,jdbcType=VARCHAR}, #{supplierShortName,jdbcType=VARCHAR}, #{price,jdbcType=DOUBLE}, 
       #{stockType,jdbcType=VARCHAR}, #{expirationLimit,jdbcType=INTEGER}, #{stockLimit,jdbcType=INTEGER}, 
       #{useDayLimit,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{createBy,jdbcType=VARCHAR}, 
       #{updateTime,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR}, #{deleteFlag,jdbcType=TINYINT}, 
-      #{deleteTime,jdbcType=TIMESTAMP}, #{deleteBy,jdbcType=VARCHAR})
+      #{deleteTime,jdbcType=TIMESTAMP}, #{deleteBy,jdbcType=VARCHAR},
+      #{classify,jdbcType=VARCHAR},#{consumClassify,jdbcType=VARCHAR},#{isQR,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="jp.co.nss.hrm.backend.model.ReagentBaseInfo">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
@@ -202,6 +206,15 @@
       <if test="deleteBy != null">
         delete_by,
       </if>
+      <if test="classify != null">
+        classify,
+      </if>
+      <if test="consumClassify != null">
+        consumClassify,
+      </if>
+      <if test="isQR != null">
+        isQR,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="code != null">
@@ -264,6 +277,16 @@
       <if test="deleteBy != null">
         #{deleteBy,jdbcType=VARCHAR},
       </if>
+      <if test="classify != null">
+        #{classify,jdbcType=VARCHAR},
+      </if>
+      <if test="consumClassify != null">
+        #{consumClassify,jdbcType=VARCHAR},
+      </if>
+      <if test="isQR != null">
+        #{isQR,jdbcType=TINYINT},
+      </if>
+
     </trim>
   </insert>
   <select id="countByExample" parameterType="jp.co.nss.hrm.backend.model.ReagentBaseInfoExample" resultType="java.lang.Long">
@@ -338,6 +361,15 @@
       <if test="record.deleteBy != null">
         delete_by = #{record.deleteBy,jdbcType=VARCHAR},
       </if>
+      <if test="record.classify != null">
+        classify = #{record.classify,jdbcType=VARCHAR},
+      </if>
+      <if test="record.consumClassify != null">
+        consumClassify = #{record.consumClassify,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isQR != null">
+        isQR = #{record.isQR,jdbcType=TINYINT},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -365,7 +397,10 @@
       update_by = #{record.updateBy,jdbcType=VARCHAR},
       delete_flag = #{record.deleteFlag,jdbcType=TINYINT},
       delete_time = #{record.deleteTime,jdbcType=TIMESTAMP},
-      delete_by = #{record.deleteBy,jdbcType=VARCHAR}
+      delete_by = #{record.deleteBy,jdbcType=VARCHAR},
+      classify = #{record.classify,jdbcType=VARCHAR},
+      consumClassify = #{record.consumClassify,jdbcType=VARCHAR},
+      isQR = #{record.isQR,jdbcType=TINYINT}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -433,6 +468,15 @@
       <if test="deleteBy != null">
         delete_by = #{deleteBy,jdbcType=VARCHAR},
       </if>
+      <if test="classify != null">
+        classify = #{classify,jdbcType=VARCHAR},
+      </if>
+      <if test="consumClassify != null">
+        consumClassify = #{consumClassify,jdbcType=VARCHAR},
+      </if>
+      <if test="isQR != null">
+        isQR = #{isQR,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
@@ -457,7 +501,10 @@
       update_by = #{updateBy,jdbcType=VARCHAR},
       delete_flag = #{deleteFlag,jdbcType=TINYINT},
       delete_time = #{deleteTime,jdbcType=TIMESTAMP},
-      delete_by = #{deleteBy,jdbcType=VARCHAR}
+      delete_by = #{deleteBy,jdbcType=VARCHAR},
+      classify = #{classify,jdbcType=VARCHAR},
+      consumClassify = #{consumClassify,jdbcType=VARCHAR},
+      isQR = #{isQR,jdbcType=TINYINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

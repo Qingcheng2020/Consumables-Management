@@ -5,13 +5,13 @@
  Source Server Type    : MySQL
  Source Server Version : 50713
  Source Host           : localhost:3306
- Source Schema         : reagent_db
+ Source Schema         : reagentdb
 
  Target Server Type    : MySQL
  Target Server Version : 50713
  File Encoding         : 65001
 
- Date: 12/04/2022 22:19:01
+ Date: 13/04/2022 15:26:50
 */
 
 SET NAMES utf8mb4;
@@ -45,7 +45,7 @@ CREATE TABLE `reagent_admin`  (
 -- ----------------------------
 -- Records of reagent_admin
 -- ----------------------------
-INSERT INTO `reagent_admin` VALUES (1, 'admin', '$2a$10$26qpRmIYUrXQKgfmuN8riOnwY.C/j8hPDEN1NMz2Hj/qdUzvB0ReK', '', NULL, NULL, '15505550555', 'admin', '', 'admin@163.com', '山东省济南市', '系统管理员', '超级管理员', '2018-10-08 13:32:47', '2022-02-26 14:40:27', 1);
+INSERT INTO `reagent_admin` VALUES (1, 'admin', '$2a$10$26qpRmIYUrXQKgfmuN8riOnwY.C/j8hPDEN1NMz2Hj/qdUzvB0ReK', '', NULL, NULL, '15505550555', 'admin', '', 'admin@163.com', '山东省济南市', '系统管理员', '超级管理员', '2018-10-08 13:32:47', '2022-04-13 08:23:24', 1);
 INSERT INTO `reagent_admin` VALUES (134, '管理员', '$2a$10$HceJ6qF/bcHpwSJMrNvh9uByodVPlaK6EWcbKY.nsEaDojeMN1ZgO', '中心库', '', '', NULL, '管理员', NULL, '', NULL, '', '系统管理员', '2022-02-26 14:41:55', '2022-02-26 14:41:55', 1);
 
 -- ----------------------------
@@ -60,13 +60,26 @@ CREATE TABLE `reagent_admin_login_log`  (
   `address` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `user_agent` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '浏览器登录类型',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5864 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '后台用户登录日志表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 5877 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '后台用户登录日志表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of reagent_admin_login_log
 -- ----------------------------
 INSERT INTO `reagent_admin_login_log` VALUES (5862, 1, '2022-02-26 14:40:26', '192.168.0.105', NULL, NULL);
 INSERT INTO `reagent_admin_login_log` VALUES (5863, 134, '2022-02-26 14:42:55', '192.168.0.105', NULL, NULL);
+INSERT INTO `reagent_admin_login_log` VALUES (5864, 1, '2022-04-13 08:23:24', '10.27.204.2', NULL, NULL);
+INSERT INTO `reagent_admin_login_log` VALUES (5865, 1, '2022-04-13 11:18:13', '10.27.204.2', NULL, NULL);
+INSERT INTO `reagent_admin_login_log` VALUES (5866, 1, '2022-04-13 11:27:17', '10.27.204.2', NULL, NULL);
+INSERT INTO `reagent_admin_login_log` VALUES (5867, 1, '2022-04-13 11:28:33', '10.27.204.2', NULL, NULL);
+INSERT INTO `reagent_admin_login_log` VALUES (5868, 1, '2022-04-13 11:35:31', '10.27.204.2', NULL, NULL);
+INSERT INTO `reagent_admin_login_log` VALUES (5869, 1, '2022-04-13 11:41:14', '10.27.204.2', NULL, NULL);
+INSERT INTO `reagent_admin_login_log` VALUES (5870, 1, '2022-04-13 11:44:02', '10.27.204.2', NULL, NULL);
+INSERT INTO `reagent_admin_login_log` VALUES (5871, 1, '2022-04-13 11:51:20', '10.27.204.2', NULL, NULL);
+INSERT INTO `reagent_admin_login_log` VALUES (5872, 1, '2022-04-13 12:06:34', '10.27.204.2', NULL, NULL);
+INSERT INTO `reagent_admin_login_log` VALUES (5873, 1, '2022-04-13 12:27:08', '10.27.204.2', NULL, NULL);
+INSERT INTO `reagent_admin_login_log` VALUES (5874, 1, '2022-04-13 13:37:49', '10.27.204.2', NULL, NULL);
+INSERT INTO `reagent_admin_login_log` VALUES (5875, 1, '2022-04-13 14:00:17', '10.27.204.2', NULL, NULL);
+INSERT INTO `reagent_admin_login_log` VALUES (5876, 1, '2022-04-13 15:00:42', '10.27.204.2', NULL, NULL);
 
 -- ----------------------------
 -- Table structure for reagent_admin_permission_relation
@@ -127,12 +140,17 @@ CREATE TABLE `reagent_base_info`  (
   `delete_flag` tinyint(4) NULL DEFAULT 0 COMMENT '软删除标志: 0, 未删除, 1: 已删除',
   `delete_time` datetime(0) NULL DEFAULT NULL,
   `delete_by` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `classify` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '耗材 药品 办公用品',
+  `consumClassify` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '医用 卫生',
+  `isQR` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT 'int and boolean both accepted',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 372 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '试剂基础情报' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 388 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '试剂基础情报' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of reagent_base_info
 -- ----------------------------
+INSERT INTO `reagent_base_info` VALUES (385, '386', 'awd', 'awd', 'awd', 'adw', 'daw', '1', 'wda', 2.00, '常温', 2, 2, 2, '2022-04-13 15:11:40', NULL, NULL, NULL, NULL, NULL, NULL, '药品', '', '是');
+INSERT INTO `reagent_base_info` VALUES (387, '386', 'dwad', 'wad', 'wad', 'wad', 'adw', '1', 'wda', 3.00, '常温', 3, 3, 3, '2022-04-13 15:14:57', NULL, '2022-04-13 15:23:51', NULL, NULL, NULL, NULL, '耗材', '医用耗材', '是');
 
 -- ----------------------------
 -- Table structure for reagent_branch
@@ -237,11 +255,12 @@ CREATE TABLE `reagent_cop_qualification`  (
   `delete_time` datetime(0) NULL DEFAULT NULL,
   `delete_by` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 56 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 57 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of reagent_cop_qualification
 -- ----------------------------
+INSERT INTO `reagent_cop_qualification` VALUES (56, '1', 'wda', NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 11:36:24', NULL, '2022-04-13 11:36:24', NULL, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for reagent_device
@@ -729,7 +748,7 @@ CREATE TABLE `reagent_operation_log`  (
   `opera_id` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '修改对象id',
   `opera_params` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT '请求参数',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2448 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '操作日志' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2485 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '操作日志' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of reagent_operation_log
@@ -737,6 +756,43 @@ CREATE TABLE `reagent_operation_log`  (
 INSERT INTO `reagent_operation_log` VALUES (2445, '科室管理', '新增科室', 1, 'admin', '2022-02-26 14:41:29', '操作成功', 'http://localhost:8080/branch/create', 'POST', '192.168.0.105', '19', '[ReagentBranch [Hash = 2120075653, id=19, branchCode=1, branchName=中心库, tel=null, head=null, createTime=Sat Feb 26 14:41:29 CST 2022, createBy=null, updateTime=Sat Feb 26 14:41:29 CST 2022, updateBy=null, deleteFlag=null, deleteTime=null, deleteBy=null, serialVersionUID=1]]');
 INSERT INTO `reagent_operation_log` VALUES (2446, '用户管理', '分配角色', 1, 'admin', '2022-02-26 14:42:21', '操作成功', 'http://localhost:8080/admin/role/update', 'POST', '192.168.0.105', '134', '[134, [8]]');
 INSERT INTO `reagent_operation_log` VALUES (2447, '用户管理', '修改用户', 1, 'admin', '2022-02-26 14:42:30', '操作成功', 'http://localhost:8080/admin/update/134', 'POST', '192.168.0.105', '134', '[134, ReagentAdmin [Hash = 1249756402, id=134, username=管理员, password=null, branch=中心库, supplier=, groupName=, phone=null, trueName=管理员, icon=null, email=, address=null, nickName=, note=系统管理员, createTime=Sat Feb 26 14:41:55 CST 2022, loginTime=Sat Feb 26 14:41:55 CST 2022, status=1, serialVersionUID=1]]');
+INSERT INTO `reagent_operation_log` VALUES (2448, '供货商管理', '新增供货商', 1, 'admin', '2022-04-13 11:36:24', '操作成功', 'http://localhost:8080/supplier/create', 'POST', '10.27.204.2', '71', '[ReagentSupplier [Hash = 76712870, id=71, supplierCode=1, supplierName=daw, supplierShortName=wda, contacts=wad, contactsTel=15762960990, contactsPhone=15762960990, contactsWechat=1959, supplierAddress=wad, status=1, createTime=Wed Apr 13 11:36:23 GMT+08:00 2022, createBy=null, updateTime=Wed Apr 13 11:36:23 GMT+08:00 2022, updateBy=null, deleteFlag=null, deleteTime=null, deleteBy=null, serialVersionUID=1]]');
+INSERT INTO `reagent_operation_log` VALUES (2449, '试剂管理', '新增试剂', 1, 'admin', '2022-04-13 11:38:25', '操作成功', 'http://localhost:8080/baseInfo/create', 'POST', '10.27.204.2', '372', '[ReagentBaseInfo [Hash = 1122481645, id=372, code=1, name=dwa, unit=务农, specification=dwa, manufacturerName=dwa, registrationNo=awd, supplierId=1, supplierShortName=wda, price=3.0, stockType=常温, expirationLimit=20221111, stockLimit=15, useDayLimit=15, createTime=Wed Apr 13 11:38:25 GMT+08:00 2022, createBy=null, updateTime=null, updateBy=null, deleteFlag=null, deleteTime=null, deleteBy=null, serialVersionUID=1]]');
+INSERT INTO `reagent_operation_log` VALUES (2450, '试剂管理', '修改信息', 1, 'admin', '2022-04-13 11:39:03', '操作成功', 'http://localhost:8080/baseInfo/update/372', 'POST', '10.27.204.2', '372', '[372, ReagentBaseInfo [Hash = 1438166924, id=372, code=1, name=dwa, unit=务农, specification=dwa, manufacturerName=dwa, registrationNo=awd, supplierId=1, supplierShortName=wda, price=3.0, stockType=常温, expirationLimit=20221111, stockLimit=15, useDayLimit=15, createTime=Wed Apr 13 11:38:25 GMT+08:00 2022, createBy=null, updateTime=Wed Apr 13 11:39:03 GMT+08:00 2022, updateBy=null, deleteFlag=null, deleteTime=null, deleteBy=null, serialVersionUID=1]]');
+INSERT INTO `reagent_operation_log` VALUES (2451, '试剂管理', '新增试剂', 1, 'admin', '2022-04-13 11:41:44', '操作成功', 'http://localhost:8080/baseInfo/create', 'POST', '10.27.204.2', '373', '[ReagentBaseInfo [Hash = 1824124433, id=373, code=373, name=daw, unit=wad, specification=wad, manufacturerName=awd, registrationNo=adw, supplierId=1, supplierShortName=wda, price=2.0, stockType=常温, expirationLimit=123, stockLimit=2, useDayLimit=0, createTime=Wed Apr 13 11:41:44 GMT+08:00 2022, createBy=null, updateTime=null, updateBy=null, deleteFlag=null, deleteTime=null, deleteBy=null, serialVersionUID=1]]');
+INSERT INTO `reagent_operation_log` VALUES (2452, '试剂管理', '新增试剂', 1, 'admin', '2022-04-13 11:44:25', '操作成功', 'http://localhost:8080/baseInfo/create', 'POST', '10.27.204.2', '374', '[ReagentBaseInfo [Hash = 40842478, id=374, code=374, name=adw, unit=adw, specification=adw, manufacturerName=adw, registrationNo=adw, supplierId=1, supplierShortName=wda, price=2.0, stockType=常温, expirationLimit=2, stockLimit=2, useDayLimit=2, createTime=Wed Apr 13 11:44:25 GMT+08:00 2022, createBy=null, updateTime=null, updateBy=null, deleteFlag=null, deleteTime=null, deleteBy=null, serialVersionUID=1]]');
+INSERT INTO `reagent_operation_log` VALUES (2453, '试剂管理', '新增试剂', 1, 'admin', '2022-04-13 11:49:28', '操作成功', 'http://localhost:8080/baseInfo/create', 'POST', '10.27.204.2', '375', '[ReagentBaseInfo [Hash = 1804013433, id=375, code=375, name=dwa, unit=dwa, specification=dwa, manufacturerName=dwa, registrationNo=adw, supplierId=1, supplierShortName=wda, price=2.0, stockType=常温, expirationLimit=2, stockLimit=2, useDayLimit=2, createTime=Wed Apr 13 11:49:28 GMT+08:00 2022, createBy=null, updateTime=null, updateBy=null, deleteFlag=null, deleteTime=null, deleteBy=null, serialVersionUID=1]]');
+INSERT INTO `reagent_operation_log` VALUES (2454, '试剂管理', '新增试剂', 1, 'admin', '2022-04-13 11:51:37', '操作成功', 'http://localhost:8080/baseInfo/create', 'POST', '10.27.204.2', '376', '[ReagentBaseInfo [Hash = 422480870, id=376, code=376, name=awd, unit=awd, specification=awd, manufacturerName=adw, registrationNo=adw, supplierId=1, supplierShortName=wda, price=2.0, stockType=常温, expirationLimit=2, stockLimit=2, useDayLimit=2, createTime=Wed Apr 13 11:51:37 GMT+08:00 2022, createBy=null, updateTime=null, updateBy=null, deleteFlag=null, deleteTime=null, deleteBy=null, serialVersionUID=1, classify=药品, consumClassify=, isQR=是]]');
+INSERT INTO `reagent_operation_log` VALUES (2455, '试剂管理', '删除试剂', 1, 'admin', '2022-04-13 12:07:00', '操作成功', 'http://localhost:8080/baseInfo/delete/372', 'POST', '10.27.204.2', '372', '[372]');
+INSERT INTO `reagent_operation_log` VALUES (2456, '试剂管理', '删除试剂', 1, 'admin', '2022-04-13 12:07:02', '操作成功', 'http://localhost:8080/baseInfo/delete/372', 'POST', '10.27.204.2', '372', '[372]');
+INSERT INTO `reagent_operation_log` VALUES (2457, '试剂管理', '删除试剂', 1, 'admin', '2022-04-13 12:07:03', '操作成功', 'http://localhost:8080/baseInfo/delete/372', 'POST', '10.27.204.2', '372', '[372]');
+INSERT INTO `reagent_operation_log` VALUES (2458, '试剂管理', '删除试剂', 1, 'admin', '2022-04-13 12:07:04', '操作成功', 'http://localhost:8080/baseInfo/delete/372', 'POST', '10.27.204.2', '372', '[372]');
+INSERT INTO `reagent_operation_log` VALUES (2459, '试剂管理', '删除试剂', 1, 'admin', '2022-04-13 12:07:06', '操作成功', 'http://localhost:8080/baseInfo/delete/372', 'POST', '10.27.204.2', '372', '[372]');
+INSERT INTO `reagent_operation_log` VALUES (2460, '试剂管理', '新增试剂', 1, 'admin', '2022-04-13 12:07:23', '操作成功', 'http://localhost:8080/baseInfo/create', 'POST', '10.27.204.2', '377', '[ReagentBaseInfo [Hash = 1079998161, id=377, code=1, name=daw, unit=awd, specification=wad, manufacturerName=adw, registrationNo=adw, supplierId=1, supplierShortName=wda, price=2.0, stockType=常温, expirationLimit=2, stockLimit=2, useDayLimit=2, createTime=Wed Apr 13 12:07:23 GMT+08:00 2022, createBy=null, updateTime=null, updateBy=null, deleteFlag=null, deleteTime=null, deleteBy=null, serialVersionUID=1]]');
+INSERT INTO `reagent_operation_log` VALUES (2461, '试剂管理', '新增试剂', 1, 'admin', '2022-04-13 12:27:37', '操作成功', 'http://localhost:8080/baseInfo/create', 'POST', '10.27.204.2', '378', '[ReagentBaseInfo [Hash = 596688130, id=378, code=378, name=dawdw, unit=wad, specification=wad, manufacturerName=adw, registrationNo=daw, supplierId=1, supplierShortName=wda, price=2.0, stockType=常温, expirationLimit=2, stockLimit=2, useDayLimit=2, createTime=Wed Apr 13 12:27:37 GMT+08:00 2022, createBy=null, updateTime=null, updateBy=null, deleteFlag=null, deleteTime=null, deleteBy=null, serialVersionUID=1]]');
+INSERT INTO `reagent_operation_log` VALUES (2462, '试剂管理', '新增试剂', 1, 'admin', '2022-04-13 12:41:30', '操作成功', 'http://localhost:8080/baseInfo/create', 'POST', '10.27.204.2', '379', '[ReagentBaseInfo [Hash = 1878790160, id=379, code=379, name=daw, unit=adw, specification=adw, manufacturerName=daw, registrationNo=adw, supplierId=1, supplierShortName=wda, price=2.0, stockType=常温, expirationLimit=2, stockLimit=2, useDayLimit=2, createTime=Wed Apr 13 12:41:30 GMT+08:00 2022, createBy=null, updateTime=null, updateBy=null, deleteFlag=null, deleteTime=null, deleteBy=null, serialVersionUID=1]]');
+INSERT INTO `reagent_operation_log` VALUES (2463, '试剂管理', '新增试剂', 1, 'admin', '2022-04-13 13:42:34', '操作成功', 'http://localhost:8080/baseInfo/create', 'POST', '10.27.204.2', '380', '[ReagentBaseInfo [Hash = 1021151628, id=380, code=380, name=aaaa, unit=aaaa, specification=aaaa, manufacturerName=aaaa, registrationNo=1234, supplierId=1, supplierShortName=wda, price=1234.0, stockType=常温, expirationLimit=20, stockLimit=20, useDayLimit=20, createTime=Wed Apr 13 13:42:34 GMT+08:00 2022, createBy=null, updateTime=null, updateBy=null, deleteFlag=null, deleteTime=null, deleteBy=null, serialVersionUID=1, classify=药品, consumClassify=, isQR=是]]');
+INSERT INTO `reagent_operation_log` VALUES (2464, '试剂管理', '新增试剂', 1, 'admin', '2022-04-13 13:47:22', '操作成功', 'http://localhost:8080/baseInfo/create', 'POST', '10.27.204.2', '381', '[ReagentBaseInfo [Hash = 1021094248, id=381, code=381, name=aaaaa, unit=aaaa, specification=aaa, manufacturerName=aaa, registrationNo=123, supplierId=1, supplierShortName=wda, price=111.0, stockType=常温, expirationLimit=111, stockLimit=111, useDayLimit=11, createTime=Wed Apr 13 13:47:21 GMT+08:00 2022, createBy=null, updateTime=null, updateBy=null, deleteFlag=null, deleteTime=null, deleteBy=null, serialVersionUID=1, classify=药品, consumClassify=, isQR=是]]');
+INSERT INTO `reagent_operation_log` VALUES (2465, '试剂管理', '删除试剂', 1, 'admin', '2022-04-13 14:05:05', '操作成功', 'http://localhost:8080/baseInfo/delete/377', 'POST', '10.27.204.2', '377', '[377]');
+INSERT INTO `reagent_operation_log` VALUES (2466, '试剂管理', '删除试剂', 1, 'admin', '2022-04-13 14:05:08', '操作成功', 'http://localhost:8080/baseInfo/delete/377', 'POST', '10.27.204.2', '377', '[377]');
+INSERT INTO `reagent_operation_log` VALUES (2467, '试剂管理', '删除试剂', 1, 'admin', '2022-04-13 14:05:10', '操作成功', 'http://localhost:8080/baseInfo/delete/377', 'POST', '10.27.204.2', '377', '[377]');
+INSERT INTO `reagent_operation_log` VALUES (2468, '试剂管理', '删除试剂', 1, 'admin', '2022-04-13 14:05:12', '操作成功', 'http://localhost:8080/baseInfo/delete/378', 'POST', '10.27.204.2', '378', '[378]');
+INSERT INTO `reagent_operation_log` VALUES (2469, '试剂管理', '修改信息', 1, 'admin', '2022-04-13 14:05:17', '操作成功', 'http://localhost:8080/baseInfo/update/377', 'POST', '10.27.204.2', '377', '[377, ReagentBaseInfo [Hash = 1816472521, id=377, code=380, name=aaaa, unit=aaaa, specification=aaaa, manufacturerName=aaaa, registrationNo=1234, supplierId=1, supplierShortName=wda, price=1234.0, stockType=常温, expirationLimit=20, stockLimit=20, useDayLimit=20, createTime=Wed Apr 13 13:42:35 GMT+08:00 2022, createBy=null, updateTime=Wed Apr 13 14:05:17 GMT+08:00 2022, updateBy=null, deleteFlag=null, deleteTime=null, deleteBy=null, serialVersionUID=1, classify=药品, consumClassify=null, isQR=是]]');
+INSERT INTO `reagent_operation_log` VALUES (2470, '试剂管理', '新增试剂', 1, 'admin', '2022-04-13 14:21:03', '操作成功', 'http://localhost:8080/baseInfo/create', 'POST', '10.27.204.2', '382', '[ReagentBaseInfo [Hash = 901356131, id=382, code=378, name=vvvv, unit=vvvv, specification=vvvv, manufacturerName=vvvv, registrationNo=vvvv, supplierId=1, supplierShortName=wda, price=22.0, stockType=常温, expirationLimit=22, stockLimit=2, useDayLimit=2, createTime=Wed Apr 13 14:21:03 GMT+08:00 2022, createBy=null, updateTime=null, updateBy=null, deleteFlag=null, deleteTime=null, deleteBy=null, serialVersionUID=1]]');
+INSERT INTO `reagent_operation_log` VALUES (2471, '试剂管理', '新增试剂', 1, 'admin', '2022-04-13 14:29:36', '操作成功', 'http://localhost:8080/baseInfo/create', 'POST', '10.27.204.2', '383', '[ReagentBaseInfo [Hash = 586008440, id=383, code=383, name=nnnn, unit=nnn, specification=nn, manufacturerName=nnn, registrationNo=nn, supplierId=1, supplierShortName=wda, price=22.0, stockType=常温, expirationLimit=22, stockLimit=22, useDayLimit=22, createTime=Wed Apr 13 14:29:36 GMT+08:00 2022, createBy=null, updateTime=null, updateBy=null, deleteFlag=null, deleteTime=null, deleteBy=null, serialVersionUID=1, classify=耗材, consumClassify=医用耗材, isQR=是]]');
+INSERT INTO `reagent_operation_log` VALUES (2472, '试剂管理', '修改信息', 1, 'admin', '2022-04-13 14:29:51', '操作成功', 'http://localhost:8080/baseInfo/update/383', 'POST', '10.27.204.2', '383', '[383, ReagentBaseInfo [Hash = 2021950336, id=383, code=383, name=nnnn, unit=nnn, specification=nn, manufacturerName=nnn, registrationNo=nn, supplierId=1, supplierShortName=wda, price=22.0, stockType=常温, expirationLimit=22, stockLimit=22, useDayLimit=22, createTime=Wed Apr 13 14:29:37 GMT+08:00 2022, createBy=null, updateTime=Wed Apr 13 14:29:51 GMT+08:00 2022, updateBy=null, deleteFlag=null, deleteTime=null, deleteBy=null, serialVersionUID=1, classify=耗材, consumClassify=医用耗材, isQR=是]]');
+INSERT INTO `reagent_operation_log` VALUES (2473, '试剂管理', '删除试剂', 1, 'admin', '2022-04-13 14:30:39', '操作成功', 'http://localhost:8080/baseInfo/delete/377', 'POST', '10.27.204.2', '377', '[377]');
+INSERT INTO `reagent_operation_log` VALUES (2474, '试剂管理', '删除试剂', 1, 'admin', '2022-04-13 14:30:41', '操作成功', 'http://localhost:8080/baseInfo/delete/381', 'POST', '10.27.204.2', '381', '[381]');
+INSERT INTO `reagent_operation_log` VALUES (2475, '试剂管理', '新增试剂', 1, 'admin', '2022-04-13 15:01:11', '操作成功', 'http://localhost:8080/baseInfo/create', 'POST', '10.27.204.2', '384', '[ReagentBaseInfo [Hash = 1081551199, id=384, code=382, name=dwad, unit=dwa, specification=adw, manufacturerName=dwa, registrationNo=awd, supplierId=1, supplierShortName=wda, price=2.0, stockType=常温, expirationLimit=2, stockLimit=2, useDayLimit=2, createTime=Wed Apr 13 15:01:11 GMT+08:00 2022, createBy=null, updateTime=null, updateBy=null, deleteFlag=null, deleteTime=null, deleteBy=null, serialVersionUID=1]]');
+INSERT INTO `reagent_operation_log` VALUES (2476, '试剂管理', '删除试剂', 1, 'admin', '2022-04-13 15:06:42', '操作成功', 'http://localhost:8080/baseInfo/delete/381', 'POST', '10.27.204.2', '381', '[381]');
+INSERT INTO `reagent_operation_log` VALUES (2477, '试剂管理', '删除试剂', 1, 'admin', '2022-04-13 15:06:43', '操作成功', 'http://localhost:8080/baseInfo/delete/383', 'POST', '10.27.204.2', '383', '[383]');
+INSERT INTO `reagent_operation_log` VALUES (2478, '试剂管理', '新增试剂', 1, 'admin', '2022-04-13 15:06:58', '操作成功', 'http://localhost:8080/baseInfo/create', 'POST', '10.27.204.2', '385', '[ReagentBaseInfo [Hash = 33743390, id=385, code=1, name=dwa, unit=awd, specification=wad, manufacturerName=wad, registrationNo=wad, supplierId=1, supplierShortName=wda, price=1.0, stockType=常温, expirationLimit=12, stockLimit=1, useDayLimit=1, createTime=Wed Apr 13 15:06:58 GMT+08:00 2022, createBy=null, updateTime=null, updateBy=null, deleteFlag=null, deleteTime=null, deleteBy=null, serialVersionUID=1]]');
+INSERT INTO `reagent_operation_log` VALUES (2479, '试剂管理', '新增试剂', 1, 'admin', '2022-04-13 15:11:40', '操作成功', 'http://localhost:8080/baseInfo/create', 'POST', '10.27.204.2', '386', '[ReagentBaseInfo [Hash = 1213988974, id=386, code=386, name=awd, unit=awd, specification=awd, manufacturerName=adw, registrationNo=daw, supplierId=1, supplierShortName=wda, price=2.0, stockType=常温, expirationLimit=2, stockLimit=2, useDayLimit=2, createTime=Wed Apr 13 15:11:40 GMT+08:00 2022, createBy=null, updateTime=null, updateBy=null, deleteFlag=null, deleteTime=null, deleteBy=null, serialVersionUID=1]]');
+INSERT INTO `reagent_operation_log` VALUES (2480, '试剂管理', '删除试剂', 1, 'admin', '2022-04-13 15:11:45', '操作成功', 'http://localhost:8080/baseInfo/delete/385', 'POST', '10.27.204.2', '385', '[385]');
+INSERT INTO `reagent_operation_log` VALUES (2481, '试剂管理', '新增试剂', 1, 'admin', '2022-04-13 15:14:56', '操作成功', 'http://localhost:8080/baseInfo/create', 'POST', '10.27.204.2', '387', '[ReagentBaseInfo [Hash = 1988717351, id=387, code=386, name=dwad, unit=wad, specification=wad, manufacturerName=wad, registrationNo=adw, supplierId=1, supplierShortName=wda, price=3.0, stockType=常温, expirationLimit=3, stockLimit=3, useDayLimit=3, createTime=Wed Apr 13 15:14:56 GMT+08:00 2022, createBy=null, updateTime=null, updateBy=null, deleteFlag=null, deleteTime=null, deleteBy=null, serialVersionUID=1]]');
+INSERT INTO `reagent_operation_log` VALUES (2482, '试剂管理', '修改信息', 1, 'admin', '2022-04-13 15:15:05', '操作成功', 'http://localhost:8080/baseInfo/update/387', 'POST', '10.27.204.2', '387', '[387, ReagentBaseInfo [Hash = 844592664, id=387, code=386, name=dwad, unit=wad, specification=wad, manufacturerName=wad, registrationNo=adw, supplierId=1, supplierShortName=wda, price=3.0, stockType=常温, expirationLimit=3, stockLimit=3, useDayLimit=3, createTime=Wed Apr 13 15:14:57 GMT+08:00 2022, createBy=null, updateTime=Wed Apr 13 15:15:05 GMT+08:00 2022, updateBy=null, deleteFlag=null, deleteTime=null, deleteBy=null, serialVersionUID=1]]');
+INSERT INTO `reagent_operation_log` VALUES (2483, '试剂管理', '修改信息', 1, 'admin', '2022-04-13 15:15:15', '操作成功', 'http://localhost:8080/baseInfo/update/387', 'POST', '10.27.204.2', '387', '[387, ReagentBaseInfo [Hash = 1079831154, id=387, code=386, name=dwad, unit=wad, specification=wad, manufacturerName=wad, registrationNo=adw, supplierId=1, supplierShortName=wda, price=3.0, stockType=常温, expirationLimit=3, stockLimit=3, useDayLimit=3, createTime=Wed Apr 13 15:14:57 GMT+08:00 2022, createBy=null, updateTime=Wed Apr 13 15:15:15 GMT+08:00 2022, updateBy=null, deleteFlag=null, deleteTime=null, deleteBy=null, serialVersionUID=1]]');
+INSERT INTO `reagent_operation_log` VALUES (2484, '试剂管理', '修改信息', 1, 'admin', '2022-04-13 15:23:50', '操作成功', 'http://localhost:8080/baseInfo/update/387', 'POST', '10.27.204.2', '387', '[387, ReagentBaseInfo [Hash = 869876722, id=387, code=386, name=dwad, unit=wad, specification=wad, manufacturerName=wad, registrationNo=adw, supplierId=1, supplierShortName=wda, price=3.0, stockType=常温, expirationLimit=3, stockLimit=3, useDayLimit=3, createTime=Wed Apr 13 15:14:57 GMT+08:00 2022, createBy=null, updateTime=Wed Apr 13 15:23:50 GMT+08:00 2022, updateBy=null, deleteFlag=null, deleteTime=null, deleteBy=null, serialVersionUID=1]]');
 
 -- ----------------------------
 -- Table structure for reagent_order
@@ -1023,11 +1079,33 @@ CREATE TABLE `reagent_prod_qualification`  (
   `delete_time` datetime(0) NULL DEFAULT NULL,
   `delete_by` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 251 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 273 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of reagent_prod_qualification
 -- ----------------------------
+INSERT INTO `reagent_prod_qualification` VALUES (251, '1', 'wda', '1', 'dwa', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 11:36:57', NULL, '2022-04-13 11:36:57', NULL, NULL, NULL, NULL);
+INSERT INTO `reagent_prod_qualification` VALUES (252, '1', 'wda', '1', 'dwa', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 11:37:06', NULL, '2022-04-13 11:37:06', NULL, NULL, NULL, NULL);
+INSERT INTO `reagent_prod_qualification` VALUES (253, '1', 'wda', '1', 'dwa', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 11:38:25', NULL, '2022-04-13 11:38:25', NULL, NULL, NULL, NULL);
+INSERT INTO `reagent_prod_qualification` VALUES (254, '1', 'wda', '373', 'daw', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 11:41:45', NULL, '2022-04-13 11:41:45', NULL, NULL, NULL, NULL);
+INSERT INTO `reagent_prod_qualification` VALUES (255, '1', 'wda', '374', 'adw', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 11:44:25', NULL, '2022-04-13 11:44:25', NULL, NULL, NULL, NULL);
+INSERT INTO `reagent_prod_qualification` VALUES (256, '1', 'wda', '375', 'dwa', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 11:49:28', NULL, '2022-04-13 11:49:28', NULL, NULL, NULL, NULL);
+INSERT INTO `reagent_prod_qualification` VALUES (257, '1', 'wda', '376', 'awd', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 11:51:38', NULL, '2022-04-13 11:51:38', NULL, NULL, NULL, NULL);
+INSERT INTO `reagent_prod_qualification` VALUES (258, '1', 'wda', '1', 'daw', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 12:07:24', NULL, '2022-04-13 12:07:24', NULL, NULL, NULL, NULL);
+INSERT INTO `reagent_prod_qualification` VALUES (259, '1', 'wda', '378', 'dawdw', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 12:27:38', NULL, '2022-04-13 12:27:38', NULL, NULL, NULL, NULL);
+INSERT INTO `reagent_prod_qualification` VALUES (260, '1', 'wda', '379', 'daw', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 12:41:31', NULL, '2022-04-13 12:41:31', NULL, NULL, NULL, NULL);
+INSERT INTO `reagent_prod_qualification` VALUES (261, '1', 'wda', '380', 'aaaa', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 13:42:35', NULL, '2022-04-13 13:42:35', NULL, NULL, NULL, NULL);
+INSERT INTO `reagent_prod_qualification` VALUES (262, '1', 'wda', '381', 'aaaaa', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 13:47:22', NULL, '2022-04-13 13:47:22', NULL, NULL, NULL, NULL);
+INSERT INTO `reagent_prod_qualification` VALUES (263, '1', 'wda', '382', 'vvv', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 14:00:03', NULL, '2022-04-13 14:00:03', NULL, NULL, NULL, NULL);
+INSERT INTO `reagent_prod_qualification` VALUES (264, '1', 'wda', '382', 'vvv', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 14:00:07', NULL, '2022-04-13 14:00:07', NULL, NULL, NULL, NULL);
+INSERT INTO `reagent_prod_qualification` VALUES (265, '1', 'wda', '382', 'll', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 14:01:50', NULL, '2022-04-13 14:01:50', NULL, NULL, NULL, NULL);
+INSERT INTO `reagent_prod_qualification` VALUES (266, '1', 'wda', '378', 'vvvv', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 14:17:30', NULL, '2022-04-13 14:17:30', NULL, NULL, NULL, NULL);
+INSERT INTO `reagent_prod_qualification` VALUES (267, '1', 'wda', '378', 'vvvv', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 14:21:04', NULL, '2022-04-13 14:21:04', NULL, NULL, NULL, NULL);
+INSERT INTO `reagent_prod_qualification` VALUES (268, '1', 'wda', '383', 'nnnn', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 14:29:37', NULL, '2022-04-13 14:29:37', NULL, NULL, NULL, NULL);
+INSERT INTO `reagent_prod_qualification` VALUES (269, '1', 'wda', '382', 'dwad', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 15:01:11', NULL, '2022-04-13 15:01:11', NULL, NULL, NULL, NULL);
+INSERT INTO `reagent_prod_qualification` VALUES (270, '1', 'wda', '1', 'dwa', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 15:06:58', NULL, '2022-04-13 15:06:58', NULL, NULL, NULL, NULL);
+INSERT INTO `reagent_prod_qualification` VALUES (271, '1', 'wda', '386', 'awd', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 15:11:40', NULL, '2022-04-13 15:11:40', NULL, NULL, NULL, NULL);
+INSERT INTO `reagent_prod_qualification` VALUES (272, '1', 'wda', '386', 'dwad', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 15:14:57', NULL, '2022-04-13 15:14:57', NULL, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for reagent_refund
@@ -1573,11 +1651,12 @@ CREATE TABLE `reagent_supplier`  (
   `delete_time` datetime(0) NULL DEFAULT NULL,
   `delete_by` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 71 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '供应商' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 72 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '供应商' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of reagent_supplier
 -- ----------------------------
+INSERT INTO `reagent_supplier` VALUES (71, '1', 'daw', 'wda', 'wad', '15762960990', '15762960990', '1959', 'wad', 1, '2022-04-13 11:36:24', NULL, '2022-04-13 11:36:24', NULL, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for wx_user
@@ -1618,5 +1697,17 @@ CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `in_zx` AS select `rib`.`
 -- ----------------------------
 DROP VIEW IF EXISTS `max_code`;
 CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `max_code` AS select max(`reagent_base_info`.`code`) AS `CODE` from `reagent_base_info` ;
+
+-- ----------------------------
+-- View structure for out_jy
+-- ----------------------------
+DROP VIEW IF EXISTS `out_jy`;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `out_jy` AS select `jy_in`.`bill_date` AS `bill_date`,`jy_in`.`branch` AS `branch`,`jy_in`.`reagent_name` AS `reagent_name`,`jy_in`.`total` AS `total` from (select `rob`.`bill_date` AS `bill_date`,`ra`.`branch` AS `branch`,`rod`.`reagent_name` AS `reagent_name`,`rod`.`total` AS `total` from ((`reagentdb`.`reagent_out_detail` `rod` join `reagentdb`.`reagent_out_bill` `rob` on((`rob`.`bill_code` = `rod`.`bill_code`))) join `reagentdb`.`reagent_admin` `ra` on((convert(`ra`.`username` using utf8mb4) = `rob`.`application_user`))) where (`rob`.`branch_name` = '中心库') order by `rob`.`bill_date` desc) `jy_in` where (`jy_in`.`branch` = '检验科') ;
+
+-- ----------------------------
+-- View structure for out_pcr
+-- ----------------------------
+DROP VIEW IF EXISTS `out_pcr`;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `out_pcr` AS select `pcr_in`.`bill_date` AS `bill_date`,`pcr_in`.`branch` AS `branch`,`pcr_in`.`reagent_name` AS `reagent_name`,`pcr_in`.`total` AS `total` from (select `rob`.`bill_date` AS `bill_date`,`ra`.`branch` AS `branch`,`rod`.`reagent_name` AS `reagent_name`,`rod`.`total` AS `total` from ((`reagentdb`.`reagent_out_detail` `rod` join `reagentdb`.`reagent_out_bill` `rob` on((`rob`.`bill_code` = `rod`.`bill_code`))) join `reagentdb`.`reagent_admin` `ra` on((convert(`ra`.`username` using utf8mb4) = `rob`.`application_user`))) where (`rob`.`branch_name` = '中心库') order by `rob`.`bill_date` desc) `pcr_in` where (`pcr_in`.`branch` = 'PCR实验室') ;
 
 SET FOREIGN_KEY_CHECKS = 1;

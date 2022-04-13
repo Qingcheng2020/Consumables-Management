@@ -484,10 +484,6 @@ export default {
         supplierShortName: [
           {required: true, message: '请输入供货商', trigger: 'blur'},
         ],
-        stockType: [
-          {required: true, message: '请输入存储温度', trigger: 'blur'},
-          {validator: validateUsername, trigger: 'blur'}
-        ],
         expirationLimit: [
           {required: true, message: '请输入过期预警时间阈值', trigger: 'blur'},
           {validator: validateTest, trigger: 'blur'}

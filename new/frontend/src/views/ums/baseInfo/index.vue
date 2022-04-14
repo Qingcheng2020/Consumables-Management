@@ -389,6 +389,8 @@ const defaultListQuery = {
 };
 const defaultBaseInfoForm = {
   name: '',
+  classify:'',//分类
+  consumClassify: '',//详细分类
   unit: '',
   specification: '',
   manufacturerName: '',
@@ -399,8 +401,6 @@ const defaultBaseInfoForm = {
   expirationLimit: '',
   stockLimit: '',
   useDayLimit: '',
-  consumClassify: '',//详细分类
-  classify:'',//分类
   isQR: ''//是否二维码管理
 };
 export default {

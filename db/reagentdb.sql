@@ -11,7 +11,7 @@
  Target Server Version : 50713
  File Encoding         : 65001
 
- Date: 13/04/2022 15:26:50
+ Date: 14/04/2022 14:42:31
 */
 
 SET NAMES utf8mb4;
@@ -40,13 +40,16 @@ CREATE TABLE `reagent_admin`  (
   `status` int(11) NULL DEFAULT 1 COMMENT '帐号启用状态：0->禁用；1->启用',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `username`(`username`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 135 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '后台用户表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 138 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '后台用户表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of reagent_admin
 -- ----------------------------
-INSERT INTO `reagent_admin` VALUES (1, 'admin', '$2a$10$26qpRmIYUrXQKgfmuN8riOnwY.C/j8hPDEN1NMz2Hj/qdUzvB0ReK', '', NULL, NULL, '15505550555', 'admin', '', 'admin@163.com', '山东省济南市', '系统管理员', '超级管理员', '2018-10-08 13:32:47', '2022-04-13 08:23:24', 1);
-INSERT INTO `reagent_admin` VALUES (134, '管理员', '$2a$10$HceJ6qF/bcHpwSJMrNvh9uByodVPlaK6EWcbKY.nsEaDojeMN1ZgO', '中心库', '', '', NULL, '管理员', NULL, '', NULL, '', '系统管理员', '2022-02-26 14:41:55', '2022-02-26 14:41:55', 1);
+INSERT INTO `reagent_admin` VALUES (1, 'admin', '$2a$10$26qpRmIYUrXQKgfmuN8riOnwY.C/j8hPDEN1NMz2Hj/qdUzvB0ReK', '', NULL, NULL, '15505550555', 'admin', '', 'admin@163.com', '山东省济南市', '系统管理员', '超级管理员', '2018-10-08 13:32:47', '2022-04-14 14:28:45', 1);
+INSERT INTO `reagent_admin` VALUES (134, '管理员', '$2a$10$rmUYNkslj/UhNvJibxy7Lux.euiayRkqTeZdVCClYUdC.f2C/GNWK', '中心库', '', '', NULL, '王佳豪', NULL, '', NULL, '', '系统管理员', '2022-02-26 14:41:55', '2022-02-26 14:41:55', 1);
+INSERT INTO `reagent_admin` VALUES (135, '陈龙', '$2a$10$wDQ/78jw8OyCDZbkjXSezueDbKaW2RoBJglZMiV/Vl6.X888KyxI2', '化验科', '', '', NULL, '陈龙', NULL, 'huayan@qq.com', NULL, '', '', '2022-04-13 21:14:18', '2022-04-14 14:29:17', 1);
+INSERT INTO `reagent_admin` VALUES (136, '刘嘉诚', '$2a$10$dGZMjeawOkgOdoy8sipitezVwz1tvJvJF8DRPrfMS2lcwpyAxT2V.', '', '保护伞', '', NULL, '刘嘉诚', NULL, 'supplier@qq.com', NULL, '', '', '2022-04-13 21:17:23', '2022-04-14 14:29:33', 1);
+INSERT INTO `reagent_admin` VALUES (137, '王家城', '$2a$10$AOGsMowIp4P9vBlRycJPE.3/b7Z8nkKi3AASy0d0995lWssBQI2Ra', '中心库', '', '', NULL, '王家城', NULL, '', NULL, '', '', '2022-04-14 14:39:53', '2022-04-14 14:39:53', 1);
 
 -- ----------------------------
 -- Table structure for reagent_admin_login_log
@@ -60,7 +63,7 @@ CREATE TABLE `reagent_admin_login_log`  (
   `address` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `user_agent` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '浏览器登录类型',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5877 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '后台用户登录日志表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 5900 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '后台用户登录日志表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of reagent_admin_login_log
@@ -80,6 +83,29 @@ INSERT INTO `reagent_admin_login_log` VALUES (5873, 1, '2022-04-13 12:27:08', '1
 INSERT INTO `reagent_admin_login_log` VALUES (5874, 1, '2022-04-13 13:37:49', '10.27.204.2', NULL, NULL);
 INSERT INTO `reagent_admin_login_log` VALUES (5875, 1, '2022-04-13 14:00:17', '10.27.204.2', NULL, NULL);
 INSERT INTO `reagent_admin_login_log` VALUES (5876, 1, '2022-04-13 15:00:42', '10.27.204.2', NULL, NULL);
+INSERT INTO `reagent_admin_login_log` VALUES (5877, 1, '2022-04-13 21:02:44', '10.27.131.151', NULL, NULL);
+INSERT INTO `reagent_admin_login_log` VALUES (5878, 136, '2022-04-13 21:22:37', '10.27.131.151', NULL, NULL);
+INSERT INTO `reagent_admin_login_log` VALUES (5879, 136, '2022-04-13 21:24:57', '10.27.131.151', NULL, NULL);
+INSERT INTO `reagent_admin_login_log` VALUES (5880, 136, '2022-04-13 21:28:48', '10.27.131.151', NULL, NULL);
+INSERT INTO `reagent_admin_login_log` VALUES (5881, 1, '2022-04-13 21:29:06', '10.27.131.151', NULL, NULL);
+INSERT INTO `reagent_admin_login_log` VALUES (5882, 1, '2022-04-13 21:35:15', '10.27.131.151', NULL, NULL);
+INSERT INTO `reagent_admin_login_log` VALUES (5883, 1, '2022-04-13 21:35:19', '10.27.131.151', NULL, NULL);
+INSERT INTO `reagent_admin_login_log` VALUES (5884, 1, '2022-04-13 21:35:56', '10.27.131.151', NULL, NULL);
+INSERT INTO `reagent_admin_login_log` VALUES (5885, 1, '2022-04-13 21:36:31', '10.27.131.151', NULL, NULL);
+INSERT INTO `reagent_admin_login_log` VALUES (5886, 135, '2022-04-13 21:38:12', '10.27.131.151', NULL, NULL);
+INSERT INTO `reagent_admin_login_log` VALUES (5887, 1, '2022-04-13 21:38:27', '10.27.131.151', NULL, NULL);
+INSERT INTO `reagent_admin_login_log` VALUES (5888, 135, '2022-04-13 21:39:26', '10.27.131.151', NULL, NULL);
+INSERT INTO `reagent_admin_login_log` VALUES (5889, 1, '2022-04-13 21:39:41', '10.27.131.151', NULL, NULL);
+INSERT INTO `reagent_admin_login_log` VALUES (5890, 1, '2022-04-14 14:28:44', '10.27.131.151', NULL, NULL);
+INSERT INTO `reagent_admin_login_log` VALUES (5891, 135, '2022-04-14 14:29:16', '10.27.131.151', NULL, NULL);
+INSERT INTO `reagent_admin_login_log` VALUES (5892, 136, '2022-04-14 14:29:33', '10.27.131.151', NULL, NULL);
+INSERT INTO `reagent_admin_login_log` VALUES (5893, 135, '2022-04-14 14:30:01', '10.27.131.151', NULL, NULL);
+INSERT INTO `reagent_admin_login_log` VALUES (5894, 1, '2022-04-14 14:30:06', '10.27.131.151', NULL, NULL);
+INSERT INTO `reagent_admin_login_log` VALUES (5895, 135, '2022-04-14 14:33:05', '10.27.131.151', NULL, NULL);
+INSERT INTO `reagent_admin_login_log` VALUES (5896, 135, '2022-04-14 14:36:29', '10.27.131.151', NULL, NULL);
+INSERT INTO `reagent_admin_login_log` VALUES (5897, 1, '2022-04-14 14:37:16', '10.27.131.151', NULL, NULL);
+INSERT INTO `reagent_admin_login_log` VALUES (5898, 135, '2022-04-14 14:40:24', '10.27.131.151', NULL, NULL);
+INSERT INTO `reagent_admin_login_log` VALUES (5899, 137, '2022-04-14 14:41:33', '10.27.131.151', NULL, NULL);
 
 -- ----------------------------
 -- Table structure for reagent_admin_permission_relation
@@ -106,13 +132,16 @@ CREATE TABLE `reagent_admin_role_relation`  (
   `admin_id` bigint(20) NULL DEFAULT NULL,
   `role_id` bigint(20) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 283 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '后台用户和角色关系表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 301 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '后台用户和角色关系表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of reagent_admin_role_relation
 -- ----------------------------
 INSERT INTO `reagent_admin_role_relation` VALUES (184, 1, 1);
 INSERT INTO `reagent_admin_role_relation` VALUES (282, 134, 8);
+INSERT INTO `reagent_admin_role_relation` VALUES (294, 136, 5);
+INSERT INTO `reagent_admin_role_relation` VALUES (299, 137, 6);
+INSERT INTO `reagent_admin_role_relation` VALUES (300, 135, 3);
 
 -- ----------------------------
 -- Table structure for reagent_base_info
@@ -170,12 +199,13 @@ CREATE TABLE `reagent_branch`  (
   `delete_time` datetime(0) NULL DEFAULT NULL,
   `delete_by` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 20 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '科室' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 21 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '科室' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of reagent_branch
 -- ----------------------------
 INSERT INTO `reagent_branch` VALUES (19, '1', '中心库', NULL, NULL, '2022-02-26 14:41:29', NULL, '2022-02-26 14:41:29', NULL, NULL, NULL, NULL);
+INSERT INTO `reagent_branch` VALUES (20, '20', '化验科', '15762960990', '陈龙', '2022-04-13 21:08:17', NULL, '2022-04-13 21:08:17', NULL, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for reagent_collect
@@ -197,7 +227,7 @@ CREATE TABLE `reagent_collect`  (
   `delete_time` datetime(0) NULL DEFAULT NULL,
   `delete_by` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 515 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '订单' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '订单' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of reagent_collect
@@ -227,7 +257,7 @@ CREATE TABLE `reagent_collect_detail`  (
   `delete_by` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `order_no`(`collect_no`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 936 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '订单' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '订单' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of reagent_collect_detail
@@ -255,12 +285,13 @@ CREATE TABLE `reagent_cop_qualification`  (
   `delete_time` datetime(0) NULL DEFAULT NULL,
   `delete_by` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 57 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 58 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of reagent_cop_qualification
 -- ----------------------------
 INSERT INTO `reagent_cop_qualification` VALUES (56, '1', 'wda', NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 11:36:24', NULL, '2022-04-13 11:36:24', NULL, NULL, NULL, NULL);
+INSERT INTO `reagent_cop_qualification` VALUES (57, '1', '保护伞', NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-13 21:16:54', NULL, '2022-04-13 21:16:54', NULL, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for reagent_device
@@ -282,7 +313,7 @@ CREATE TABLE `reagent_device`  (
   `delete_time` datetime(0) NULL DEFAULT NULL,
   `delete_by` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 64 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '科室' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '科室' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of reagent_device
@@ -333,7 +364,7 @@ CREATE TABLE `reagent_in_bill`  (
   `delete_time` datetime(0) NULL DEFAULT NULL,
   `delete_by` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 979 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '试剂耗材入库申请单（接收单）' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '试剂耗材入库申请单（接收单）' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of reagent_in_bill
@@ -366,7 +397,7 @@ CREATE TABLE `reagent_in_detail`  (
   `delete_time` datetime(0) NULL DEFAULT NULL,
   `delete_by` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1466 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '试剂耗材入库申请单详细' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '试剂耗材入库申请单详细' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of reagent_in_detail
@@ -392,7 +423,7 @@ CREATE TABLE `reagent_in_detail_item`  (
   `delete_time` datetime(0) NULL DEFAULT NULL,
   `delete_by` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 11483 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '试剂耗材入库申请单个体' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '试剂耗材入库申请单个体' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of reagent_in_detail_item
@@ -748,7 +779,7 @@ CREATE TABLE `reagent_operation_log`  (
   `opera_id` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '修改对象id',
   `opera_params` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT '请求参数',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2485 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '操作日志' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2506 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '操作日志' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of reagent_operation_log
@@ -793,6 +824,27 @@ INSERT INTO `reagent_operation_log` VALUES (2481, '试剂管理', '新增试剂'
 INSERT INTO `reagent_operation_log` VALUES (2482, '试剂管理', '修改信息', 1, 'admin', '2022-04-13 15:15:05', '操作成功', 'http://localhost:8080/baseInfo/update/387', 'POST', '10.27.204.2', '387', '[387, ReagentBaseInfo [Hash = 844592664, id=387, code=386, name=dwad, unit=wad, specification=wad, manufacturerName=wad, registrationNo=adw, supplierId=1, supplierShortName=wda, price=3.0, stockType=常温, expirationLimit=3, stockLimit=3, useDayLimit=3, createTime=Wed Apr 13 15:14:57 GMT+08:00 2022, createBy=null, updateTime=Wed Apr 13 15:15:05 GMT+08:00 2022, updateBy=null, deleteFlag=null, deleteTime=null, deleteBy=null, serialVersionUID=1]]');
 INSERT INTO `reagent_operation_log` VALUES (2483, '试剂管理', '修改信息', 1, 'admin', '2022-04-13 15:15:15', '操作成功', 'http://localhost:8080/baseInfo/update/387', 'POST', '10.27.204.2', '387', '[387, ReagentBaseInfo [Hash = 1079831154, id=387, code=386, name=dwad, unit=wad, specification=wad, manufacturerName=wad, registrationNo=adw, supplierId=1, supplierShortName=wda, price=3.0, stockType=常温, expirationLimit=3, stockLimit=3, useDayLimit=3, createTime=Wed Apr 13 15:14:57 GMT+08:00 2022, createBy=null, updateTime=Wed Apr 13 15:15:15 GMT+08:00 2022, updateBy=null, deleteFlag=null, deleteTime=null, deleteBy=null, serialVersionUID=1]]');
 INSERT INTO `reagent_operation_log` VALUES (2484, '试剂管理', '修改信息', 1, 'admin', '2022-04-13 15:23:50', '操作成功', 'http://localhost:8080/baseInfo/update/387', 'POST', '10.27.204.2', '387', '[387, ReagentBaseInfo [Hash = 869876722, id=387, code=386, name=dwad, unit=wad, specification=wad, manufacturerName=wad, registrationNo=adw, supplierId=1, supplierShortName=wda, price=3.0, stockType=常温, expirationLimit=3, stockLimit=3, useDayLimit=3, createTime=Wed Apr 13 15:14:57 GMT+08:00 2022, createBy=null, updateTime=Wed Apr 13 15:23:50 GMT+08:00 2022, updateBy=null, deleteFlag=null, deleteTime=null, deleteBy=null, serialVersionUID=1]]');
+INSERT INTO `reagent_operation_log` VALUES (2485, '科室管理', '新增科室', 1, 'admin', '2022-04-13 21:08:17', '操作成功', 'http://localhost:8080/branch/create', 'POST', '10.27.131.151', '20', '[ReagentBranch [Hash = 1849981381, id=20, branchCode=20, branchName=化验科, tel=15762960990, head=陈龙, createTime=Wed Apr 13 21:08:17 GMT+08:00 2022, createBy=null, updateTime=Wed Apr 13 21:08:17 GMT+08:00 2022, updateBy=null, deleteFlag=null, deleteTime=null, deleteBy=null, serialVersionUID=1]]');
+INSERT INTO `reagent_operation_log` VALUES (2486, '用户管理', '分配角色', 1, 'admin', '2022-04-13 21:15:33', '操作成功', 'http://localhost:8080/admin/role/update', 'POST', '10.27.131.151', '135', '[135, [5]]');
+INSERT INTO `reagent_operation_log` VALUES (2487, '供货商管理', '删除', 1, 'admin', '2022-04-13 21:16:12', '操作成功', 'http://localhost:8080/supplier/delete/71', 'POST', '10.27.131.151', '71', '[71]');
+INSERT INTO `reagent_operation_log` VALUES (2488, '供货商管理', '新增供货商', 1, 'admin', '2022-04-13 21:16:53', '操作成功', 'http://localhost:8080/supplier/create', 'POST', '10.27.131.151', '72', '[ReagentSupplier [Hash = 1412860452, id=72, supplierCode=1, supplierName=保护伞生物制药有限公司, supplierShortName=保护伞, contacts=刘嘉诚, contactsTel=, contactsPhone=15762960990, contactsWechat=, supplierAddress=山东省临沂市河东区, status=1, createTime=Wed Apr 13 21:16:53 GMT+08:00 2022, createBy=null, updateTime=Wed Apr 13 21:16:53 GMT+08:00 2022, updateBy=null, deleteFlag=null, deleteTime=null, deleteBy=null, serialVersionUID=1]]');
+INSERT INTO `reagent_operation_log` VALUES (2489, '用户管理', '分配角色', 1, 'admin', '2022-04-13 21:17:31', '操作成功', 'http://localhost:8080/admin/role/update', 'POST', '10.27.131.151', '136', '[136, [5]]');
+INSERT INTO `reagent_operation_log` VALUES (2490, '用户管理', '分配角色', 1, 'admin', '2022-04-13 21:20:57', '操作成功', 'http://localhost:8080/admin/role/update', 'POST', '10.27.131.151', '136', '[136, [1]]');
+INSERT INTO `reagent_operation_log` VALUES (2491, '用户管理', '分配角色', 1, 'admin', '2022-04-13 21:21:07', '操作成功', 'http://localhost:8080/admin/role/update', 'POST', '10.27.131.151', '136', '[136, [5]]');
+INSERT INTO `reagent_operation_log` VALUES (2492, '用户管理', '分配角色', 1, 'admin', '2022-04-13 21:22:12', '操作成功', 'http://localhost:8080/admin/role/update', 'POST', '10.27.131.151', '136', '[136, [4]]');
+INSERT INTO `reagent_operation_log` VALUES (2493, '用户管理', '分配角色', 1, 'admin', '2022-04-13 21:22:17', '操作成功', 'http://localhost:8080/admin/role/update', 'POST', '10.27.131.151', '136', '[136, [5]]');
+INSERT INTO `reagent_operation_log` VALUES (2494, '角色管理', '新增', 1, 'admin', '2022-04-13 21:31:39', '操作成功', 'http://localhost:8080/role/create', 'POST', '10.27.131.151', NULL, NULL);
+INSERT INTO `reagent_operation_log` VALUES (2495, '用户管理', '分配角色', 1, 'admin', '2022-04-13 21:37:57', '操作成功', 'http://localhost:8080/admin/role/update', 'POST', '10.27.131.151', '135', '[135, [11]]');
+INSERT INTO `reagent_operation_log` VALUES (2496, '用户管理', '分配角色', 1, 'admin', '2022-04-13 21:38:43', '操作成功', 'http://localhost:8080/admin/role/update', 'POST', '10.27.131.151', '136', '[136, [11]]');
+INSERT INTO `reagent_operation_log` VALUES (2497, '用户管理', '分配角色', 1, 'admin', '2022-04-13 21:39:49', '操作成功', 'http://localhost:8080/admin/role/update', 'POST', '10.27.131.151', '136', '[136, [11]]');
+INSERT INTO `reagent_operation_log` VALUES (2498, '用户管理', '分配角色', 1, 'admin', '2022-04-13 21:40:00', '操作成功', 'http://localhost:8080/admin/role/update', 'POST', '10.27.131.151', '136', '[136, [5]]');
+INSERT INTO `reagent_operation_log` VALUES (2499, '用户管理', '分配角色', 1, 'admin', '2022-04-13 21:40:05', '操作成功', 'http://localhost:8080/admin/role/update', 'POST', '10.27.131.151', '135', '[135, [11]]');
+INSERT INTO `reagent_operation_log` VALUES (2500, '用户管理', '分配角色', 1, 'admin', '2022-04-14 14:30:59', '操作成功', 'http://localhost:8080/admin/role/update', 'POST', '10.27.131.151', '135', '[135, [1]]');
+INSERT INTO `reagent_operation_log` VALUES (2501, '用户管理', '分配角色', 1, 'admin', '2022-04-14 14:31:05', '操作成功', 'http://localhost:8080/admin/role/update', 'POST', '10.27.131.151', '135', '[135, [11]]');
+INSERT INTO `reagent_operation_log` VALUES (2502, '角色管理', '分配菜单', 1, 'admin', '2022-04-14 14:32:53', '操作成功', 'http://localhost:8080/role/allocMenu', 'POST', '10.27.131.151', '11', '[11, [6, 3, 15, 14, 17, 21, 20, 22, 35, 34, 36, 39, 38, 40]]');
+INSERT INTO `reagent_operation_log` VALUES (2503, '用户管理', '修改用户', 1, 'admin', '2022-04-14 14:39:18', '操作成功', 'http://localhost:8080/admin/update/134', 'POST', '10.27.131.151', '134', '[134, ReagentAdmin [Hash = 1367819949, id=134, username=管理员, password=$2a$10$rmUYNkslj/UhNvJibxy7Lux.euiayRkqTeZdVCClYUdC.f2C/GNWK, branch=中心库, supplier=, groupName=, phone=null, trueName=王佳豪, icon=null, email=, address=null, nickName=, note=系统管理员, createTime=Sat Feb 26 14:41:55 GMT+08:00 2022, loginTime=Sat Feb 26 14:41:55 GMT+08:00 2022, status=1, serialVersionUID=1]]');
+INSERT INTO `reagent_operation_log` VALUES (2504, '用户管理', '分配角色', 1, 'admin', '2022-04-14 14:40:02', '操作成功', 'http://localhost:8080/admin/role/update', 'POST', '10.27.131.151', '137', '[137, [6]]');
+INSERT INTO `reagent_operation_log` VALUES (2505, '用户管理', '分配角色', 1, 'admin', '2022-04-14 14:40:10', '操作成功', 'http://localhost:8080/admin/role/update', 'POST', '10.27.131.151', '135', '[135, [3]]');
 
 -- ----------------------------
 -- Table structure for reagent_order
@@ -815,7 +867,7 @@ CREATE TABLE `reagent_order`  (
   `delete_time` datetime(0) NULL DEFAULT NULL,
   `delete_by` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 598 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '订单' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '订单' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of reagent_order
@@ -846,7 +898,7 @@ CREATE TABLE `reagent_order_detail`  (
   `delete_by` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `order_no`(`order_no`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 877 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '订单' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '订单' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of reagent_order_detail
@@ -875,7 +927,7 @@ CREATE TABLE `reagent_out_bill`  (
   `delete_time` datetime(0) NULL DEFAULT NULL,
   `delete_by` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 776 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '出库单' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '出库单' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of reagent_out_bill
@@ -910,7 +962,7 @@ CREATE TABLE `reagent_out_detail`  (
   `delete_time` datetime(0) NULL DEFAULT NULL,
   `delete_by` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1672 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '出库单详细' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '出库单详细' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of reagent_out_detail
@@ -936,7 +988,7 @@ CREATE TABLE `reagent_out_detail_item`  (
   `delete_time` datetime(0) NULL DEFAULT NULL,
   `delete_by` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4846 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '试剂耗材出库单个体' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '试剂耗材出库单个体' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of reagent_out_detail_item
@@ -987,7 +1039,7 @@ CREATE TABLE `reagent_pre_in_bill`  (
   `delete_time` datetime(0) NULL DEFAULT NULL,
   `delete_by` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 347 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '试剂耗材入库申请单（接收单）' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '试剂耗材入库申请单（接收单）' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of reagent_pre_in_bill
@@ -1022,7 +1074,7 @@ CREATE TABLE `reagent_pre_in_detail`  (
   `delete_time` datetime(0) NULL DEFAULT NULL,
   `delete_by` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 544 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '试剂耗材入库申请单详细' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '试剂耗材入库申请单详细' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of reagent_pre_in_detail
@@ -1048,7 +1100,7 @@ CREATE TABLE `reagent_pre_in_detail_item`  (
   `delete_time` datetime(0) NULL DEFAULT NULL,
   `delete_by` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 81844 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '试剂耗材入库申请单个体' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '试剂耗材入库申请单个体' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of reagent_pre_in_detail_item
@@ -1128,7 +1180,7 @@ CREATE TABLE `reagent_refund`  (
   `delete_time` datetime(0) NULL DEFAULT NULL,
   `delete_by` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '退货单详细' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '退货单详细' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of reagent_refund
@@ -1161,7 +1213,7 @@ CREATE TABLE `reagent_refund_detail`  (
   `delete_time` datetime(0) NULL DEFAULT NULL,
   `delete_by` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '出库单详细' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '出库单详细' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of reagent_refund_detail
@@ -1187,7 +1239,7 @@ CREATE TABLE `reagent_refund_detail_item`  (
   `delete_time` datetime(0) NULL DEFAULT NULL,
   `delete_by` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '退货单个体' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '退货单个体' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of reagent_refund_detail_item
@@ -1240,7 +1292,7 @@ CREATE TABLE `reagent_role`  (
   `status` int(11) NULL DEFAULT 1 COMMENT '启用状态：0->禁用；1->启用',
   `sort` int(11) NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '后台用户角色表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '后台用户角色表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of reagent_role
@@ -1249,12 +1301,13 @@ INSERT INTO `reagent_role` VALUES (1, '超级管理员', '系统维护', 1, '202
 INSERT INTO `reagent_role` VALUES (2, '科室库库管员-单级库', '科室库库管员-单级库模式', 0, '2021-06-24 16:10:09', 1, 0);
 INSERT INTO `reagent_role` VALUES (3, '科室库库管员-两级库', '科室库库管员-两级库模式', 2, '2021-06-24 16:10:02', 1, 0);
 INSERT INTO `reagent_role` VALUES (4, '试剂操作员-单级库', '一级科室库试剂操作员使用', 0, '2021-06-24 16:10:06', 1, 0);
-INSERT INTO `reagent_role` VALUES (5, '供货商', '进货', 10, '2021-06-24 16:10:00', 1, 0);
+INSERT INTO `reagent_role` VALUES (5, '供货商', '进货', 1, '2021-06-24 16:10:00', 1, 0);
 INSERT INTO `reagent_role` VALUES (6, '中心库库管员', '两级库模式下中心库管理员', 1, '2021-05-14 15:41:33', 1, 0);
 INSERT INTO `reagent_role` VALUES (7, '系统管理员-单级库', '一级医院系统管理员', 1, '2021-05-15 15:14:36', 1, 0);
 INSERT INTO `reagent_role` VALUES (8, '系统管理员-两级库', '二级医院系统管理员', 1, '2021-05-17 14:47:14', 1, 0);
 INSERT INTO `reagent_role` VALUES (9, '试剂操作员-两级库', '二级科室库试剂操作员使用', 7, '2021-05-17 21:00:31', 1, 0);
-INSERT INTO `reagent_role` VALUES (10, '默认', '默认角色', 2, '2021-06-09 15:02:12', 1, 0);
+INSERT INTO `reagent_role` VALUES (10, '默认', '默认角色', 1, '2021-06-09 15:02:12', 1, 0);
+INSERT INTO `reagent_role` VALUES (11, '科室库库管', '科室库管理', 1, '2022-04-13 21:31:40', 1, 0);
 
 -- ----------------------------
 -- Table structure for reagent_role_menu_relation
@@ -1265,7 +1318,7 @@ CREATE TABLE `reagent_role_menu_relation`  (
   `role_id` bigint(20) NULL DEFAULT NULL COMMENT '角色ID',
   `menu_id` bigint(20) NULL DEFAULT NULL COMMENT '菜单ID',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2764 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '后台角色菜单关系表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2778 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '后台角色菜单关系表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of reagent_role_menu_relation
@@ -1466,6 +1519,20 @@ INSERT INTO `reagent_role_menu_relation` VALUES (2760, 6, 72);
 INSERT INTO `reagent_role_menu_relation` VALUES (2761, 6, 73);
 INSERT INTO `reagent_role_menu_relation` VALUES (2762, 6, 74);
 INSERT INTO `reagent_role_menu_relation` VALUES (2763, 6, 75);
+INSERT INTO `reagent_role_menu_relation` VALUES (2764, 11, 6);
+INSERT INTO `reagent_role_menu_relation` VALUES (2765, 11, 3);
+INSERT INTO `reagent_role_menu_relation` VALUES (2766, 11, 15);
+INSERT INTO `reagent_role_menu_relation` VALUES (2767, 11, 14);
+INSERT INTO `reagent_role_menu_relation` VALUES (2768, 11, 17);
+INSERT INTO `reagent_role_menu_relation` VALUES (2769, 11, 21);
+INSERT INTO `reagent_role_menu_relation` VALUES (2770, 11, 20);
+INSERT INTO `reagent_role_menu_relation` VALUES (2771, 11, 22);
+INSERT INTO `reagent_role_menu_relation` VALUES (2772, 11, 35);
+INSERT INTO `reagent_role_menu_relation` VALUES (2773, 11, 34);
+INSERT INTO `reagent_role_menu_relation` VALUES (2774, 11, 36);
+INSERT INTO `reagent_role_menu_relation` VALUES (2775, 11, 39);
+INSERT INTO `reagent_role_menu_relation` VALUES (2776, 11, 38);
+INSERT INTO `reagent_role_menu_relation` VALUES (2777, 11, 40);
 
 -- ----------------------------
 -- Table structure for reagent_role_permission_relation
@@ -1544,7 +1611,7 @@ CREATE TABLE `reagent_stock`  (
   `delete_time` datetime(0) NULL DEFAULT NULL,
   `delete_by` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 661 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '试剂耗材库存表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '试剂耗材库存表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of reagent_stock
@@ -1596,7 +1663,7 @@ CREATE TABLE `reagent_stock_detail`  (
   `delete_time` datetime(0) NULL DEFAULT NULL,
   `delete_by` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 255756 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '试剂耗材库存表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '试剂耗材库存表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of reagent_stock_detail
@@ -1651,12 +1718,12 @@ CREATE TABLE `reagent_supplier`  (
   `delete_time` datetime(0) NULL DEFAULT NULL,
   `delete_by` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 72 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '供应商' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 73 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '供应商' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of reagent_supplier
 -- ----------------------------
-INSERT INTO `reagent_supplier` VALUES (71, '1', 'daw', 'wda', 'wad', '15762960990', '15762960990', '1959', 'wad', 1, '2022-04-13 11:36:24', NULL, '2022-04-13 11:36:24', NULL, NULL, NULL, NULL);
+INSERT INTO `reagent_supplier` VALUES (72, '1', '保护伞生物制药有限公司', '保护伞', '刘嘉诚', '', '15762960990', '', '山东省临沂市河东区', 1, '2022-04-13 21:16:54', NULL, '2022-04-13 21:16:54', NULL, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for wx_user
@@ -1680,7 +1747,7 @@ CREATE TABLE `wx_user`  (
   `create_time` datetime(0) NULL DEFAULT NULL,
   `update_time` datetime(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0),
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 20 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '供货商联系人关注公众号后，根据联系人的手机号与微信绑定' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '供货商联系人关注公众号后，根据联系人的手机号与微信绑定' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of wx_user

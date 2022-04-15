@@ -90,16 +90,16 @@
             {{ statusData[(scope.row.reagentStatus)] }}
           </template>
         </el-table-column>
-        <el-table-column label="操作" width="120" align="center">
-          <template slot-scope="scope">
-            <!--            <el-button size="mini"
-                                   type="primary"
-                                   icon="el-icon-edit"
-                                   @click="handleUpdate(scope.$index, scope.row)">编辑
-                        </el-button>-->
+        <el-table-column label="操作" width="200" align="center">
+          <template slot-scope="scope">           
             <el-button size="mini"
                        type="primary"
                        @click="handleViewStock(scope.$index, scope.row)">查看
+            </el-button>
+            <el-button size="mini"
+                        type="primary"
+                        icon="el-icon-edit"
+                        @click="handleUpdate(scope.$index, scope.row)">出库
             </el-button>
           </template>
         </el-table-column>
@@ -114,53 +114,26 @@
         layout="total, sizes,prev, pager, next,jumper"
         :current-page.sync="listQuery.pageNum"
         :page-size="listQuery.pageSize"
-        :page-sizes="[50,100,200]"
+        :page-sizes="[50,50,100]"
         :total="total">
       </el-pagination>
     </div>
 
     <el-dialog
-      :title="'编辑库存信息'"
+      :title="'出库数量'"
       :visible.sync="editDialogVisible"
-      width="40%">
-      <el-form :model="StockCentre"
+      width="35%">
+      <el-form :model="change"
                ref="StockCentreForm"
-               label-width="150px" size="small">
-        <el-form-item label="耗材编号">
-          <el-input v-model="StockCentre.reagentId" style="width: 250px"></el-input>
-        </el-form-item>
-        <el-form-item label="耗材名称">
-          <el-input v-model="StockCentre.reagentName" style="width: 250px"></el-input>
-        </el-form-item>
-        <el-form-item label="型号规格">
-          <el-input v-model="StockCentre.reagentType" style="width: 250px"></el-input>
-        </el-form-item>
-        <el-form-item label="单位">
-          <el-input v-model="StockCentre.reagentUnit" style="width: 250px"></el-input>
-        </el-form-item>
-        <el-form-item label="生产厂家">
-          <el-input v-model="StockCentre.factory" style="width: 250px"></el-input>
-        </el-form-item>
-        <el-form-item label="供货商">
-          <el-input v-model="StockCentre.supplierName" style="width: 250px"></el-input>
-        </el-form-item>
-        <el-form-item label="状态">
-          <el-input v-model="StockCentre.reagentStatus" style="width: 250px"></el-input>
-        </el-form-item>
-        <el-form-item label="存储温度">
-          <el-input v-model="StockCentre.reagentTemp" style="width: 250px"></el-input>
-        </el-form-item>
-        <el-form-item label="低库存预警">
-          <el-input v-model="StockCentre.lowStock" style="width: 250px"></el-input>
-        </el-form-item>
-        <el-form-item label="过期预警">
-          <el-input v-model="StockCentre.overdueStock" style="width: 250px"></el-input>
+               label-width="100px" size="small">
+        <el-form-item label="数量">
+          <el-input v-model="change.number" style="width: 200px"></el-input>
         </el-form-item>
       </el-form>
 
       <span slot="footer" class="dialog-footer">
         <el-button @click="editDialogVisible = false" size="small">取 消</el-button>
-        <el-button type="primary" @click="handleEditDialogConfirm()" size="small">确 定</el-button>
+        <el-button type="primary" @click="handleEditDialogConfirm(change.number)" size="small">确 定</el-button>
       </span>
     </el-dialog>
 
@@ -254,12 +227,19 @@ export default {
       editDialogVisible: false,
       downloadLoading: false,
       trueName: null,
+//出库数据修改
+      change: {
+        number: '',
+        value: []
+      },  
       //耗材在库状态
       statusData: {
         '1': '中心已入库',
         '5': '已退货',
         '1997': '中心已出库',
       },
+
+     
     }
   },
   created() {
@@ -400,15 +380,15 @@ export default {
         })
       })
     },
-    handleEditDialogConfirm() {
+    handleEditDialogConfirm(row) {
       this.$confirm('是否要确认?', '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
         type: 'warning'
       }).then(() => {
-        updateStock(this.StockCentre.id, this.StockCentre).then(response => {
+        outFromBranchStock(this.StockCentre.id, row).then(response => {
           this.$message({
-            message: '修改成功！',
+            message: '出库成功！',
             type: 'success'
           });
           this.editDialogVisible = false;
@@ -427,6 +407,7 @@ export default {
 
     },
   }
+  
 }
 </script>
 <style>

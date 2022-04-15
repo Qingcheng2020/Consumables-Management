@@ -24,6 +24,14 @@ export function updateStock(id, data) {
   })
 }
 
+export function outFromBranchStock(id, number) {
+  return request({
+    url: '/stock/outFromBranch/' + id,
+    method: 'post',
+    data: number
+  })
+}
+
 export function getStockCount() {
   return request({
     url: '/stock/count',

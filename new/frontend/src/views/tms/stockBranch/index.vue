@@ -8,8 +8,8 @@
       </div>
       <div style="float:left;margin-top: 8px">
         <el-form :inline="true" :model="listQuery" size="small">
-          <el-form-item label="耗材名称:">
-            <el-input v-model="listQuery.reagentName" class="stock-width" placeholder="耗材名称" clearable
+          <el-form-item label="试剂名称:">
+            <el-input v-model="listQuery.reagentName" class="stock-width" placeholder="试剂名称" clearable
                       @keyup.enter.native="handleSearchList"></el-input>
           </el-form-item>
           <el-form-item label="供货商:">
@@ -91,15 +91,15 @@
           </template>
         </el-table-column>
         <el-table-column label="操作" width="200" align="center">
-          <template slot-scope="scope">           
+          <template slot-scope="scope">
+            <el-button size="mini"
+               type="primary"
+               icon="el-icon-edit"
+               @click="handleUpdate(scope.$index, scope.row)">出库
+            </el-button>-->
             <el-button size="mini"
                        type="primary"
                        @click="handleViewStock(scope.$index, scope.row)">查看
-            </el-button>
-            <el-button size="mini"
-                        type="primary"
-                        icon="el-icon-edit"
-                        @click="handleUpdate(scope.$index, scope.row)">出库
             </el-button>
           </template>
         </el-table-column>
@@ -114,32 +114,33 @@
         layout="total, sizes,prev, pager, next,jumper"
         :current-page.sync="listQuery.pageNum"
         :page-size="listQuery.pageSize"
-        :page-sizes="[50,50,100]"
+        :page-sizes="[50,100,200]"
         :total="total">
       </el-pagination>
     </div>
 
     <el-dialog
-      :title="'出库数量'"
+      :title="'出库信息'"
       :visible.sync="editDialogVisible"
-      width="35%">
-      <el-form :model="change"
+      width="40%">
+      <el-form :model="StockCentre"
                ref="StockCentreForm"
-               label-width="100px" size="small">
-        <el-form-item label="数量">
-          <el-input v-model="change.number" style="width: 200px"></el-input>
+               label-width="150px" size="small">
+        <el-form-item label="出库数量">
+          <el-input v-model="StockCentre.outNumber" style="width: 250px"></el-input>
         </el-form-item>
       </el-form>
 
       <span slot="footer" class="dialog-footer">
         <el-button @click="editDialogVisible = false" size="small">取 消</el-button>
-        <el-button type="primary" @click="handleEditDialogConfirm(change.number)" size="small">确 定</el-button>
+        <el-button type="primary" @click="handleEditDialogConfirm()" size="small">确 定</el-button>
       </span>
     </el-dialog>
 
   </div>
 </template>
 <script>
+
 import {createStock, deleteStock, searchList, updateStock} from '@/api/stock';
 import {formatDate} from '@/utils/date';
 import {deleteStockDetail} from '@/api/stockDetail';
@@ -177,11 +178,12 @@ const defaultStockCentre = {
   lowStock: null,
   overdue: null,
   overdueStock: null,
+  outNumber: null
 };
 const printFormColumn = [
   {
     field: 'reagentName',
-    name: '耗材名称',
+    name: '试剂名称',
     columnSize: '200%'
   },
   {
@@ -227,12 +229,7 @@ export default {
       editDialogVisible: false,
       downloadLoading: false,
       trueName: null,
-//出库数据修改
-      change: {
-        number: '',
-        value: []
-      },  
-      //耗材在库状态
+      //试剂在库状态
       statusData: {
         '1': '中心已入库',
         '5': '已退货',
@@ -380,15 +377,16 @@ export default {
         })
       })
     },
-    handleEditDialogConfirm(row) {
+    handleEditDialogConfirm() {
       this.$confirm('是否要确认?', '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
         type: 'warning'
       }).then(() => {
-        outFromBranchStock(this.StockCentre.id, row).then(response => {
+        this.StockCentre.quantity = this.StockCentre.quantity - this.StockCentre.outNumber;
+        updateStock(this.StockCentre.id, this.StockCentre).then(response => {
           this.$message({
-            message: '出库成功！',
+            message: '修改成功！',
             type: 'success'
           });
           this.editDialogVisible = false;

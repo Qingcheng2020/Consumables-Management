@@ -9,6 +9,7 @@ import jp.co.nss.hrm.backend.api.service.ReagentBaseInfoService;
 import jp.co.nss.hrm.backend.common.api.CommonPage;
 import jp.co.nss.hrm.backend.common.api.CommonResult;
 import jp.co.nss.hrm.backend.model.ReagentBaseInfo;
+import jp.co.nss.hrm.backend.model.ReagentStock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -70,6 +71,15 @@ public class ReagentBaseInfoController {
     public CommonResult<List<ReagentBaseInfo>> listAll() {
         List<ReagentBaseInfo> baseInfoList = baseInfoService.list();
         return CommonResult.success(baseInfoList);
+    }
+
+
+    @ApiOperation("获取是否使用二维码")
+    @RequestMapping(value = "/getisQR", method = RequestMethod.GET)
+    @ResponseBody
+    public CommonResult<String> getisQR(@RequestBody ReagentStock stock) {
+        String bool=baseInfoService.searchbycode(stock);
+        return CommonResult.success(bool);
     }
 
     @ApiOperation("分页获取试剂信息列表")

@@ -90,9 +90,7 @@ public class ReagentBaseInfoServiceImpl implements ReagentBaseInfoService {
 
         prodQualificationMapper.insert(prodQualification);
 
-        System.out.println("-----------------------------------------------------------------");
-        System.out.println(baseInfo.toString());
-        System.out.println("-----------------------------------------------------------------");
+
         return baseInfoMapper.insert(baseInfo);
     }
 
@@ -397,5 +395,11 @@ public class ReagentBaseInfoServiceImpl implements ReagentBaseInfoService {
         ReagentBaseInfoExample.Criteria criteria = example.createCriteria();
         criteria.andNameLike("%" + supplierShortName + "%");
         return baseInfoMapper.selectByExample(example);
+    }
+    @Override
+    public String searchbycode(ReagentStock stock){
+        Long id= Long.valueOf(stock.getReagentId());
+        String isqr =baseInfoMapper.selectByPrimaryKey(id).getCode();
+        return isqr;
     }
 }

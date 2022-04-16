@@ -3,6 +3,7 @@ package jp.co.nss.hrm.backend.api.service;
 import com.github.pagehelper.PageInfo;
 import jp.co.nss.hrm.backend.api.dto.ReagentInfo;
 import jp.co.nss.hrm.backend.model.ReagentBaseInfo;
+import jp.co.nss.hrm.backend.model.ReagentStock;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -65,6 +66,7 @@ public interface ReagentBaseInfoService {
 
     PageInfo<ReagentBaseInfo> searchByOrder(String keyword, Integer pageSize, Integer pageNum);
 
+    String searchbycode(ReagentStock stock);
 }
 
 

@@ -1,5 +1,13 @@
 import request from '@/utils/request'
 
+export function getIsQr(params) {
+  return request({
+    url: '/baseInfo/getIsQr',
+    method: 'get',
+    params: params
+  })
+}
+
 export function fetchList(params) {
   return request({
     url: '/baseInfo/list',

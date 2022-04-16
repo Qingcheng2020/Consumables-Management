@@ -26,4 +26,6 @@ public interface ReagentBaseInfoDao {
     List<ReagentInfo> getEnSupList(String keyword);
 
     String getReagentId(@Param("reagentName") String reagentName);
+
+    Boolean getIsQr(@Param("reagentId") String reagentId);
 }

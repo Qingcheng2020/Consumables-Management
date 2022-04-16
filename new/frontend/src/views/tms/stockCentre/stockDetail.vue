@@ -180,10 +180,10 @@
         <el-table-column label="申领人" align="center">
           <template slot-scope="scope">{{ scope.row.applyMan }}</template>
         </el-table-column>
-        <el-table-column label="二维码" width="300%" align="center">
+        <el-table-column label="具体信息" width="300%" align="center" >
           <template slot-scope="scope">
             <div>
-              <div class="qrcode-pic" ref="codeItem">
+              <div class="qrcode-pic" ref="codeItem" v-if = "scope.row.isQr == '是' ">
                 <vue-qr :text="scope.row.qrCode" :size="110" :margin="0"></vue-qr>
               </div>
               <div v-html="scope.row.codeValue" class="right" align="left"></div>
@@ -237,6 +237,7 @@
 </template>
 <script>
 import {fetchList, getStockList, updateStatus} from '@/api/stockDetail'
+import {getIsQr} from '@/api/baseInfo'
 import {formatDate} from '@/utils/date';
 import {getCookie} from '@/utils/support';
 import VueQr from "vue-qr";
@@ -295,6 +296,7 @@ const defaultListQuery = {
   enterNo: null,
   outTime: null,
   enterTime: null,
+  reagentId: null,
   username: getCookie("username"),
 };
 export default {
@@ -317,6 +319,7 @@ export default {
       stockCentreDetail: [],
       stockCentre: [],
       multipleSelection: [],
+      isQr: null,
 
       allocDialogVisible: false,
       allocLossId: null,
@@ -362,7 +365,6 @@ export default {
     VueQr
   },
   created() {
-
     this.getList();
     this.getStock();
   },
@@ -577,12 +579,18 @@ export default {
         username: this.listQuery.username,
         pageNum: this.listQuery.pageNum,
         pageSize: this.listQuery.pageSize,
+
       }
       fetchList(sendData).then(response => {
         this.listLoading = false;
         this.stockCentreDetail = response.data.list;
         this.total = response.data.total;
         this.dataStock = response.data.list[0];
+        this.dataStock.reagentId
+      });
+      getIsQr(this.dataStock.reagentId).then(response => {
+        this.listLoading = false;
+        this.isQr = response.data;
       });
     },
   }

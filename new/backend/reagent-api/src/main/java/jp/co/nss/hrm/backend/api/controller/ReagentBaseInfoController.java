@@ -77,8 +77,8 @@ public class ReagentBaseInfoController {
     @ApiOperation("获取是否使用二维码")
     @RequestMapping(value = "/getisQR", method = RequestMethod.GET)
     @ResponseBody
-    public CommonResult<String> getisQR(@RequestBody ReagentStock stock) {
-        String bool=baseInfoService.searchbycode(stock);
+    public CommonResult<String> getisQR(@RequestBody String reagentid) {
+        String bool=baseInfoService.searchbycode(reagentid);
         return CommonResult.success(bool);
     }
 

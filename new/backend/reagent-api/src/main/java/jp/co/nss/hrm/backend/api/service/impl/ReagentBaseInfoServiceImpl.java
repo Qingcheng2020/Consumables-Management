@@ -397,8 +397,8 @@ public class ReagentBaseInfoServiceImpl implements ReagentBaseInfoService {
         return baseInfoMapper.selectByExample(example);
     }
     @Override
-    public String searchbycode(ReagentStock stock){
-        Long id= Long.valueOf(stock.getReagentId());
+    public String searchbycode(String reagentid){
+        Long id= Long.valueOf(reagentid);
         String isqr =baseInfoMapper.selectByPrimaryKey(id).getCode();
         return isqr;
     }

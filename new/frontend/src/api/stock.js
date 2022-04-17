@@ -34,7 +34,7 @@ export function outFromBranchStock(data) {
 
 export function outFromCentreStock(data) {
   return request({
-    url: '/stock/outFromBranch/',
+    url: '/stock/outFromCentre/',
     method: 'post',
     data: data
   })

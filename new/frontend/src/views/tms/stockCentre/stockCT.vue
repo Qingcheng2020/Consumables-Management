@@ -90,13 +90,13 @@
             {{ statusData[(scope.row.reagentStatus)] }}
           </template>
         </el-table-column>
-        <el-table-column label="操作" width="120" align="center">
+        <el-table-column label="操作" width="200" align="center">
           <template slot-scope="scope">
-            <!--            <el-button size="mini"
-                                   type="primary"
-                                   icon="el-icon-edit"
-                                   @click="handleUpdate(scope.$index, scope.row)">编辑
-                        </el-button>-->
+            <el-button size="mini"
+                type="primary"
+                icon="el-icon-edit"
+              @click="handleUpdate(scope.$index, scope.row)">出库
+            </el-button>
             <el-button size="mini"
                        type="primary"
                        @click="handleViewStock(scope.$index, scope.row)">查看
@@ -156,6 +156,19 @@
         <el-form-item label="过期预警">
           <el-input v-model="StockCentre.overdueStock" style="width: 250px"></el-input>
         </el-form-item>
+        <el-form-item label="出库数量">
+          <el-input v-model="StockCentre.outNumber" style="width: 250px"></el-input>
+        </el-form-item>
+        <el-form-item label="目标科室">
+          <el-select v-model="StockCentre.destination" placeholder="请选择" size="small" style="width: 250px">
+            <el-option
+              v-for="item in branchList"
+              :key="item.value"
+              :label="item.value"
+              :value="item.value">
+            </el-option>
+          </el-select>
+        </el-form-item>
       </el-form>
 
       <span slot="footer" class="dialog-footer">
@@ -167,13 +180,14 @@
   </div>
 </template>
 <script>
-import {createStock, deleteStock, searchList, updateStock} from '@/api/stock';
+import {createStock, deleteStock, searchList, updateStock, outFromCentreStock} from '@/api/stock';
 import {formatDate} from '@/utils/date';
 import {deleteStockDetail} from '@/api/stockDetail';
 import {getCookie} from '@/utils/support';
 import {Message} from "element-ui";
 import {PrintForm} from "../../../utils/printForm";
 import {getTrueName} from '@/api/login';
+import {fetchAllBranchList} from '@/api/branch';
 
 const defaultListQuery = {
   pageNum: 1,
@@ -204,6 +218,8 @@ const defaultStockCentre = {
   lowStock: null,
   overdue: null,
   overdueStock: null,
+  outNumber: null,
+  destination: null
 };
 const printFormColumn = [
   {
@@ -254,6 +270,7 @@ export default {
       editDialogVisible: false,
       downloadLoading: false,
       trueName: null,
+      branchList: [{value: '化验科'}],
       //耗材在库状态
       statusData: {
         '1': '中心已入库',
@@ -265,6 +282,7 @@ export default {
   created() {
     this.getList();
     this.getTrueName();
+    this.fetchAllBranchList();
   },
   filters: {
     formatDateTime(time) {
@@ -292,6 +310,11 @@ export default {
       const user = getCookie("username");
       getTrueName(user).then(res => {
         this.trueName = res.data[0].trueName;
+      })
+    },
+    fetchAllBranchList() {
+      List = fetchAllBranchList().then(res =>{
+        this.branchList.value = List.get(0);
       })
     },
     handlePrint() {
@@ -406,7 +429,7 @@ export default {
         cancelButtonText: '取消',
         type: 'warning'
       }).then(() => {
-        updateStock(this.StockCentre.id, this.StockCentre).then(response => {
+        outFromCentreStock(this.StockCentre).then(response => {
           this.$message({
             message: '修改成功！',
             type: 'success'

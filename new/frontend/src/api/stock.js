@@ -32,6 +32,14 @@ export function outFromBranchStock(data) {
   })
 }
 
+export function outFromCentreStock(data) {
+  return request({
+    url: '/stock/outFromBranch/',
+    method: 'post',
+    data: data
+  })
+}
+
 export function getStockCount() {
   return request({
     url: '/stock/count',

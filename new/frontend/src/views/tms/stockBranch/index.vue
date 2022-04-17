@@ -126,10 +126,10 @@
       <el-form :model="StockCentre"
                ref="StockCentreForm"
                label-width="150px" size="small">
-        <el-form-item label="试剂编号">
+        <el-form-item label="耗材编号">
           <el-input v-model="StockCentre.reagentId" style="width: 250px"></el-input>
         </el-form-item>
-        <el-form-item label="试剂名称">
+        <el-form-item label="耗材名称">
           <el-input v-model="StockCentre.reagentName" style="width: 250px"></el-input>
         </el-form-item>
         <el-form-item label="型号规格">
@@ -213,7 +213,7 @@ const defaultStockCentre = {
 const printFormColumn = [
   {
     field: 'reagentName',
-    name: '试剂名称',
+    name: '耗材名称',
     columnSize: '200%'
   },
   {

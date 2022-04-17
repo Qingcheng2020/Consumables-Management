@@ -197,7 +197,7 @@
         <el-table-column label="二维码" width="300%" align="center">
           <template slot-scope="scope">
             <div>
-              <div class="qrcode-pic" ref="codeItem">
+              <div class="qrcode-pic" ref="codeItem" v-if = "listQuery.isQr == '是' ">
                 <vue-qr :text="scope.row.qrCode" :size="110" :margin="0"></vue-qr>
               </div>
               <div v-html="scope.row.codeValue" class="right" align="left"></div>

@@ -64,3 +64,10 @@ export function countCollect(params) {
   })
 }
 
+export function changeStatus(data) {
+  return request({
+    url: '/collect/pda/relocation',
+    method: 'post',
+    data: data
+  })
+}

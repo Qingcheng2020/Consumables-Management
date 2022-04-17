@@ -69,6 +69,12 @@
             <el-button
               size="mini"
               type="primary"
+              @click="handleViewChange(scope.$index, scope.row)"
+              v-show="scope.row.collectStatus==1 || scope.row.collectStatus==2 || scope.row.collectStatus==3">完成
+            </el-button>
+            <el-button
+              size="mini"
+              type="primary"
               @click="handleApplyIn(scope.$index, scope.row)"
               v-show="scope.row.collectStatus==2 && (roleId == 3 || roleId == 1)">申领入库
             </el-button>
@@ -105,7 +111,7 @@
   </div>
 </template>
 <script>
-import {applyInStock, deleteCollect, fetchList} from '@/api/collect'
+import {applyInStock, deleteCollect, fetchList,changeStatus} from '@/api/collect'
 import {formatDate} from '@/utils/date';
 import {deleteCollectDetail} from "@/api/collectDetail";
 import {getCookie} from '@/utils/support';
@@ -117,6 +123,7 @@ const defaultListQuery = {
   keyword: null,
   applyType: 2,
   username: getCookie("username"),
+  itemId: null,
 };
 export default {
   name: "relocationList",
@@ -197,9 +204,24 @@ export default {
         query: {collectNo: row.collectNo, collectStatus: row.collectStatus}
       })
     },
+    handleViewChange(index, row) {
+      let sendData = {
+        itemId : row.id,
+      };
+      console.log(sendData)
+      changeStatus(sendData).then(response => {
+        this.$message({
+          message: '修改状态成功！',
+          type: 'success',
+          duration: 1000
+        });
+        this.getList();
+      });
+    },
     handleApplyIn(index, row) {
       this.applyInType = 1;
       let sendData = {
+        itemId: row.id,
         branch: null,
         qrList: null,
         inType: 3,

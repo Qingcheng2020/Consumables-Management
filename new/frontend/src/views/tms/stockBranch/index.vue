@@ -171,7 +171,7 @@
 </template>
 <script>
 
-import {createStock, deleteStock, searchList, updateStock} from '@/api/stock';
+import {createStock, deleteStock, searchList, outFromBranchStock} from '@/api/stock';
 import {formatDate} from '@/utils/date';
 import {deleteStockDetail} from '@/api/stockDetail';
 import {getCookie} from '@/utils/support';
@@ -413,7 +413,7 @@ export default {
         cancelButtonText: '取消',
         type: 'warning'
       }).then(() => {
-        outFromBranchStock(this.StockCentre).then(response => {
+        outFromBranchStock(this.StockCentre, this.trueName).then(response => {
           this.$message({
             message: '修改成功！',
             type: 'success'

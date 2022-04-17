@@ -413,7 +413,7 @@ export default {
         cancelButtonText: '取消',
         type: 'warning'
       }).then(() => {
-        outFromBranchStock(this.StockCentre, this.trueName).then(response => {
+        outFromBranchStock(this.StockCentre).then(response => {
           this.$message({
             message: '修改成功！',
             type: 'success'

@@ -1,4 +1,5 @@
 import request from '@/utils/request'
+import request2 from '@/utils/request'
 
 export function fetchList(data) {
   return request({
@@ -122,5 +123,12 @@ export function lossSummary(params) {
     url: '/stockDetail/lossSummary',
     method: 'get',
     params: params
+  })
+}
+
+export function getIsQR(id) {
+  return request2({
+    url: '/baseInfo/getisQR' + id,
+    method: 'get'
   })
 }

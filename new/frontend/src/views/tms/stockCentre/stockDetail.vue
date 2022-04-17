@@ -180,10 +180,13 @@
         <el-table-column label="申领人" align="center">
           <template slot-scope="scope">{{ scope.row.applyMan }}</template>
         </el-table-column>
+        <el-table-column label="qr" align="center">
+          <template slot-scope="listQuery">{{ listQuery.isQr }}</template>
+        </el-table-column>
         <el-table-column label="具体信息" width="300%" align="center" >
           <template slot-scope="scope">
             <div>
-              <div class="qrcode-pic" ref="codeItem" v-if = "scope.row.isQr == '是' ">
+              <div class="qrcode-pic" ref="codeItem" v-if = "listQuery.isQr == '是' ">
                 <vue-qr :text="scope.row.qrCode" :size="110" :margin="0"></vue-qr>
               </div>
               <div v-html="scope.row.codeValue" class="right" align="left"></div>
@@ -297,6 +300,7 @@ const defaultListQuery = {
   outTime: null,
   enterTime: null,
   reagentId: null,
+  isQr: null,
   username: getCookie("username"),
 };
 export default {
@@ -319,7 +323,7 @@ export default {
       stockCentreDetail: [],
       stockCentre: [],
       multipleSelection: [],
-      isQr: null,
+      
 
       allocDialogVisible: false,
       allocLossId: null,
@@ -579,18 +583,18 @@ export default {
         username: this.listQuery.username,
         pageNum: this.listQuery.pageNum,
         pageSize: this.listQuery.pageSize,
-
+        isQr: this.listQuery.isQr,
       }
       fetchList(sendData).then(response => {
         this.listLoading = false;
         this.stockCentreDetail = response.data.list;
         this.total = response.data.total;
         this.dataStock = response.data.list[0];
-        this.dataStock.reagentId
+ //       this.dataStock.reagentId
       });
-      getIsQr(this.dataStock.reagentId).then(response => {
+      getIsQr(this.dataStock.reagentCode).then(response => {
         this.listLoading = false;
-        this.isQr = response.data;
+        this.listQuery.isQr = response.data;
       });
     },
   }

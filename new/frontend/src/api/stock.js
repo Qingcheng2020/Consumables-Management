@@ -24,11 +24,11 @@ export function updateStock(id, data) {
   })
 }
 
-export function outFromBranchStock(id, number) {
+export function outFromBranchStock(data) {
   return request({
-    url: '/stock/outFromBranch/' + id,
+    url: '/stock/outFromBranch/',
     method: 'post',
-    data: number
+    data: data
   })
 }
 

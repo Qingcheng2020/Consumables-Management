@@ -120,7 +120,7 @@
     </div>
 
     <el-dialog
-      :title="'编辑库存信息'"
+      :title="'编辑出库信息'"
       :visible.sync="editDialogVisible"
       width="40%">
       <el-form :model="StockCentre"

@@ -115,6 +115,11 @@
     delete from reagent_stock
     where id = #{id,jdbcType=BIGINT}
   </delete>
+  <delete id="outFromBranch" parameterType="jp.co.nss.hrm.backend.model.ReagentStock">
+    delete from reagent_stock_detail
+    where stock_no = ${stock_no}
+    limit ${Number}
+  </delete>
   <delete id="deleteByExample" parameterType="jp.co.nss.hrm.backend.model.ReagentStockExample">
     delete from reagent_stock
     <if test="_parameter != null">

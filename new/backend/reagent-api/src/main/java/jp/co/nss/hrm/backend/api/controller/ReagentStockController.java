@@ -9,6 +9,7 @@ import jp.co.nss.hrm.backend.api.service.ReagentStockDetailService;
 import jp.co.nss.hrm.backend.api.service.ReagentStockService;
 import jp.co.nss.hrm.backend.common.api.CommonResult;
 import jp.co.nss.hrm.backend.model.ReagentStock;
+import jp.co.nss.hrm.backend.model.ReagentStockCentre;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -59,6 +60,21 @@ public class ReagentStockController {
             return CommonResult.success(count);
         }
         return CommonResult.failed();
+    }
+
+
+
+    @OperationLogAnnotation(operaModule = "在库管理", operaDesc = "移库")
+    @ApiOperation("移出科室库")
+    @RequestMapping(value = "/outFromBranch", method = RequestMethod.POST)
+    @ResponseBody
+    public CommonResult outFromBranch(@RequestBody ReagentStock stock) {
+        System.out.println("++++++++++++++++++++++++++++++++++++++");
+        System.out.println(stock.toString());
+        System.out.println("++++++++++++++++++++++++++++++++++++++");
+        int count = stockService.outFromBranch(stock);
+
+        return CommonResult.success(1);
     }
 
     @OperationLogAnnotation(operaModule = "在库管理", operaDesc = "删除")
@@ -162,5 +178,7 @@ public class ReagentStockController {
         List<ReagentStock> stockList = stockDetailService.getOperatorList(username, stockType);
         return CommonResult.success(stockList);
     }
+
+
 
 }

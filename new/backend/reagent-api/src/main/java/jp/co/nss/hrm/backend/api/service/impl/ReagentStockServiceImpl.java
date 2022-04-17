@@ -11,10 +11,12 @@ import jp.co.nss.hrm.backend.api.dto.ReagentInfo;
 import jp.co.nss.hrm.backend.api.service.ReagentStockService;
 import jp.co.nss.hrm.backend.mapper.ReagentStockMapper;
 import jp.co.nss.hrm.backend.model.ReagentStock;
+import jp.co.nss.hrm.backend.model.ReagentStockCentre;
 import jp.co.nss.hrm.backend.model.ReagentStockExample;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -352,5 +354,13 @@ public class ReagentStockServiceImpl implements ReagentStockService {
         return stockDao.findReagentItem(qrCode);
     }
 
+    public int outFromBranch(ReagentStock stock){
+        long Quantity=stock.getQuantity();
+        long Number=stock.getoutNumber();
+        stock.setQuantity(Quantity-Number);
+        stockMapper.updateByPrimaryKeySelective(stock);
+        return stockMapper.outFromBranch(stock.getStockNo(),Number);
+
+    };
 }
 

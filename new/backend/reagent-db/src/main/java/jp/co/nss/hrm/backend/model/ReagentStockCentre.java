@@ -60,6 +60,8 @@ public class ReagentStockCentre implements Serializable {
     @ApiModelProperty(value = "低库存预警")
     private Long lowStock;
 
+    private Long  outNumber;
+
     private static final long serialVersionUID = 1L;
 
     public Long getId() {
@@ -222,6 +224,14 @@ public class ReagentStockCentre implements Serializable {
         this.lowStock = lowStock;
     }
 
+
+    public Long getoutNumber() {
+        return outNumber;
+    }
+
+    public void setoutNumber(Long outNumber) {
+        this.outNumber = outNumber;
+    }
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -248,6 +258,7 @@ public class ReagentStockCentre implements Serializable {
         sb.append(", reagentTemp=").append(reagentTemp);
         sb.append(", overdue=").append(overdue);
         sb.append(", lowStock=").append(lowStock);
+        sb.append(", outNumber=").append(outNumber);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

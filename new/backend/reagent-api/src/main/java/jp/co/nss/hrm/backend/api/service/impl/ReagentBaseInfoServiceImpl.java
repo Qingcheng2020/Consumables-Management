@@ -400,9 +400,6 @@ public class ReagentBaseInfoServiceImpl implements ReagentBaseInfoService {
     public String searchbycode(String reagentid){
         Long id= Long.valueOf(reagentid);
         String isqr =baseInfoMapper.selectByPrimaryKey(id).getisQR();
-        System.out.println("+++++++++++++++++++");
-        System.out.println(isqr);
-        System.out.println("+++++++++++++++++++");
         return isqr;
     }
 }

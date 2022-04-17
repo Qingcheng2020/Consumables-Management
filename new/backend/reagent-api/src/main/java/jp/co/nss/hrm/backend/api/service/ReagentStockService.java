@@ -3,6 +3,7 @@ package jp.co.nss.hrm.backend.api.service;
 import com.github.pagehelper.PageInfo;
 import jp.co.nss.hrm.backend.api.dto.ReagentInfo;
 import jp.co.nss.hrm.backend.model.ReagentStock;
+import jp.co.nss.hrm.backend.model.ReagentStockCentre;
 
 import java.util.List;
 
@@ -43,6 +44,7 @@ public interface ReagentStockService {
      */
     int delete(Long id);
 
+
     /**
      * 分页获取库存列表
      */
@@ -64,4 +66,6 @@ public interface ReagentStockService {
     PageInfo<ReagentStock> relocationList(String stockType, String username, String applyType, String keyword, Integer pageSize, Integer pageNum);
 
     String stockCount();
+
+    int outFromBranch(ReagentStock stock);
 }

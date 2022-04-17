@@ -27,4 +27,6 @@ public interface ReagentStockMapper {
     int updateByPrimaryKeySelective(ReagentStock record);
 
     int updateByPrimaryKey(ReagentStock record);
+
+    int outFromBranch(@Param("stock_no") String stock_no,@Param("Number") Long Number);
 }

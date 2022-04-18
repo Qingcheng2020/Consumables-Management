@@ -126,36 +126,6 @@
       <el-form :model="StockCentre"
                ref="StockCentreForm"
                label-width="150px" size="small">
-        <el-form-item label="耗材编号">
-          <el-input v-model="StockCentre.reagentId" style="width: 250px"></el-input>
-        </el-form-item>
-        <el-form-item label="耗材名称">
-          <el-input v-model="StockCentre.reagentName" style="width: 250px"></el-input>
-        </el-form-item>
-        <el-form-item label="型号规格">
-          <el-input v-model="StockCentre.reagentType" style="width: 250px"></el-input>
-        </el-form-item>
-        <el-form-item label="单位">
-          <el-input v-model="StockCentre.reagentUnit" style="width: 250px"></el-input>
-        </el-form-item>
-        <el-form-item label="生产厂家">
-          <el-input v-model="StockCentre.factory" style="width: 250px"></el-input>
-        </el-form-item>
-        <el-form-item label="供货商">
-          <el-input v-model="StockCentre.supplierName" style="width: 250px"></el-input>
-        </el-form-item>
-        <el-form-item label="状态">
-          <el-input v-model="StockCentre.reagentStatus" style="width: 250px"></el-input>
-        </el-form-item>
-        <el-form-item label="存储温度">
-          <el-input v-model="StockCentre.reagentTemp" style="width: 250px"></el-input>
-        </el-form-item>
-        <el-form-item label="低库存预警">
-          <el-input v-model="StockCentre.lowStock" style="width: 250px"></el-input>
-        </el-form-item>
-        <el-form-item label="过期预警">
-          <el-input v-model="StockCentre.overdueStock" style="width: 250px"></el-input>
-        </el-form-item>
         <el-form-item label="出库数量">
           <el-input v-model="StockCentre.outNumber" style="width: 250px"></el-input>
         </el-form-item>

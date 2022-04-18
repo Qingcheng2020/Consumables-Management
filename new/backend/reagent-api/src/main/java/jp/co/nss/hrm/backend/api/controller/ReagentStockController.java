@@ -77,6 +77,17 @@ public class ReagentStockController {
         return CommonResult.success(1);
     }
 
+    @OperationLogAnnotation(operaModule = "在库管理", operaDesc = "移库")
+    @ApiOperation("移出中心库")
+    @RequestMapping(value = "/outFromCentre", method = RequestMethod.POST)
+    @ResponseBody
+    public CommonResult outFromCentre(@RequestBody ReagentStock stock) {
+
+        int count = stockService.outFromCentre(stock);
+
+        return CommonResult.success(count);
+    }
+
     @OperationLogAnnotation(operaModule = "在库管理", operaDesc = "删除")
     @ApiOperation("删除指定中心库存信息")
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)

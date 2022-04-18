@@ -361,6 +361,37 @@ public class ReagentStockServiceImpl implements ReagentStockService {
         stockMapper.updateByPrimaryKeySelective(stock);
         return stockMapper.outFromBranch(stock.getStockNo(),Number);
 
+    }
+
+    public int outFromCentre(ReagentStock stock){
+        String reagentid=stock.getReagentId();
+        long Quantity=stock.getQuantity();
+        long Number=stock.getoutNumber();
+        String destination=stock.getdestination()+"";
+
+        //判断科室库里是否已有
+        ReagentStock stock1=stockMapper.selectByReagentId(reagentid,destination);
+
+        //已有
+        if(stock1.getId()/stock1.getId()==1){
+            //修改中心库stock表
+            stock.setQuantity(Quantity-Number);
+            stockMapper.updateByPrimaryKeySelective(stock);
+
+            //修改科室库stock表
+            stock1.setQuantity(stock1.getQuantity()+Number);
+            stockMapper.updateByPrimaryKeySelective(stock1);
+
+            //修改stockdetail表
+            return stockMapper.outFromCentre(stock.getStockNo(),stock1.getStockNo(),stock1.getBranchName(),stock.getoutNumber());
+        }
+
+        //没有
+        else{
+
+        }
+        return 1;
+
     };
 }
 

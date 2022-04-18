@@ -68,4 +68,5 @@ public interface ReagentStockService {
     String stockCount();
 
     int outFromBranch(ReagentStock stock);
+    int outFromCentre(ReagentStock stock);
 }

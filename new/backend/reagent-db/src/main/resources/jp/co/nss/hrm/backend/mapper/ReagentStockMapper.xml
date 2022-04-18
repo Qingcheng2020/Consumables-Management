@@ -111,6 +111,13 @@
     from reagent_stock
     where id = #{id,jdbcType=BIGINT}
   </select>
+  <select id="selectByReagentId" parameterType="jp.co.nss.hrm.backend.model.ReagentStock" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from reagent_stock
+    where reagent_id = #{reagentid,jdbcType=VARCHAR}
+      and branch_name = #{destination,jdbcType=VARCHAR}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from reagent_stock
     where id = #{id,jdbcType=BIGINT}
@@ -120,6 +127,13 @@
     where stock_no = ${stock_no}
     limit ${Number}
   </delete>
+  <update id="outFromCentre" parameterType="jp.co.nss.hrm.backend.model.ReagentStock">
+    update reagent_stock_detail
+    set stock_no=#{n2,jdbcType=VARCHAR},
+        branch =#{name,jdbcType=VARCHAR}
+    where stock_no=#{n1,jdbcType=VARCHAR}
+    limit ${number}
+  </update>
   <delete id="deleteByExample" parameterType="jp.co.nss.hrm.backend.model.ReagentStockExample">
     delete from reagent_stock
     <if test="_parameter != null">

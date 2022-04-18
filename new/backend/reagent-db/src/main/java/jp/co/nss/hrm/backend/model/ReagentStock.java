@@ -80,6 +80,8 @@ public class ReagentStock implements Serializable {
 
     private Long  outNumber;
 
+    private String destination;
+
     private static final long serialVersionUID = 1L;
 
     public Long getId() {
@@ -298,6 +300,14 @@ public class ReagentStock implements Serializable {
         this.outNumber = outNumber;
     }
 
+    public String getdestination() {
+        return destination;
+    }
+
+    public void setdestination(String destination) {
+        this.destination = destination;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -329,6 +339,7 @@ public class ReagentStock implements Serializable {
         sb.append(", deleteTime=").append(deleteTime);
         sb.append(", deleteBy=").append(deleteBy);
         sb.append(", outNumber=").append(outNumber);
+        sb.append(", destination=").append(destination);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

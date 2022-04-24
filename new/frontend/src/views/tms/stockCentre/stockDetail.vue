@@ -455,6 +455,7 @@ export default {
       pf.toPrint();
     },
     printCode() {
+      if(this.isQr == '否'){ return; }
       setTimeout(() => {
         const that = this;
         this.$nextTick(() => {
@@ -588,7 +589,7 @@ export default {
       });
       getIsQr(this.dataStock).then(response => {
         this.listLoading = false;
-        this.dataStock.isQr = response.data;
+        this.isQr = response.data;
       });
     },
   }

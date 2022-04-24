@@ -232,7 +232,7 @@ export default {
       trueName: null,
       //试剂在库状态
       statusData: {
-        '1': '中心已入库',
+        '1': '已入库',
         '5': '已退货',
         '1997': '中心已出库',
       },

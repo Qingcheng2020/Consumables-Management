@@ -159,6 +159,7 @@ import {PrintForm} from "../../../utils/printForm";
 import {getTrueName} from '@/api/login';
 import {fetchAllBranchList} from '@/api/branch';
 
+
 const defaultListQuery = {
   pageNum: 1,
   pageSize: 50,
@@ -244,7 +245,7 @@ export default {
       branchList: [{value: '化验科'}],
       //耗材在库状态
       statusData: {
-        '1': '中心已入库',
+        '1': '已入库',
         '5': '已退货',
         '1997': '中心已出库',
       },

@@ -178,7 +178,8 @@ const defaultStockCentre = {
   lowStock: null,
   overdue: null,
   overdueStock: null,
-  outNumber: null
+  outNumber: null,
+  branchName: null,
 };
 const printFormColumn = [
   {

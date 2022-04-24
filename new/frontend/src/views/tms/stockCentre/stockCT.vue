@@ -189,7 +189,8 @@ const defaultStockCentre = {
   overdue: null,
   overdueStock: null,
   outNumber: null,
-  destination: null
+  destination: null,
+  trueName: getCookie("username"),
 };
 const printFormColumn = [
   {

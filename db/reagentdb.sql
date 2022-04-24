@@ -11,7 +11,7 @@
  Target Server Version : 50713
  File Encoding         : 65001
 
- Date: 18/04/2022 17:00:35
+ Date: 24/04/2022 11:45:16
 */
 
 SET NAMES utf8mb4;
@@ -47,9 +47,9 @@ CREATE TABLE `reagent_admin`  (
 -- ----------------------------
 INSERT INTO `reagent_admin` VALUES (1, 'admin', '$2a$10$26qpRmIYUrXQKgfmuN8riOnwY.C/j8hPDEN1NMz2Hj/qdUzvB0ReK', '', NULL, NULL, '15505550555', 'admin', '', 'admin@163.com', '山东省济南市', '系统管理员', '超级管理员', '2018-10-08 13:32:47', '2022-04-15 13:43:20', 1);
 INSERT INTO `reagent_admin` VALUES (134, '管理员', '$2a$10$rmUYNkslj/UhNvJibxy7Lux.euiayRkqTeZdVCClYUdC.f2C/GNWK', '中心库', '', '', NULL, '王佳豪', NULL, '', NULL, '', '系统管理员', '2022-02-26 14:41:55', '2022-02-26 14:41:55', 1);
-INSERT INTO `reagent_admin` VALUES (135, '陈龙', '$2a$10$wDQ/78jw8OyCDZbkjXSezueDbKaW2RoBJglZMiV/Vl6.X888KyxI2', '化验科', '', '', NULL, '陈龙', NULL, 'huayan@qq.com', NULL, '', '', '2022-04-13 21:14:18', '2022-04-18 15:50:58', 1);
+INSERT INTO `reagent_admin` VALUES (135, '陈龙', '$2a$10$wDQ/78jw8OyCDZbkjXSezueDbKaW2RoBJglZMiV/Vl6.X888KyxI2', '化验科', '', '', NULL, '陈龙', NULL, 'huayan@qq.com', NULL, '', '', '2022-04-13 21:14:18', '2022-04-24 10:46:45', 1);
 INSERT INTO `reagent_admin` VALUES (136, '刘嘉诚', '$2a$10$dGZMjeawOkgOdoy8sipitezVwz1tvJvJF8DRPrfMS2lcwpyAxT2V.', '', '保护伞', '', NULL, '刘嘉诚', NULL, 'supplier@qq.com', NULL, '', '', '2022-04-13 21:17:23', '2022-04-14 14:29:33', 1);
-INSERT INTO `reagent_admin` VALUES (137, '王家城', '$2a$10$AOGsMowIp4P9vBlRycJPE.3/b7Z8nkKi3AASy0d0995lWssBQI2Ra', '中心库', '', '', NULL, '王家城', NULL, '', NULL, '', '', '2022-04-14 14:39:53', '2022-04-18 09:51:35', 1);
+INSERT INTO `reagent_admin` VALUES (137, '王家城', '$2a$10$AOGsMowIp4P9vBlRycJPE.3/b7Z8nkKi3AASy0d0995lWssBQI2Ra', '中心库', '', '', NULL, '王家城', NULL, '', NULL, '', '', '2022-04-14 14:39:53', '2022-04-24 10:48:44', 1);
 
 -- ----------------------------
 -- Table structure for reagent_admin_login_log
@@ -63,7 +63,7 @@ CREATE TABLE `reagent_admin_login_log`  (
   `address` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `user_agent` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '浏览器登录类型',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5936 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '后台用户登录日志表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 5949 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '后台用户登录日志表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of reagent_admin_login_log
@@ -142,6 +142,19 @@ INSERT INTO `reagent_admin_login_log` VALUES (5932, 137, '2022-04-18 15:53:31', 
 INSERT INTO `reagent_admin_login_log` VALUES (5933, 135, '2022-04-18 15:55:33', '10.27.204.2', NULL, NULL);
 INSERT INTO `reagent_admin_login_log` VALUES (5934, 137, '2022-04-18 15:56:17', '10.27.204.2', NULL, NULL);
 INSERT INTO `reagent_admin_login_log` VALUES (5935, 135, '2022-04-18 16:41:38', '10.27.204.2', NULL, NULL);
+INSERT INTO `reagent_admin_login_log` VALUES (5936, 137, '2022-04-20 14:53:43', '10.27.204.2', NULL, NULL);
+INSERT INTO `reagent_admin_login_log` VALUES (5937, 135, '2022-04-20 14:57:30', '10.27.204.2', NULL, NULL);
+INSERT INTO `reagent_admin_login_log` VALUES (5938, 135, '2022-04-20 16:57:50', '10.27.204.2', NULL, NULL);
+INSERT INTO `reagent_admin_login_log` VALUES (5939, 137, '2022-04-20 16:58:02', '10.27.204.2', NULL, NULL);
+INSERT INTO `reagent_admin_login_log` VALUES (5940, 135, '2022-04-20 17:01:41', '10.27.204.2', NULL, NULL);
+INSERT INTO `reagent_admin_login_log` VALUES (5941, 135, '2022-04-20 20:00:29', '10.27.204.2', NULL, NULL);
+INSERT INTO `reagent_admin_login_log` VALUES (5942, 137, '2022-04-20 20:00:41', '10.27.204.2', NULL, NULL);
+INSERT INTO `reagent_admin_login_log` VALUES (5943, 135, '2022-04-20 20:16:49', '10.27.204.2', NULL, NULL);
+INSERT INTO `reagent_admin_login_log` VALUES (5944, 135, '2022-04-24 10:46:45', '10.27.204.2', NULL, NULL);
+INSERT INTO `reagent_admin_login_log` VALUES (5945, 135, '2022-04-24 10:47:28', '10.27.204.2', NULL, NULL);
+INSERT INTO `reagent_admin_login_log` VALUES (5946, 137, '2022-04-24 10:48:43', '10.27.204.2', NULL, NULL);
+INSERT INTO `reagent_admin_login_log` VALUES (5947, 135, '2022-04-24 10:54:14', '10.27.204.2', NULL, NULL);
+INSERT INTO `reagent_admin_login_log` VALUES (5948, 135, '2022-04-24 11:17:43', '10.27.204.2', NULL, NULL);
 
 -- ----------------------------
 -- Table structure for reagent_admin_permission_relation
@@ -406,7 +419,7 @@ CREATE TABLE `reagent_in_bill`  (
   `delete_time` datetime(0) NULL DEFAULT NULL,
   `delete_by` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 23 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '试剂耗材入库申请单（接收单）' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 26 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '试剂耗材入库申请单（接收单）' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of reagent_in_bill
@@ -427,6 +440,9 @@ INSERT INTO `reagent_in_bill` VALUES (16, '1650025621886717', NULL, '2', '2', '1
 INSERT INTO `reagent_in_bill` VALUES (20, '1650165254813856', NULL, '2', '2', '1', '保护伞', '2022-04-17', '1', '中心库', '王家城', NULL, '2022-04-17 11:14:15', NULL, '2022-04-17 11:14:15', NULL, NULL, NULL, NULL);
 INSERT INTO `reagent_in_bill` VALUES (21, '1650165640067909', NULL, '2', '2', '1', '保护伞', '2022-04-17', '1', '中心库', '王家城', NULL, '2022-04-17 11:20:40', NULL, '2022-04-17 11:20:40', NULL, NULL, NULL, NULL);
 INSERT INTO `reagent_in_bill` VALUES (22, '1650165881620656', NULL, '2', '2', '1', '保护伞', '2022-04-17', '1', '中心库', '王家城', NULL, '2022-04-17 11:24:42', NULL, '2022-04-17 11:24:42', NULL, NULL, NULL, NULL);
+INSERT INTO `reagent_in_bill` VALUES (23, '1650437641375836', NULL, '2', '2', '1', '保护伞', '2022-04-20', '1', '中心库', '王家城', NULL, '2022-04-20 14:54:01', NULL, '2022-04-20 14:54:01', NULL, NULL, NULL, NULL);
+INSERT INTO `reagent_in_bill` VALUES (24, '1650437721327475', NULL, '2', '2', '1', '保护伞', '2022-04-20', '1', '中心库', '王家城', NULL, '2022-04-20 14:55:21', NULL, '2022-04-20 14:55:21', NULL, NULL, NULL, NULL);
+INSERT INTO `reagent_in_bill` VALUES (25, '1650768554796132', NULL, '2', '2', '1', '保护伞', '2022-04-24', '1', '中心库', '王家城', NULL, '2022-04-24 10:49:15', NULL, '2022-04-24 10:49:15', NULL, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for reagent_in_detail
@@ -455,7 +471,7 @@ CREATE TABLE `reagent_in_detail`  (
   `delete_time` datetime(0) NULL DEFAULT NULL,
   `delete_by` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '试剂耗材入库申请单详细' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '试剂耗材入库申请单详细' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of reagent_in_detail
@@ -472,6 +488,9 @@ INSERT INTO `reagent_in_detail` VALUES (9, '1650025621886717', '1650025621895284
 INSERT INTO `reagent_in_detail` VALUES (11, '1650165254813856', '1650165254827463', '390', 'wda', 'awd', 'dwa', 'adw', 1.000, 1, 1.000, '1', '2022-05-07', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `reagent_in_detail` VALUES (12, '1650165640067909', '1650165640072505', '388', '针头', '盒', '10支', '保护伞', 10.000, 1, 10.000, '1', '2022-05-07', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `reagent_in_detail` VALUES (13, '1650165881620656', '1650165881625484', '388', '针头', '盒', '10支', '保护伞', 10.000, 10, 100.000, '2', '2022-05-07', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `reagent_in_detail` VALUES (14, '1650437641375836', '1650437641389763', '388', '针头', '盒', '10支', '保护伞', 10.000, 1, 10.000, '1234', '2024-05-11', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `reagent_in_detail` VALUES (15, '1650437721327475', '1650437721331177', '388', '针头', '盒', '10支', '保护伞', 10.000, 1, 10.000, '456', '2022-05-07', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `reagent_in_detail` VALUES (16, '1650768554796132', '1650768554802893', '388', '针头', '盒', '10支', '保护伞', 10.000, 10, 100.000, '123456789', '2024-04-27', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for reagent_in_detail_item
@@ -493,7 +512,7 @@ CREATE TABLE `reagent_in_detail_item`  (
   `delete_time` datetime(0) NULL DEFAULT NULL,
   `delete_by` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 50 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '试剂耗材入库申请单个体' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 62 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '试剂耗材入库申请单个体' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of reagent_in_detail_item
@@ -546,6 +565,18 @@ INSERT INTO `reagent_in_detail_item` VALUES (46, '1650165881620656', '1650165881
 INSERT INTO `reagent_in_detail_item` VALUES (47, '1650165881620656', '1650165881625484', '2008', '16501658816254842008', '名称: 针头<br/>厂家: 保护伞<br/>供货商: 保护伞<br/>批号: 2<br/>有效期: 2022-05-07<br/>编号: 2008', '1', '2022-04-17 11:24:42', '王家城', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `reagent_in_detail_item` VALUES (48, '1650165881620656', '1650165881625484', '2009', '16501658816254842009', '名称: 针头<br/>厂家: 保护伞<br/>供货商: 保护伞<br/>批号: 2<br/>有效期: 2022-05-07<br/>编号: 2009', '1', '2022-04-17 11:24:42', '王家城', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `reagent_in_detail_item` VALUES (49, '1650165881620656', '1650165881625484', '2010', '16501658816254842010', '名称: 针头<br/>厂家: 保护伞<br/>供货商: 保护伞<br/>批号: 2<br/>有效期: 2022-05-07<br/>编号: 2010', '1', '2022-04-17 11:24:42', '王家城', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `reagent_in_detail_item` VALUES (50, '1650437641375836', '1650437641389763', '1234001', '16504376413897631234001', '名称: 针头<br/>厂家: 保护伞<br/>供货商: 保护伞<br/>批号: 1234<br/>有效期: 2024-05-11<br/>编号: 1234001', '1', '2022-04-20 14:54:01', '王家城', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `reagent_in_detail_item` VALUES (51, '1650437721327475', '1650437721331177', '456001', '1650437721331177456001', '名称: 针头<br/>厂家: 保护伞<br/>供货商: 保护伞<br/>批号: 456<br/>有效期: 2022-05-07<br/>编号: 456001', '1', '2022-04-20 14:55:21', '王家城', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `reagent_in_detail_item` VALUES (52, '1650768554796132', '1650768554802893', '123456789001', '1650768554802893123456789001', '名称: 针头<br/>厂家: 保护伞<br/>供货商: 保护伞<br/>批号: 123456789<br/>有效期: 2024-04-27<br/>编号: 123456789001', '1', '2022-04-24 10:49:15', '王家城', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `reagent_in_detail_item` VALUES (53, '1650768554796132', '1650768554802893', '123456789002', '1650768554802893123456789002', '名称: 针头<br/>厂家: 保护伞<br/>供货商: 保护伞<br/>批号: 123456789<br/>有效期: 2024-04-27<br/>编号: 123456789002', '1', '2022-04-24 10:49:15', '王家城', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `reagent_in_detail_item` VALUES (54, '1650768554796132', '1650768554802893', '123456789003', '1650768554802893123456789003', '名称: 针头<br/>厂家: 保护伞<br/>供货商: 保护伞<br/>批号: 123456789<br/>有效期: 2024-04-27<br/>编号: 123456789003', '1', '2022-04-24 10:49:15', '王家城', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `reagent_in_detail_item` VALUES (55, '1650768554796132', '1650768554802893', '123456789004', '1650768554802893123456789004', '名称: 针头<br/>厂家: 保护伞<br/>供货商: 保护伞<br/>批号: 123456789<br/>有效期: 2024-04-27<br/>编号: 123456789004', '1', '2022-04-24 10:49:15', '王家城', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `reagent_in_detail_item` VALUES (56, '1650768554796132', '1650768554802893', '123456789005', '1650768554802893123456789005', '名称: 针头<br/>厂家: 保护伞<br/>供货商: 保护伞<br/>批号: 123456789<br/>有效期: 2024-04-27<br/>编号: 123456789005', '1', '2022-04-24 10:49:15', '王家城', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `reagent_in_detail_item` VALUES (57, '1650768554796132', '1650768554802893', '123456789006', '1650768554802893123456789006', '名称: 针头<br/>厂家: 保护伞<br/>供货商: 保护伞<br/>批号: 123456789<br/>有效期: 2024-04-27<br/>编号: 123456789006', '1', '2022-04-24 10:49:15', '王家城', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `reagent_in_detail_item` VALUES (58, '1650768554796132', '1650768554802893', '123456789007', '1650768554802893123456789007', '名称: 针头<br/>厂家: 保护伞<br/>供货商: 保护伞<br/>批号: 123456789<br/>有效期: 2024-04-27<br/>编号: 123456789007', '1', '2022-04-24 10:49:15', '王家城', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `reagent_in_detail_item` VALUES (59, '1650768554796132', '1650768554802893', '123456789008', '1650768554802893123456789008', '名称: 针头<br/>厂家: 保护伞<br/>供货商: 保护伞<br/>批号: 123456789<br/>有效期: 2024-04-27<br/>编号: 123456789008', '1', '2022-04-24 10:49:15', '王家城', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `reagent_in_detail_item` VALUES (60, '1650768554796132', '1650768554802893', '123456789009', '1650768554802893123456789009', '名称: 针头<br/>厂家: 保护伞<br/>供货商: 保护伞<br/>批号: 123456789<br/>有效期: 2024-04-27<br/>编号: 123456789009', '1', '2022-04-24 10:49:15', '王家城', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `reagent_in_detail_item` VALUES (61, '1650768554796132', '1650768554802893', '123456789010', '1650768554802893123456789010', '名称: 针头<br/>厂家: 保护伞<br/>供货商: 保护伞<br/>批号: 123456789<br/>有效期: 2024-04-27<br/>编号: 123456789010', '1', '2022-04-24 10:49:15', '王家城', NULL, NULL, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for reagent_integration_change_history
@@ -897,7 +928,7 @@ CREATE TABLE `reagent_operation_log`  (
   `opera_id` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '修改对象id',
   `opera_params` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT '请求参数',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2565 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '操作日志' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2574 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '操作日志' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of reagent_operation_log
@@ -1022,6 +1053,15 @@ INSERT INTO `reagent_operation_log` VALUES (2561, '在库管理', '移库', 6, '
 INSERT INTO `reagent_operation_log` VALUES (2562, '在库管理', '移库', 6, '王家城', '2022-04-18 16:10:14', '操作成功', 'http://localhost:8080/stock/outFromCentre/', 'POST', '10.27.204.2', 'ReagentStock [Hash = 90978916', '[ReagentStock [Hash = 90978916, id=6, stockNo=1650165881635361, stockType=3, reagentId=388, reagentName=针头, reagentType=10支, reagentUnit=盒, branchName=中心库, factory=保护伞, supplierName=保护伞, quantity=2, reagentPrice=10.0, reagentStatus=1, reagentTemp=常温, lowStock=10, overdueStock=19, overdue=10, createTime=Sun Apr 17 11:24:42 GMT+08:00 2022, createBy=137, updateTime=Sun Apr 17 11:24:42 GMT+08:00 2022, updateBy=137, deleteFlag=null, deleteTime=null, deleteBy=null, outNumber=2, destination=化验科, serialVersionUID=1]]');
 INSERT INTO `reagent_operation_log` VALUES (2563, '在库管理', '移库', 6, '王家城', '2022-04-18 16:14:12', '操作成功', 'http://localhost:8080/stock/outFromCentre/', 'POST', '10.27.204.2', 'ReagentStock [Hash = 875936330', '[ReagentStock [Hash = 875936330, id=6, stockNo=1650165881635361, stockType=3, reagentId=388, reagentName=针头, reagentType=10支, reagentUnit=盒, branchName=中心库, factory=保护伞, supplierName=保护伞, quantity=3, reagentPrice=10.0, reagentStatus=1, reagentTemp=常温, lowStock=10, overdueStock=19, overdue=10, createTime=Sun Apr 17 11:24:42 GMT+08:00 2022, createBy=137, updateTime=Sun Apr 17 11:24:42 GMT+08:00 2022, updateBy=137, deleteFlag=null, deleteTime=null, deleteBy=null, outNumber=1, destination=化验科, serialVersionUID=1]]');
 INSERT INTO `reagent_operation_log` VALUES (2564, '在库管理', '移库', 6, '王家城', '2022-04-18 16:41:26', '操作成功', 'http://localhost:8080/stock/outFromCentre/', 'POST', '10.27.204.2', 'ReagentStock [Hash = 2099973399', '[ReagentStock [Hash = 2099973399, id=6, stockNo=1650165881635361, stockType=3, reagentId=388, reagentName=针头, reagentType=10支, reagentUnit=盒, branchName=中心库, factory=保护伞, supplierName=保护伞, quantity=3, reagentPrice=10.0, reagentStatus=1, reagentTemp=常温, lowStock=10, overdueStock=19, overdue=10, createTime=Sun Apr 17 11:24:42 GMT+08:00 2022, createBy=137, updateTime=Sun Apr 17 11:24:42 GMT+08:00 2022, updateBy=137, deleteFlag=null, deleteTime=null, deleteBy=null, outNumber=1, destination=化验科, serialVersionUID=1]]');
+INSERT INTO `reagent_operation_log` VALUES (2565, '入库管理-web', '新增', 6, '王家城', '2022-04-20 14:54:01', '操作成功', 'http://localhost:8080/inBill/create', 'POST', '10.27.204.2', NULL, NULL);
+INSERT INTO `reagent_operation_log` VALUES (2566, '入库管理-web', '新增', 6, '王家城', '2022-04-20 14:55:21', '操作成功', 'http://localhost:8080/inBill/create', 'POST', '10.27.204.2', NULL, NULL);
+INSERT INTO `reagent_operation_log` VALUES (2567, '在库管理', '移库', 3, '陈龙', '2022-04-20 14:57:39', '操作成功', 'http://localhost:8080/stock/outFromBranch/', 'POST', '10.27.204.2', 'ReagentStock [Hash = 787861211', '[ReagentStock [Hash = 787861211, id=9, stockNo=123, stockType=3, reagentId=388, reagentName=针头, reagentType=10支, reagentUnit=盒, branchName=化验科, factory=保护伞, supplierName=保护伞, quantity=3, reagentPrice=10.0, reagentStatus=1997, reagentTemp=常温, lowStock=10, overdueStock=17, overdue=10, createTime=Sun Apr 17 11:24:42 GMT+08:00 2022, createBy=137, updateTime=Sun Apr 17 11:24:42 GMT+08:00 2022, updateBy=137, deleteFlag=null, deleteTime=null, deleteBy=null, outNumber=1, destination=null, serialVersionUID=1]]');
+INSERT INTO `reagent_operation_log` VALUES (2568, '在库管理', '移库', 6, '王家城', '2022-04-20 16:58:20', '操作成功', 'http://localhost:8080/stock/outFromCentre/', 'POST', '10.27.204.2', 'ReagentStock [Hash = 2121647723', '[ReagentStock [Hash = 2121647723, id=6, stockNo=1650165881635361, stockType=3, reagentId=388, reagentName=针头, reagentType=10支, reagentUnit=盒, branchName=中心库, factory=保护伞, supplierName=保护伞, quantity=3, reagentPrice=10.0, reagentStatus=1, reagentTemp=常温, lowStock=10, overdueStock=17, overdue=10, createTime=Sun Apr 17 11:24:42 GMT+08:00 2022, createBy=137, updateTime=Sun Apr 17 11:24:42 GMT+08:00 2022, updateBy=137, deleteFlag=null, deleteTime=null, deleteBy=null, outNumber=1, destination=化验科, serialVersionUID=1]]');
+INSERT INTO `reagent_operation_log` VALUES (2569, '在库管理', '移库', 6, '王家城', '2022-04-20 17:01:31', '操作成功', 'http://localhost:8080/stock/outFromCentre/', 'POST', '10.27.204.2', 'ReagentStock [Hash = 1834122688', '[ReagentStock [Hash = 1834122688, id=6, stockNo=1650165881635361, stockType=3, reagentId=388, reagentName=针头, reagentType=10支, reagentUnit=盒, branchName=中心库, factory=保护伞, supplierName=保护伞, quantity=5, reagentPrice=10.0, reagentStatus=1, reagentTemp=常温, lowStock=10, overdueStock=17, overdue=10, createTime=Sun Apr 17 11:24:42 GMT+08:00 2022, createBy=137, updateTime=Sun Apr 17 11:24:42 GMT+08:00 2022, updateBy=137, deleteFlag=null, deleteTime=null, deleteBy=null, outNumber=1, destination=化验科, serialVersionUID=1]]');
+INSERT INTO `reagent_operation_log` VALUES (2570, '在库管理', '移库', 6, '王家城', '2022-04-20 20:03:49', '操作成功', 'http://localhost:8080/stock/outFromCentre/', 'POST', '10.27.204.2', 'ReagentStock [Hash = 1139174250', '[ReagentStock [Hash = 1139174250, id=6, stockNo=1650165881635361, stockType=3, reagentId=388, reagentName=针头, reagentType=10支, reagentUnit=盒, branchName=中心库, factory=保护伞, supplierName=保护伞, quantity=3, reagentPrice=10.0, reagentStatus=1, reagentTemp=常温, lowStock=10, overdueStock=17, overdue=10, createTime=Sun Apr 17 11:24:42 GMT+08:00 2022, createBy=137, updateTime=Sun Apr 17 11:24:42 GMT+08:00 2022, updateBy=137, deleteFlag=null, deleteTime=null, deleteBy=null, outNumber=2, destination=化验科, serialVersionUID=1]]');
+INSERT INTO `reagent_operation_log` VALUES (2571, '在库管理', '移库', 6, '王家城', '2022-04-20 20:04:02', '操作成功', 'http://localhost:8080/stock/outFromCentre/', 'POST', '10.27.204.2', 'ReagentStock [Hash = 1837046215', '[ReagentStock [Hash = 1837046215, id=6, stockNo=1650165881635361, stockType=3, reagentId=388, reagentName=针头, reagentType=10支, reagentUnit=盒, branchName=中心库, factory=保护伞, supplierName=保护伞, quantity=2, reagentPrice=10.0, reagentStatus=1, reagentTemp=常温, lowStock=10, overdueStock=17, overdue=10, createTime=Sun Apr 17 11:24:42 GMT+08:00 2022, createBy=137, updateTime=Sun Apr 17 11:24:42 GMT+08:00 2022, updateBy=137, deleteFlag=null, deleteTime=null, deleteBy=null, outNumber=1, destination=化验科, serialVersionUID=1]]');
+INSERT INTO `reagent_operation_log` VALUES (2572, '入库管理-web', '新增', 6, '王家城', '2022-04-24 10:49:14', '操作成功', 'http://localhost:8080/inBill/create', 'POST', '10.27.204.2', NULL, NULL);
+INSERT INTO `reagent_operation_log` VALUES (2573, '在库管理', '移库', 6, '王家城', '2022-04-24 10:54:06', '操作成功', 'http://localhost:8080/stock/outFromCentre/', 'POST', '10.27.204.2', 'ReagentStock [Hash = 779705323', '[ReagentStock [Hash = 779705323, id=10, stockNo=1650768554828658, stockType=3, reagentId=388, reagentName=针头, reagentType=10支, reagentUnit=盒, branchName=中心库, factory=保护伞, supplierName=保护伞, quantity=10, reagentPrice=10.0, reagentStatus=1, reagentTemp=常温, lowStock=10, overdueStock=734, overdue=10, createTime=Sun Apr 24 10:49:15 GMT+08:00 2022, createBy=137, updateTime=Sun Apr 24 10:49:15 GMT+08:00 2022, updateBy=137, deleteFlag=null, deleteTime=null, deleteBy=null, outNumber=1, destination=化验科, serialVersionUID=1]]');
 
 -- ----------------------------
 -- Table structure for reagent_order
@@ -1104,7 +1144,7 @@ CREATE TABLE `reagent_out_bill`  (
   `delete_time` datetime(0) NULL DEFAULT NULL,
   `delete_by` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '出库单' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '出库单' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of reagent_out_bill
@@ -1792,13 +1832,12 @@ CREATE TABLE `reagent_stock`  (
   `delete_time` datetime(0) NULL DEFAULT NULL,
   `delete_by` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '试剂耗材库存表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '试剂耗材库存表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of reagent_stock
 -- ----------------------------
-INSERT INTO `reagent_stock` VALUES (1, '123', '3', '388', '针头', '10支', '盒', '化验科', '保护伞', '保护伞', 4, 10.000, '1997', '常温', '10', 20, 10, '2022-04-17 11:24:42', '137', '2022-04-17 11:24:42', '137', NULL, NULL, NULL);
-INSERT INTO `reagent_stock` VALUES (6, '1650165881635361', '3', '388', '针头', '10支', '盒', '中心库', '保护伞', '保护伞', 3, 10.000, '1', '常温', '10', 19, 10, '2022-04-17 11:24:42', '137', '2022-04-17 11:24:42', '137', NULL, NULL, NULL);
+INSERT INTO `reagent_stock` VALUES (10, '1650768554828658', '3', '388', '针头', '10支', '盒', '中心库', '保护伞', '保护伞', 10, 10.000, '1', '常温', '10', 734, 10, '2022-04-24 10:49:15', '137', '2022-04-24 10:49:15', '137', NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for reagent_stock_detail
@@ -1846,18 +1885,21 @@ CREATE TABLE `reagent_stock_detail`  (
   `delete_time` datetime(0) NULL DEFAULT NULL,
   `delete_by` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 50 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '试剂耗材库存表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 62 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '试剂耗材库存表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of reagent_stock_detail
 -- ----------------------------
-INSERT INTO `reagent_stock_detail` VALUES (40, '123', '3', '388', '针头', '10支', '保护伞', '12345', '保护伞', '化验科', '盒', '1998', '常温', '2001', '16501658816254842001', '名称: 针头<br/>厂家: 保护伞<br/>供货商: 保护伞<br/>批号: 2<br/>有效期: 2022-05-07<br/>编号: 2001', '2', '2022-05-07', 10, 10.000, 10, 19, NULL, '2022-04-17 11:24:42', '1650165881620656', '王家城', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '137', '2022-04-17 11:24:42', '137', '2022-04-17 11:24:42', NULL, NULL, NULL);
-INSERT INTO `reagent_stock_detail` VALUES (41, '1650165881635361', '3', '388', '针头', '10支', '保护伞', '12345', '保护伞', '中心库', '盒', '1998', '常温', '2002', '16501658816254842002', '名称: 针头<br/>厂家: 保护伞<br/>供货商: 保护伞<br/>批号: 2<br/>有效期: 2022-05-07<br/>编号: 2002', '2', '2022-05-07', 10, 10.000, 10, 19, NULL, '2022-04-17 11:24:42', '1650165881620656', '王家城', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '137', '2022-04-17 11:24:42', '137', '2022-04-17 11:24:42', NULL, NULL, NULL);
-INSERT INTO `reagent_stock_detail` VALUES (42, '1650165881635361', '3', '388', '针头', '10支', '保护伞', '12345', '保护伞', '中心库', '盒', '1998', '常温', '2003', '16501658816254842003', '名称: 针头<br/>厂家: 保护伞<br/>供货商: 保护伞<br/>批号: 2<br/>有效期: 2022-05-07<br/>编号: 2003', '2', '2022-05-07', 10, 10.000, 10, 19, NULL, '2022-04-17 11:24:42', '1650165881620656', '王家城', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '137', '2022-04-17 11:24:42', '137', '2022-04-17 11:24:42', NULL, NULL, NULL);
-INSERT INTO `reagent_stock_detail` VALUES (43, '1650165881635361', '3', '388', '针头', '10支', '保护伞', '12345', '保护伞', '中心库', '盒', '1998', '常温', '2004', '16501658816254842004', '名称: 针头<br/>厂家: 保护伞<br/>供货商: 保护伞<br/>批号: 2<br/>有效期: 2022-05-07<br/>编号: 2004', '2', '2022-05-07', 10, 10.000, 10, 19, NULL, '2022-04-17 11:24:42', '1650165881620656', '王家城', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '137', '2022-04-17 11:24:42', '137', '2022-04-17 11:24:42', NULL, NULL, NULL);
-INSERT INTO `reagent_stock_detail` VALUES (46, '123', '3', '388', '针头', '10支', '保护伞', '12345', '保护伞', '化验科', '盒', '1998', '常温', '2007', '16501658816254842007', '名称: 针头<br/>厂家: 保护伞<br/>供货商: 保护伞<br/>批号: 2<br/>有效期: 2022-05-07<br/>编号: 2007', '2', '2022-05-07', 10, 10.000, 10, 19, NULL, '2022-04-17 11:24:42', '1650165881620656', '王家城', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '137', '2022-04-17 11:24:42', '137', '2022-04-17 11:24:42', NULL, NULL, NULL);
-INSERT INTO `reagent_stock_detail` VALUES (47, '123', '3', '388', '针头', '10支', '保护伞', '12345', '保护伞', '化验科', '盒', '1998', '常温', '2008', '16501658816254842008', '名称: 针头<br/>厂家: 保护伞<br/>供货商: 保护伞<br/>批号: 2<br/>有效期: 2022-05-07<br/>编号: 2008', '2', '2022-05-07', 10, 10.000, 10, 19, NULL, '2022-04-17 11:24:42', '1650165881620656', '王家城', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '137', '2022-04-17 11:24:42', '137', '2022-04-17 12:19:52', NULL, NULL, NULL);
-INSERT INTO `reagent_stock_detail` VALUES (49, '123', '3', '388', '针头', '10支', '保护伞', '12345', '保护伞', '化验科', '盒', '1998', '常温', '2010', '16501658816254842010', '名称: 针头<br/>厂家: 保护伞<br/>供货商: 保护伞<br/>批号: 2<br/>有效期: 2022-05-07<br/>编号: 2010', '2', '2022-05-07', 10, 10.000, 10, 19, NULL, '2022-04-17 11:24:42', '1650165881620656', '王家城', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '137', '2022-04-17 11:24:42', '137', '2022-04-17 12:15:46', NULL, NULL, NULL);
+INSERT INTO `reagent_stock_detail` VALUES (52, '1650768554828658', '3', '388', '针头', '10支', '保护伞', '12345', '保护伞', '化验科', '盒', '1998', '常温', '123456789001', '1650768554802893123456789001', '名称: 针头<br/>厂家: 保护伞<br/>供货商: 保护伞<br/>批号: 123456789<br/>有效期: 2024-04-27<br/>编号: 123456789001', '123456789', '2024-04-27', 10, 10.000, 10, 734, NULL, '2022-04-24 10:49:15', '1650768554796132', '王家城', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '137', '2022-04-24 10:49:15', '137', '2022-04-24 10:49:15', NULL, NULL, NULL);
+INSERT INTO `reagent_stock_detail` VALUES (53, '1650768554828658', '3', '388', '针头', '10支', '保护伞', '12345', '保护伞', '中心库', '盒', '1998', '常温', '123456789002', '1650768554802893123456789002', '名称: 针头<br/>厂家: 保护伞<br/>供货商: 保护伞<br/>批号: 123456789<br/>有效期: 2024-04-27<br/>编号: 123456789002', '123456789', '2024-04-27', 10, 10.000, 10, 734, NULL, '2022-04-24 10:49:15', '1650768554796132', '王家城', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '137', '2022-04-24 10:49:15', '137', '2022-04-24 10:49:15', NULL, NULL, NULL);
+INSERT INTO `reagent_stock_detail` VALUES (54, '1650768554828658', '3', '388', '针头', '10支', '保护伞', '12345', '保护伞', '中心库', '盒', '1998', '常温', '123456789003', '1650768554802893123456789003', '名称: 针头<br/>厂家: 保护伞<br/>供货商: 保护伞<br/>批号: 123456789<br/>有效期: 2024-04-27<br/>编号: 123456789003', '123456789', '2024-04-27', 10, 10.000, 10, 734, NULL, '2022-04-24 10:49:15', '1650768554796132', '王家城', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '137', '2022-04-24 10:49:15', '137', '2022-04-24 10:49:15', NULL, NULL, NULL);
+INSERT INTO `reagent_stock_detail` VALUES (55, '1650768554828658', '3', '388', '针头', '10支', '保护伞', '12345', '保护伞', '中心库', '盒', '1998', '常温', '123456789004', '1650768554802893123456789004', '名称: 针头<br/>厂家: 保护伞<br/>供货商: 保护伞<br/>批号: 123456789<br/>有效期: 2024-04-27<br/>编号: 123456789004', '123456789', '2024-04-27', 10, 10.000, 10, 734, NULL, '2022-04-24 10:49:15', '1650768554796132', '王家城', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '137', '2022-04-24 10:49:15', '137', '2022-04-24 10:49:15', NULL, NULL, NULL);
+INSERT INTO `reagent_stock_detail` VALUES (56, '1650768554828658', '3', '388', '针头', '10支', '保护伞', '12345', '保护伞', '中心库', '盒', '1998', '常温', '123456789005', '1650768554802893123456789005', '名称: 针头<br/>厂家: 保护伞<br/>供货商: 保护伞<br/>批号: 123456789<br/>有效期: 2024-04-27<br/>编号: 123456789005', '123456789', '2024-04-27', 10, 10.000, 10, 734, NULL, '2022-04-24 10:49:15', '1650768554796132', '王家城', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '137', '2022-04-24 10:49:15', '137', '2022-04-24 10:49:15', NULL, NULL, NULL);
+INSERT INTO `reagent_stock_detail` VALUES (57, '1650768554828658', '3', '388', '针头', '10支', '保护伞', '12345', '保护伞', '中心库', '盒', '1998', '常温', '123456789006', '1650768554802893123456789006', '名称: 针头<br/>厂家: 保护伞<br/>供货商: 保护伞<br/>批号: 123456789<br/>有效期: 2024-04-27<br/>编号: 123456789006', '123456789', '2024-04-27', 10, 10.000, 10, 734, NULL, '2022-04-24 10:49:15', '1650768554796132', '王家城', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '137', '2022-04-24 10:49:15', '137', '2022-04-24 10:49:15', NULL, NULL, NULL);
+INSERT INTO `reagent_stock_detail` VALUES (58, '1650768554828658', '3', '388', '针头', '10支', '保护伞', '12345', '保护伞', '中心库', '盒', '1998', '常温', '123456789007', '1650768554802893123456789007', '名称: 针头<br/>厂家: 保护伞<br/>供货商: 保护伞<br/>批号: 123456789<br/>有效期: 2024-04-27<br/>编号: 123456789007', '123456789', '2024-04-27', 10, 10.000, 10, 734, NULL, '2022-04-24 10:49:15', '1650768554796132', '王家城', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '137', '2022-04-24 10:49:15', '137', '2022-04-24 10:49:15', NULL, NULL, NULL);
+INSERT INTO `reagent_stock_detail` VALUES (59, '1650768554828658', '3', '388', '针头', '10支', '保护伞', '12345', '保护伞', '中心库', '盒', '1998', '常温', '123456789008', '1650768554802893123456789008', '名称: 针头<br/>厂家: 保护伞<br/>供货商: 保护伞<br/>批号: 123456789<br/>有效期: 2024-04-27<br/>编号: 123456789008', '123456789', '2024-04-27', 10, 10.000, 10, 734, NULL, '2022-04-24 10:49:15', '1650768554796132', '王家城', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '137', '2022-04-24 10:49:15', '137', '2022-04-24 10:49:15', NULL, NULL, NULL);
+INSERT INTO `reagent_stock_detail` VALUES (60, '1650768554828658', '3', '388', '针头', '10支', '保护伞', '12345', '保护伞', '中心库', '盒', '1998', '常温', '123456789009', '1650768554802893123456789009', '名称: 针头<br/>厂家: 保护伞<br/>供货商: 保护伞<br/>批号: 123456789<br/>有效期: 2024-04-27<br/>编号: 123456789009', '123456789', '2024-04-27', 10, 10.000, 10, 734, NULL, '2022-04-24 10:49:15', '1650768554796132', '王家城', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '137', '2022-04-24 10:49:15', '137', '2022-04-24 10:49:15', NULL, NULL, NULL);
+INSERT INTO `reagent_stock_detail` VALUES (61, '1650768554828658', '3', '388', '针头', '10支', '保护伞', '12345', '保护伞', '中心库', '盒', '1998', '常温', '123456789010', '1650768554802893123456789010', '名称: 针头<br/>厂家: 保护伞<br/>供货商: 保护伞<br/>批号: 123456789<br/>有效期: 2024-04-27<br/>编号: 123456789010', '123456789', '2024-04-27', 10, 10.000, 10, 734, NULL, '2022-04-24 10:49:15', '1650768554796132', '王家城', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '137', '2022-04-24 10:49:15', '137', '2022-04-24 10:49:15', NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for reagent_stock_loss

@@ -32,5 +32,5 @@ public interface ReagentStockMapper {
 
     ReagentStock selectByReagentId(@Param("reagentid") String reagentid, @Param("destination") String destination);
 
-    int outFromCentre(@Param("n1")String n1,@Param("n2")String n2,@Param("name")String name,@Param("number")Long number);
+    int outFromCentre(@Param("branch")String branch,@Param("stock_no")String stock_no,@Param("number")Long number);
 }

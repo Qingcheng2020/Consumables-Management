@@ -69,9 +69,7 @@ public class ReagentStockController {
     @RequestMapping(value = "/outFromBranch", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult outFromBranch(@RequestBody ReagentStock stock) {
-        System.out.println("++++++++++++++++++++++++++++++++++++++");
-        System.out.println(stock.toString());
-        System.out.println("++++++++++++++++++++++++++++++++++++++");
+
         int count = stockService.outFromBranch(stock);
 
         return CommonResult.success(1);

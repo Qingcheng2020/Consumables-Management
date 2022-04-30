@@ -124,18 +124,19 @@
   </delete>
   <delete id="outFromBranch" parameterType="jp.co.nss.hrm.backend.model.ReagentStock">
     update reagent_stock_detail
-    set reagent_status='1999',
-    where stock_no = ${stock_no}
+    set reagent_status='1999'
+    where stock_no = #{stock_no,jdbcType=VARCHAR}
       and branch='化验科'
+      and reagent_status='1998'
     order by remain_day ASC
     limit ${Number}
   </delete>
   <update id="outFromCentre" parameterType="jp.co.nss.hrm.backend.model.ReagentStock">
     update reagent_stock_detail
-    set reagent_status='1997',
-        branch =#{branch,jdbcType=VARCHAR}
+    set branch =#{branch,jdbcType=VARCHAR}
     where stock_no=#{stock_no,jdbcType=VARCHAR}
-    and branch='中心库'
+      and branch='中心库'
+      and reagent_status='1998'
     order by remain_day ASC
     limit ${number}
   </update>

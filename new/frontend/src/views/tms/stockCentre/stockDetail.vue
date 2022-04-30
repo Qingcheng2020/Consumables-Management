@@ -183,7 +183,7 @@
         <el-table-column label="具体信息" width="300%" align="center" >
           <template slot-scope="scope">
             <div>
-              <div class="qrcode-pic" ref="codeItem">
+              <div class="qrcode-pic" ref="codeItem" v-if="scope.row.isQr != '否'">
                 <vue-qr :text="scope.row.qrCode" :size="110" :margin="0"></vue-qr>
               </div>
               <div v-html="scope.row.codeValue" class="right" align="left"></div>
@@ -586,11 +586,11 @@ export default {
         this.total = response.data.total;
         this.dataStock = response.data.list[0];
  //       this.dataStock.reagentId
-      });
-      getIsQr(this.dataStock).then(response => {
+      });/*
+      getIsQr(this.listQuery.reagentCode).then(response => {
         this.listLoading = false;
         this.isQr = response.data;
-      });
+      });*/
     },
   }
 }

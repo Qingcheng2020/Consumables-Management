@@ -2,7 +2,7 @@ import request from '@/utils/request'
 
 export function getIsQr(params) {
   return request({
-    url: '/baseInfo/getIsQr',
+    url: '/baseInfo/getisQR',
     method: 'get',
     params: params
   })

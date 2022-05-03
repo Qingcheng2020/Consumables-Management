@@ -66,7 +66,7 @@ export function countCollect(params) {
 
 export function changeStatus(data) {
   return request({
-    url: '/collect/pda/relocation',
+    url: '/collect/changeStatus',
     method: 'post',
     data: data
   })

@@ -12,7 +12,7 @@ import jp.co.nss.hrm.backend.model.ReagentCollect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
+import com.alibaba.fastjson.JSONObject;
 import java.util.List;
 
 /**
@@ -145,6 +145,20 @@ public class ReagentCollectController {
                                                                 @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum) {
         List<ReagentStatus> collectList = collectService.countCollect(username, startTime, endTime, pageSize, pageNum);
         return CommonResult.success(CommonPage.restPage(collectList));
+    }
+
+
+    @OperationLogAnnotation(operaModule = "申请管理", operaDesc = "修改状态")
+    @ApiOperation("手动完成申请")
+    @RequestMapping(value = "/changeStatus", method = RequestMethod.POST)
+    @ResponseBody
+    public CommonResult changeStatus(@RequestBody JSONObject itemId) {
+        Long id= Long.valueOf(itemId.getString("itemId"));
+        long count= collectService.changeStatus(id);
+        if (count > 0) {
+            return CommonResult.success(count);
+        }
+        return CommonResult.failed();
     }
 
 }

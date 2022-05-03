@@ -27,4 +27,6 @@ public interface ReagentCollectMapper {
     int updateByPrimaryKeySelective(ReagentCollect record);
 
     int updateByPrimaryKey(ReagentCollect record);
+
+    int changeStatus(@Param("id") Long id);
 }

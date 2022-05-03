@@ -68,6 +68,8 @@ public interface ReagentCollectService {
      * 一键移库
      */
     Integer createCollectPdaByOneKey(ReagentCollectPDAReq req, String username);
+
+    int changeStatus(Long id);
 }
 
 

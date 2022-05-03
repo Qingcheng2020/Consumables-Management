@@ -350,4 +350,9 @@
       delete_by = #{deleteBy,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
+  <update id="changeStatus" parameterType="map">
+    update reagent_collect
+    set collect_status='3'
+    where id=#{id,jdbcType=BIGINT}
+  </update>
 </mapper>

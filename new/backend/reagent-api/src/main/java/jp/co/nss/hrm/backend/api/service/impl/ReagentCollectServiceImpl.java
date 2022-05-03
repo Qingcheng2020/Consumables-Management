@@ -940,6 +940,12 @@ public class ReagentCollectServiceImpl implements ReagentCollectService {
     }
 
     @Override
+    public int changeStatus(Long id) {
+
+        return collectMapper.changeStatus(id);
+    }
+
+    @Override
     public List<ReagentCollect> getAllByApplyType(String applyType) {
 
         return collectDao.getAllByApplyType(applyType);

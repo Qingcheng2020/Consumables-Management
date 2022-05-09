@@ -70,7 +70,7 @@
               size="mini"
               type="primary"
               @click="handleViewChange(scope.$index, scope.row)"
-              v-show="scope.row.collectStatus==1 || scope.row.collectStatus==2 || scope.row.collectStatus==3">完成
+              v-show="scope.row.collectStatus==1 || scope.row.collectStatus==2 || scope.row.collectStatus==3">出库
             </el-button>
             <el-button
               size="mini"
@@ -85,16 +85,11 @@
               @click="handleViewCollect(scope.$index, scope.row)"
               v-show="scope.row.collectStatus==0">编辑
             </el-button>
-<!--            <el-button
-              size="mini"
-              type="danger"
-              v-show="roleId == 3 || roleId == 1"
-              @click="handleDeleteCollect(scope.$index, scope.row)">删除
-            </el-button>-->
           </template>
         </el-table-column>
       </el-table>
     </div>
+
     <el-button style="margin-top: 20px" size="small" @click="back()">返回</el-button>
     <div class="pagination-container">
       <el-pagination
@@ -108,9 +103,22 @@
         :total="total">
       </el-pagination>
     </div>
+
+<!--    <el-dialog-->
+<!--      :title="'确认出库？'"-->
+<!--      :visible.sync="editDialogVisible"-->
+<!--      width="20%">-->
+
+<!--      <span slot="footer" class="dialog-footer">-->
+<!--        <el-button @click="editDialogVisible = false" size="small">取 消</el-button>-->
+<!--        <el-button type="primary" @click="handleEditDialogConfirm()" size="small">确 定</el-button>-->
+<!--      </span>-->
+<!--    </el-dialog>-->
+
   </div>
 </template>
 <script>
+import {outFromCentreStock} from '@/api/stock';
 import {applyInStock, deleteCollect, fetchList,changeStatus} from '@/api/collect'
 import {formatDate} from '@/utils/date';
 import {deleteCollectDetail} from "@/api/collectDetail";
@@ -204,19 +212,40 @@ export default {
         query: {collectNo: row.collectNo, collectStatus: row.collectStatus}
       })
     },
+    // handleViewChange(index, row) {
+    //   this.editDialogVisible = true;
+    //   this.StockCentre = Object.assign({}, row);
+
+      // console.log(sendData)
+      // changeStatus(sendData).then(response => {
+      //   this.$message({
+      //     message: '出库成功！',
+      //     type: 'success',
+      //     duration: 1000
+      //   });
+      //   this.getList();
+      // });
+    // },
     handleViewChange(index, row) {
       let sendData = {
-        itemId : row.id,
+        OrderId : row.collectNo,
+        destination : row.branch
       };
-      console.log(sendData)
-      changeStatus(sendData).then(response => {
-        this.$message({
-          message: '修改状态成功！',
-          type: 'success',
-          duration: 1000
+      this.$confirm('是否确认出库?', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      }).then(() => {
+        outFromCentreStock(sendData).then(response => {
+          this.$message({
+            message: '出库成功！',
+            type: 'success',
+            duration: 1000
+          });
+          this.getList();
         });
-        this.getList();
-      });
+
+      })
     },
     handleApplyIn(index, row) {
       this.applyInType = 1;

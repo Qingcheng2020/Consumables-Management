@@ -92,11 +92,11 @@
         </el-table-column>
         <el-table-column label="操作" width="200" align="center">
           <template slot-scope="scope">
-            <el-button size="mini"
-                type="primary"
-                icon="el-icon-edit"
-              @click="handleUpdate(scope.$index, scope.row)">出库
-            </el-button>
+<!--            <el-button size="mini"-->
+<!--                type="primary"-->
+<!--                icon="el-icon-edit"-->
+<!--              @click="handleUpdate(scope.$index, scope.row)">出库-->
+<!--            </el-button>-->
             <el-button size="mini"
                        type="primary"
                        @click="handleViewStock(scope.$index, scope.row)">查看
@@ -285,7 +285,7 @@ export default {
       })
     },
     fetchAllBranchList() {
-      List = fetchAllBranchList().then(res =>{
+        List = fetchAllBranchList().then(res =>{
         this.branchList.value = List.get(0);
       })
     },
@@ -396,6 +396,7 @@ export default {
       })
     },
     handleEditDialogConfirm() {
+      console.log(this.StockCentre)
       this.$confirm('是否要确认?', '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',

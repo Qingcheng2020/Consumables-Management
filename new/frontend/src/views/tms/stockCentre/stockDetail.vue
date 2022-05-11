@@ -183,7 +183,7 @@
         <el-table-column label="具体信息" width="300%" align="center" >
           <template slot-scope="scope">
             <div>
-              <div class="qrcode-pic" ref="codeItem" v-if="scope.row.isQr != '否'">
+              <div class="qrcode-pic" ref="codeItem" v-show="isQr == '是'">
                 <vue-qr :text="scope.row.qrCode" :size="110" :margin="0"></vue-qr>
               </div>
               <div v-html="scope.row.codeValue" class="right" align="left"></div>
@@ -319,7 +319,7 @@ export default {
       stockCentreDetail: [],
       stockCentre: [],
       multipleSelection: [],
-      isQr: null,
+      isQr: '是',
       allocDialogVisible: false,
       allocLossId: null,
       allocQrcode: null,
@@ -366,6 +366,7 @@ export default {
   created() {
     this.getList();
     this.getStock();
+  //  this.getIsQr();
   },
   filters: {
     formatDateTime(time) {
@@ -377,6 +378,11 @@ export default {
     }
   },
   methods: {
+    getIsQr(){
+      getIsQr(this.listQuery.reagentCode).then(response => {
+        this.isQr = response.data;
+      })
+    },
     overdue({row, columnIndex}) {
       //date1结束时间
       let date1 = new Date(row.expireDate);
@@ -455,7 +461,6 @@ export default {
       pf.toPrint();
     },
     printCode() {
-      if(this.isQr == '否'){ return; }
       setTimeout(() => {
         const that = this;
         this.$nextTick(() => {
@@ -589,7 +594,6 @@ export default {
       });/*
       getIsQr(this.listQuery.reagentCode).then(response => {
         this.listLoading = false;
-        this.isQr = response.data;
       });*/
     },
   }

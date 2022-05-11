@@ -1,5 +1,4 @@
 import request from '@/utils/request'
-import request2 from '@/utils/request'
 
 export function fetchList(data) {
   return request({
@@ -127,7 +126,7 @@ export function lossSummary(params) {
 }
 
 export function getIsQR(id) {
-  return request2({
+  return request({
     url: '/baseInfo/getisQR' + id,
     method: 'get'
   })

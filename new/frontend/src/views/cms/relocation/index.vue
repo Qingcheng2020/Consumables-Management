@@ -70,7 +70,8 @@
               size="mini"
               type="primary"
               @click="handleViewChange(scope.$index, scope.row)"
-              v-show="scope.row.collectStatus==1 || scope.row.collectStatus==2 || scope.row.collectStatus==3">出库
+              v-show="(scope.row.collectStatus==1 || scope.row.collectStatus==2 || scope.row.collectStatus==3)
+                      && (roleId==1 || roleId==6)">出库
             </el-button>
             <el-button
               size="mini"

@@ -148,6 +148,7 @@ import {getCookie} from '@/utils/support';
 import {Message} from "element-ui";
 import {PrintForm} from "../../../utils/printForm";
 import {getTrueName} from '@/api/login';
+import {getRole} from '@/api/order'
 
 const defaultListQuery = {
   pageNum: 1,
@@ -230,6 +231,7 @@ export default {
       editDialogVisible: false,
       downloadLoading: false,
       trueName: null,
+      roleId: 0,
       //试剂在库状态
       statusData: {
         '1': '已入库',
@@ -384,15 +386,23 @@ export default {
         cancelButtonText: '取消',
         type: 'warning'
       }).then(() => {
-        outFromBranchStock(this.StockCentre).then(response => {
+        if(this.StockCentre.outNumber <= this.StockCentre.quantity){
+          outFromBranchStock(this.StockCentre).then(response => {
           this.$message({
-            message: '修改成功！',
+            message: '出库成功！',
             type: 'success'
           });
           this.editDialogVisible = false;
           this.getList();
         });
-
+        } else {
+          console.log('出库数量多于库存数量，参数验证不合法！');
+          this.$message({
+            message: '库存不足！',
+            type: 'warning'
+          });
+          return false
+        }
       })
     },
     getList() {

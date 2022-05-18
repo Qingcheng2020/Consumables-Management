@@ -126,7 +126,7 @@
     update reagent_stock_detail
     set reagent_status='1999'
     where stock_no = #{stock_no,jdbcType=VARCHAR}
-      and branch='化验科'
+      and branch=#{name,jdbcType=VARCHAR}
       and reagent_status='1998'
     order by remain_day ASC
     limit ${Number}
@@ -134,7 +134,7 @@
   <update id="outFromCentre" parameterType="jp.co.nss.hrm.backend.model.ReagentStock">
     update reagent_stock_detail
     set branch =#{branch,jdbcType=VARCHAR}
-    where stock_no=#{stock_no,jdbcType=VARCHAR}
+    where reagent_id=#{reagentcode,jdbcType=VARCHAR}
       and branch='中心库'
       and reagent_status='1998'
     order by remain_day ASC
@@ -533,4 +533,14 @@
       delete_by = #{deleteBy,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
+  <select id="getcode" resultType="java.lang.String">
+    select reagent_code
+    from reagent_collect_detail
+    where collect_no = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="getnumber" resultType="java.lang.Long">
+    select reagent_number
+    from reagent_collect_detail
+    where collect_no = #{id,jdbcType=BIGINT}
+  </select>
 </mapper>

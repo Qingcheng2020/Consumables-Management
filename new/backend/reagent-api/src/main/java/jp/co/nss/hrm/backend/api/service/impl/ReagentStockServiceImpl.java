@@ -355,19 +355,17 @@ public class ReagentStockServiceImpl implements ReagentStockService {
     }
 
     public int outFromBranch(ReagentStock stock){
-        long Quantity=stock.getQuantity();
         long Number=stock.getoutNumber();
-        stock.setQuantity(Quantity-Number);
-        stockMapper.updateByPrimaryKeySelective(stock);
-        return stockMapper.outFromBranch(stock.getStockNo(),Number);
+        String name=stock.getBranchName();
+        return stockMapper.outFromBranch(stock.getStockNo(),Number,name);
 
     }
 
-    public int outFromCentre(ReagentStock stock){
+    public int outFromCentre(Long id,String destination){
 
-        String destination=stock.getdestination()+"";
-
-        return stockMapper.outFromCentre(destination,stock.getStockNo(),stock.getoutNumber());
+        String reagentcode=stockMapper.getcode(id);
+        Long number =stockMapper.getnumber(id);
+        return stockMapper.outFromCentre(destination,reagentcode,number);
 
     };
 }

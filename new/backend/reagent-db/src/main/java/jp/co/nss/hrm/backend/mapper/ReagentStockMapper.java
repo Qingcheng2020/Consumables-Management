@@ -28,9 +28,13 @@ public interface ReagentStockMapper {
 
     int updateByPrimaryKey(ReagentStock record);
 
-    int outFromBranch(@Param("stock_no") String stock_no,@Param("Number") Long Number);
+    int outFromBranch(@Param("stock_no") String stock_no, @Param("Number") Long Number, @Param("name")String name);
 
     ReagentStock selectByReagentId(@Param("reagentid") String reagentid, @Param("destination") String destination);
 
-    int outFromCentre(@Param("branch")String branch,@Param("stock_no")String stock_no,@Param("number")Long number);
+    int outFromCentre(@Param("branch")String branch,@Param("reagentcode")String reagentcode,@Param("number")Long number);
+
+    String getcode(@Param("id")Long id);
+
+    Long getnumber(@Param("id")Long id);
 }

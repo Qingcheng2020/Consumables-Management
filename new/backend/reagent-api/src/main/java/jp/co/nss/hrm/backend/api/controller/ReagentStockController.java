@@ -1,10 +1,12 @@
 package jp.co.nss.hrm.backend.api.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.github.pagehelper.PageInfo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import jp.co.nss.hrm.backend.api.aop.annotation.OperationLogAnnotation;
 import jp.co.nss.hrm.backend.api.dto.ReagentInfo;
+import jp.co.nss.hrm.backend.api.service.ReagentCollectService;
 import jp.co.nss.hrm.backend.api.service.ReagentStockDetailService;
 import jp.co.nss.hrm.backend.api.service.ReagentStockService;
 import jp.co.nss.hrm.backend.common.api.CommonResult;
@@ -29,6 +31,8 @@ public class ReagentStockController {
     private ReagentStockService stockService;
     @Autowired
     private ReagentStockDetailService stockDetailService;
+    @Autowired
+    private ReagentCollectService collectService;
 
     @ApiOperation("库存计数")
     @RequestMapping(value = "/count", method = RequestMethod.GET)
@@ -69,7 +73,8 @@ public class ReagentStockController {
     @RequestMapping(value = "/outFromBranch", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult outFromBranch(@RequestBody ReagentStock stock) {
-
+        System.out.println("------------------------------------------------");
+        System.out.println(stock.toString());
         int count = stockService.outFromBranch(stock);
 
         return CommonResult.success(1);
@@ -79,10 +84,11 @@ public class ReagentStockController {
     @ApiOperation("移出中心库")
     @RequestMapping(value = "/outFromCentre", method = RequestMethod.POST)
     @ResponseBody
-    public CommonResult outFromCentre(@RequestBody ReagentStock stock) {
-
-        int count = stockService.outFromCentre(stock);
-
+    public CommonResult outFromCentre(@RequestBody JSONObject data) {
+        Long id= Long.valueOf(data.getString("OrderId"));
+        String branch= data.getString("destination");
+        stockService.outFromCentre(id,branch);
+        int count= collectService.changeStatus(id);
         return CommonResult.success(count);
     }
 

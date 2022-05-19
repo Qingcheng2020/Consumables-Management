@@ -941,7 +941,6 @@ public class ReagentCollectServiceImpl implements ReagentCollectService {
 
     @Override
     public int changeStatus(Long id) {
-
         return collectMapper.changeStatus(id);
     }
 

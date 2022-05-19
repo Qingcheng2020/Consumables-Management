@@ -1,7 +1,10 @@
 package jp.co.nss.hrm.backend.mapper;
 
 import java.util.List;
+import java.util.Map;
+
 import jp.co.nss.hrm.backend.model.ReagentStock;
+import jp.co.nss.hrm.backend.model.ReagentCollectDetail;
 import jp.co.nss.hrm.backend.model.ReagentStockExample;
 import org.apache.ibatis.annotations.Param;
 
@@ -34,7 +37,5 @@ public interface ReagentStockMapper {
 
     int outFromCentre(@Param("branch")String branch,@Param("reagentcode")String reagentcode,@Param("number")Long number);
 
-    String getcode(@Param("id")Long id);
-
-    Long getnumber(@Param("id")Long id);
+    List<Map<String,Long>> getdata(@Param("id")Long id);
 }

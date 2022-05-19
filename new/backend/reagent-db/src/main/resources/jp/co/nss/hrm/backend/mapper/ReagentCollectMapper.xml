@@ -353,6 +353,6 @@
   <update id="changeStatus" parameterType="map">
     update reagent_collect
     set collect_status='3'
-    where id=#{id,jdbcType=BIGINT}
+    where collect_no=#{id,jdbcType=BIGINT}
   </update>
 </mapper>

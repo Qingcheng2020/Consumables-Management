@@ -533,13 +533,8 @@
       delete_by = #{deleteBy,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <select id="getcode" resultType="java.lang.String">
-    select reagent_code
-    from reagent_collect_detail
-    where collect_no = #{id,jdbcType=BIGINT}
-  </select>
-  <select id="getnumber" resultType="java.lang.Long">
-    select reagent_number
+  <select id="getdata" resultType="java.util.HashMap">
+    select reagent_code,reagent_number
     from reagent_collect_detail
     where collect_no = #{id,jdbcType=BIGINT}
   </select>

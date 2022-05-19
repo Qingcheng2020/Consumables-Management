@@ -1,5 +1,6 @@
 package jp.co.nss.hrm.backend.api.service.impl;
 
+import java.util.Map;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -12,6 +13,7 @@ import jp.co.nss.hrm.backend.api.service.ReagentStockService;
 import jp.co.nss.hrm.backend.mapper.ReagentStockMapper;
 import jp.co.nss.hrm.backend.model.ReagentStock;
 import jp.co.nss.hrm.backend.model.ReagentStockCentre;
+import jp.co.nss.hrm.backend.model.ReagentCollectDetail;
 import jp.co.nss.hrm.backend.model.ReagentStockExample;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -363,9 +365,14 @@ public class ReagentStockServiceImpl implements ReagentStockService {
 
     public int outFromCentre(Long id,String destination){
 
-        String reagentcode=stockMapper.getcode(id);
-        Long number =stockMapper.getnumber(id);
-        return stockMapper.outFromCentre(destination,reagentcode,number);
+        List<Map<String,Long>> reagentCollectDetails=stockMapper.getdata(id);
+        System.out.println(reagentCollectDetails);
+        int i=0;
+        for (i=0;i<reagentCollectDetails.size();i++){
+            stockMapper.outFromCentre(destination, String.valueOf(reagentCollectDetails.get(i).get("reagent_code")),reagentCollectDetails.get(i).get("reagent_number"));
+        }
+
+        return 1;
 
     };
 }

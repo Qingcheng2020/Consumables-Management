@@ -333,7 +333,7 @@ export default {
         if (res.data && res.data.list.length !== 0) {
           this.dataOutBill = res.data.list[0];
         } else {
-          Message.error('获取出库单基本信息失败');
+          //Message.error('获取出库单基本信息失败');
         }
       });
     },

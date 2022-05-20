@@ -412,7 +412,7 @@ export default {
         } else {
           console.log('出库数量多于库存数量，参数验证不合法！');
           this.$message({
-            message: '库存不足！',
+            message: '出库失败！',
             type: 'warning'
           });
           return false

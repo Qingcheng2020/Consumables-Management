@@ -534,8 +534,36 @@
     where id = #{id,jdbcType=BIGINT}
   </update>
   <select id="getdata" resultType="java.util.HashMap">
-    select reagent_code,reagent_number
+    select *
     from reagent_collect_detail
     where collect_no = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="findhead" resultType="java.lang.String">
+    select head
+    from reagent_branch
+    where branch_name = #{name,jdbcType=VARCHAR}
+  </select>
+  <select id="getregistration" resultType="java.lang.String">
+    select registration_no
+    from reagent_base_info
+    where code = #{reagentId,jdbcType=VARCHAR}
+  </select>
+  <select id="findfrombranch" resultType="java.util.HashMap">
+    select qr_code,code_value
+    from reagent_stock_detail
+    where stock_no = #{stock_no,jdbcType=VARCHAR}
+      and branch=#{name,jdbcType=VARCHAR}
+      and reagent_status='1998'
+      order by remain_day ASC
+    limit ${Number}
+  </select>
+  <select id="findFromCentre" resultType="java.util.HashMap">
+    select *
+    from reagent_stock_detail
+    where reagent_id=#{reagentcode,jdbcType=VARCHAR}
+      and branch='中心库'
+      and reagent_status='1998'
+      order by remain_day ASC
+    limit ${number}
   </select>
 </mapper>

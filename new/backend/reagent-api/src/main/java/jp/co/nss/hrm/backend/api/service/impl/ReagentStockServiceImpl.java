@@ -1,27 +1,24 @@
 package jp.co.nss.hrm.backend.api.service.impl;
 
-import java.util.Map;
+import java.util.*;
+
+import cn.hutool.core.date.DateUtil;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import jp.co.nss.hrm.backend.api.dao.ReagentAdminDao;
-import jp.co.nss.hrm.backend.api.dao.ReagentAdminRoleRelationDao;
-import jp.co.nss.hrm.backend.api.dao.ReagentCollectDetailDao;
-import jp.co.nss.hrm.backend.api.dao.ReagentStockDao;
+import jp.co.nss.hrm.backend.api.dao.*;
 import jp.co.nss.hrm.backend.api.dto.ReagentInfo;
+import jp.co.nss.hrm.backend.api.dto.ReagentOutDetailItem;
+import jp.co.nss.hrm.backend.api.enums.BillStatus;
 import jp.co.nss.hrm.backend.api.service.ReagentStockService;
+import jp.co.nss.hrm.backend.mapper.ReagentOutBillMapper;
+import jp.co.nss.hrm.backend.mapper.ReagentOutDetailItemMapper;
 import jp.co.nss.hrm.backend.mapper.ReagentStockMapper;
-import jp.co.nss.hrm.backend.model.ReagentStock;
-import jp.co.nss.hrm.backend.model.ReagentStockCentre;
-import jp.co.nss.hrm.backend.model.ReagentCollectDetail;
-import jp.co.nss.hrm.backend.model.ReagentStockExample;
+import jp.co.nss.hrm.backend.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 @Service
 public class ReagentStockServiceImpl implements ReagentStockService {
@@ -35,6 +32,12 @@ public class ReagentStockServiceImpl implements ReagentStockService {
     private ReagentAdminRoleRelationDao adminRoleDao;
     @Autowired
     private ReagentCollectDetailDao collectDetailDao;
+    @Autowired
+    private ReagentOutBillMapper outBillMapper;
+    @Autowired
+    private ReagentOutDetailDao outDetailDao;
+    @Autowired
+    private ReagentOutItemDao outItemDao;
 
     public String stockCount() {
 
@@ -359,21 +362,194 @@ public class ReagentStockServiceImpl implements ReagentStockService {
     public int outFromBranch(ReagentStock stock){
         long Number=stock.getoutNumber();
         String name=stock.getBranchName();
+
+        //fisrt
+        ReagentOutBill outBill = new ReagentOutBill();
+        Date timeNow = new Date();
+
+        Long time1 = new Date().getTime();
+        Random ne2 = new Random();//实例化一个random的对象ne
+        int x2 = ne2.nextInt(999 - 100 + 1) + 100;//为变量赋随机值100-999
+        String random_order2 = String.valueOf(x2);
+        String billCode = time1 + random_order2;
+
+        String creater =stockMapper.findhead(name);
+
+        outBill.setBillCode(billCode);
+        outBill.setBillType("2");
+        outBill.setBillDate(timeNow);
+        outBill.setBillStatus(true);
+        outBill.setBillCreator(creater);
+        outBill.setBranchName(name);
+        outBill.setUpdateTime(timeNow);
+        outBill.setCreateTime(timeNow);
+        outBill.setApplicationDate(timeNow);
+        outBill.setApplicationUser("张三");
+        outBillMapper.insert(outBill);
+
+        //second
+        ReagentOutDetail outDetail = new ReagentOutDetail();
+        List<ReagentOutDetail> outDetailList = new ArrayList<>();
+        //生成出库单详情号
+        Long time2 = new Date().getTime();
+        Random ne3 = new Random();//实例化一个random的对象ne
+        int x3 = ne3.nextInt(999 - 100 + 1) + 100;//为变量赋随机值100-999
+        String random_order3 = String.valueOf(x3);
+        String outDetailId = time2 + random_order3;
+
+        String registration=stockMapper.getregistration(stock.getReagentId());
+
+        outDetail.setId(outBill.getId());
+        outDetail.setReagentName(stock.getReagentName());
+        outDetail.setBillCode(billCode);
+        outDetail.setOutDetailId(outDetailId);
+        outDetail.setReagentId(stock.getReagentId());
+        outDetail.setReagentSpecification(stock.getReagentType());
+        outDetail.setFactory(stock.getFactory());
+        outDetail.setRegistrationNo(registration);
+        outDetail.setSupplierShortName(stock.getSupplierName());
+        outDetail.setReagentUnit(stock.getReagentUnit());
+        outDetail.setPrice(stock.getReagentPrice());
+        outDetail.setQuantity(Number);
+        Double total= Number*stock.getReagentPrice();
+        outDetail.setTotal(total);
+        outDetail.setCreateTime(timeNow);
+        outDetail.setCreateBy(creater);
+        outDetail.setApplicationUser("张三");
+        outDetail.setUpdateTime(timeNow);
+        outDetail.setUpdateBy(creater);
+        outDetailList.add(outDetail);
+
+        outDetailDao.insertOutDetail(outDetailList);
+
+        //third
+        List<Map<String,String>> stockDetails=stockMapper.findfrombranch(stock.getStockNo(),Number,name);
+        List<ReagentOutDetailItem> reagentOutDetailItemsList = new ArrayList<>();
+        for(int i=0;i<stockDetails.size();i++){
+            ReagentOutDetailItem item = new ReagentOutDetailItem();
+            item.setBillCode(billCode);
+            item.setOutDetailId(outDetailId);
+            item.setCreateTime(timeNow);
+            item.setCreateBy(creater);
+            item.setUpdateBy(creater);
+            item.setUpdateTime(timeNow);
+            item.setReagentCode(stock.getReagentId());
+            item.setQrCode(stockDetails.get(i).get("qr_code"));
+            item.setCodeValue(stockDetails.get(i).get("code_value"));
+
+            reagentOutDetailItemsList.add(item);
+        }
+        outItemDao.insertItem(reagentOutDetailItemsList);
+
+
+
         return stockMapper.outFromBranch(stock.getStockNo(),Number,name);
 
     }
 
     public int outFromCentre(Long id,String destination){
+        //中心库出库汇总
+        //first
+        ReagentOutBill outBill = new ReagentOutBill();
+        Date timeNow = new Date();
+        String creater =stockMapper.findhead("中心库");
+        String recevier =stockMapper.findhead(destination);
 
+
+        Long time1 = new Date().getTime();
+        Random ne2 = new Random();//实例化一个random的对象ne
+        int x2 = ne2.nextInt(999 - 100 + 1) + 100;//为变量赋随机值100-999
+        String random_order2 = String.valueOf(x2);
+        String billCode = time1 + random_order2;
+
+        outBill.setBillCode(billCode);
+        outBill.setBillType("3");
+        outBill.setBillDate(timeNow);
+        outBill.setBillStatus(true);
+        outBill.setBillCreator(creater);
+        outBill.setBranchName("中心库");
+        outBill.setUpdateTime(timeNow);
+        outBill.setCreateTime(timeNow);
+        outBill.setApplicationDate(timeNow);
+        outBill.setApplicationUser(recevier);
+        outBillMapper.insert(outBill);
+
+
+
+        //second
+        List<ReagentOutDetailItem> reagentOutDetailItemsList = new ArrayList<>();
         List<Map<String,Long>> reagentCollectDetails=stockMapper.getdata(id);
-        System.out.println(reagentCollectDetails);
-        int i=0;
-        for (i=0;i<reagentCollectDetails.size();i++){
-            stockMapper.outFromCentre(destination, String.valueOf(reagentCollectDetails.get(i).get("reagent_code")),reagentCollectDetails.get(i).get("reagent_number"));
+        List<List<Map<String,Object>>> findcenter =new ArrayList<>();
+        for (int i=0;i<reagentCollectDetails.size();i++){
+            findcenter.add(stockMapper.findFromCentre(destination, String.valueOf(reagentCollectDetails.get(i).get("reagent_code")),reagentCollectDetails.get(i).get("reagent_number")));}
+
+
+        List<ReagentOutDetail> outDetailList = new ArrayList<>();
+
+        for(int i=0;i<findcenter.size();i++) {
+            //生成出库单详情号
+            Long time2 = new Date().getTime();
+            Random ne3 = new Random();//实例化一个random的对象ne
+            int x3 = ne3.nextInt(999 - 100 + 1) + 100;//为变量赋随机值100-999
+            String random_order3 = String.valueOf(x3);
+            String outDetailId = time2 + random_order3;
+
+
+            ReagentOutDetail outDetail = new ReagentOutDetail();
+
+            outDetail.setId(outBill.getId());
+            outDetail.setReagentName((String) findcenter.get(i).get(0).get("reagent_name"));
+            outDetail.setBillCode(billCode);
+            outDetail.setOutDetailId(outDetailId);
+            outDetail.setReagentId((String) findcenter.get(i).get(0).get("reagent_id"));
+            outDetail.setReagentSpecification((String) findcenter.get(i).get(0).get("specification"));
+            outDetail.setFactory((String) findcenter.get(i).get(0).get("manufacturer_name"));
+            outDetail.setRegistrationNo((String) findcenter.get(i).get(0).get("registration_no"));
+            outDetail.setSupplierShortName((String) findcenter.get(i).get(0).get("supplier_short_name"));
+            outDetail.setReagentUnit((String) findcenter.get(i).get(0).get("reagent_unit"));
+            outDetail.setPrice((Double) findcenter.get(i).get(0).get("reagent_price"));
+            outDetail.setQuantity(reagentCollectDetails.get(i).get("reagent_number"));
+            Double total = outDetail.getQuantity()*outDetail.getPrice();
+            outDetail.setTotal(total);
+            outDetail.setCreateTime(timeNow);
+            outDetail.setCreateBy(creater);
+            outDetail.setApplicationUser(recevier);
+            outDetail.setUpdateTime(timeNow);
+            outDetail.setUpdateBy(creater);
+
+            outDetailList.add(outDetail);
+
+
+            //third
+            for(int j=0;j<findcenter.get(i).size();j++){
+                ReagentOutDetailItem item = new ReagentOutDetailItem();
+                item.setBillCode(billCode);
+                item.setOutDetailId(outDetailId);
+                item.setCreateTime(timeNow);
+                item.setCreateBy(creater);
+                item.setUpdateBy(creater);
+                item.setUpdateTime(timeNow);
+                item.setReagentCode((String) findcenter.get(i).get(0).get("reagent_id"));
+                item.setQrCode((String) findcenter.get(i).get(j).get("qr_code"));
+                item.setCodeValue((String) findcenter.get(i).get(j).get("code_value"));
+
+                reagentOutDetailItemsList.add(item);
+            }
         }
+        outItemDao.insertItem(reagentOutDetailItemsList);
+        outDetailDao.insertOutDetail(outDetailList);
 
-        return 1;
 
-    };
+
+
+
+
+            for (int i = 0; i < reagentCollectDetails.size(); i++) {
+                stockMapper.outFromCentre(destination, String.valueOf(reagentCollectDetails.get(i).get("reagent_code")), reagentCollectDetails.get(i).get("reagent_number"));
+            }
+
+            return 1;
+
+    }
 }
 

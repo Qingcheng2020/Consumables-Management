@@ -5,6 +5,7 @@ import java.util.Map;
 
 import jp.co.nss.hrm.backend.model.ReagentStock;
 import jp.co.nss.hrm.backend.model.ReagentCollectDetail;
+import jp.co.nss.hrm.backend.model.ReagentStockDetail;
 import jp.co.nss.hrm.backend.model.ReagentStockExample;
 import org.apache.ibatis.annotations.Param;
 
@@ -38,4 +39,12 @@ public interface ReagentStockMapper {
     int outFromCentre(@Param("branch")String branch,@Param("reagentcode")String reagentcode,@Param("number")Long number);
 
     List<Map<String,Long>> getdata(@Param("id")Long id);
+
+    String findhead(@Param("name")String name);
+
+    String getregistration(@Param("reagentId")String reagentId);
+
+    List<Map<String,String>> findfrombranch(@Param("stock_no") String stock_no, @Param("Number") Long Number, @Param("name")String name);
+
+    List<Map<String,Object>> findFromCentre(@Param("branch")String branch,@Param("reagentcode")String reagentcode,@Param("number")Long number);
 }

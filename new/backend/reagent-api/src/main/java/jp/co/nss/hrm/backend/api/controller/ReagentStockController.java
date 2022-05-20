@@ -77,7 +77,7 @@ public class ReagentStockController {
         System.out.println(stock.toString());
         int count = stockService.outFromBranch(stock);
 
-        return CommonResult.success(1);
+        return CommonResult.success(count);
     }
 
     @OperationLogAnnotation(operaModule = "在库管理", operaDesc = "移库")

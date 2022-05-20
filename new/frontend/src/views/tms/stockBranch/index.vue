@@ -124,6 +124,7 @@
       :visible.sync="editDialogVisible"
       width="40%">
       <el-form :model="StockCentre"
+               :rules="BaseInfoRules"
                ref="StockCentreForm"
                label-width="150px" size="small">
         <el-form-item label="出库数量">
@@ -242,7 +243,17 @@ export default {
         '1997': '中心已出库',
       },
 
-     
+     inputRules: {       
+        outNumber: [
+          {required: true, message: '请输入出库数量', trigger: 'blur'},
+          {
+            type: "number", transform(value) {
+              return Number(value);
+            }, message: '请输入数字', trigger: 'blur'
+          }
+        ],    
+        applier: '',
+      },
     }
   },
   created() {

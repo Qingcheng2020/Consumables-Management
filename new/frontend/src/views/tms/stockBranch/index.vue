@@ -124,7 +124,7 @@
       :visible.sync="editDialogVisible"
       width="40%">
       <el-form :model="StockCentre"
-               :rules="BaseInfoRules"
+               :rules="inputRules"
                ref="StockCentreForm"
                label-width="150px" size="small">
         <el-form-item label="出库数量">

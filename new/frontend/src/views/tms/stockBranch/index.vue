@@ -129,6 +129,9 @@
         <el-form-item label="出库数量">
           <el-input v-model="StockCentre.outNumber" style="width: 250px"></el-input>
         </el-form-item>
+        <el-form-item label="申领人">
+          <el-input v-model="StockCentre.applier" style="width: 250px"></el-input>
+        </el-form-item>
       </el-form>
 
       <span slot="footer" class="dialog-footer">
@@ -148,7 +151,6 @@ import {getCookie} from '@/utils/support';
 import {Message} from "element-ui";
 import {PrintForm} from "../../../utils/printForm";
 import {getTrueName} from '@/api/login';
-import {getRole} from '@/api/order'
 
 const defaultListQuery = {
   pageNum: 1,
@@ -181,6 +183,7 @@ const defaultStockCentre = {
   overdueStock: null,
   outNumber: null,
   branchName: null,
+  applier: null,
 };
 const printFormColumn = [
   {

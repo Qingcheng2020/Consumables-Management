@@ -64,9 +64,9 @@
         <el-table-column label="供货商" align="center">
           <template slot-scope="scope">{{ scope.row.supplierShortName }}</template>
         </el-table-column>
-        <el-table-column label="产品批号" min-width="100%" align="center">
-          <template slot-scope="scope">{{ scope.row.batchNo }}</template>
-        </el-table-column>
+     <!--   <el-table-column label="产品批号" min-width="100%" align="center">   -->
+     <!--     <template slot-scope="scope">{{ scope.row.batchNo }}</template>    -->
+     <!--   </el-table-column>                                                  -->
         <el-table-column label="单位" align="center">
           <template slot-scope="scope">{{ scope.row.reagentUnit }}</template>
         </el-table-column>
@@ -127,10 +127,6 @@ const printFormColumn = [
     field: 'reagentName',
     name: '耗材名称',
     columnSize: '200%'
-  },
-  {
-    field: 'batchNo',
-    name: '批号',
   },
   {
     field: 'reagentSpecification',
@@ -276,8 +272,8 @@ export default {
           //对应表格输出的title
           const multiHeader = [[' ', ' ', ' ', '检验耗材出库单 ', ' ', ' ', ' ', ' ', ' '],
             ['申领人:', this.multipleSelection[0].createBy, ' ', ' ', '单号:', this.multipleSelection[0].billCode, ' ', '时间:', this.getNowFormatDate()]];
-          const header = ['序号', '耗材名称', '规格型号', '单位', '数量', '单价', '合计金额', '批号', '备注'];
-          const filterVal = ['newId', 'reagentName', 'reagentSpecification', 'reagentUnit', 'quantity', 'price', 'total', 'batchNo', 'remark'];
+          const header = ['序号', '耗材名称', '规格型号', '单位', '数量', '单价', '合计金额', '备注'];
+          const filterVal = ['newId', 'reagentName', 'reagentSpecification', 'reagentUnit', 'quantity', 'price', 'total', 'remark'];
 
           //进行所有表头的单元格合并,按行合并
           const merges = [

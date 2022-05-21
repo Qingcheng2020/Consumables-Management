@@ -7,6 +7,8 @@ import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import jp.co.nss.hrm.backend.api.dao.*;
+import jp.co.nss.hrm.backend.api.dto.ReagentInBillDetail;
+import jp.co.nss.hrm.backend.api.dto.ReagentInBillVm;
 import jp.co.nss.hrm.backend.api.dto.ReagentInfo;
 import jp.co.nss.hrm.backend.api.dto.ReagentOutDetailItem;
 import jp.co.nss.hrm.backend.api.enums.BillStatus;
@@ -38,6 +40,12 @@ public class ReagentStockServiceImpl implements ReagentStockService {
     private ReagentOutDetailDao outDetailDao;
     @Autowired
     private ReagentOutItemDao outItemDao;
+    @Autowired
+    private ReagentInBillDao inBillDao;
+    @Autowired
+    private ReagentInDetailDao inDetailDao;
+    @Autowired
+    private ReagentInDetailItemDao inDetailItemDao;
 
     public String stockCount() {
 
@@ -384,7 +392,7 @@ public class ReagentStockServiceImpl implements ReagentStockService {
         outBill.setUpdateTime(timeNow);
         outBill.setCreateTime(timeNow);
         outBill.setApplicationDate(timeNow);
-        outBill.setApplicationUser("张三");
+        outBill.setApplicationUser(stock.getapplier());
         outBillMapper.insert(outBill);
 
         //second
@@ -415,7 +423,7 @@ public class ReagentStockServiceImpl implements ReagentStockService {
         outDetail.setTotal(total);
         outDetail.setCreateTime(timeNow);
         outDetail.setCreateBy(creater);
-        outDetail.setApplicationUser("张三");
+        outDetail.setApplicationUser(stock.getapplier());
         outDetail.setUpdateTime(timeNow);
         outDetail.setUpdateBy(creater);
         outDetailList.add(outDetail);
@@ -433,7 +441,7 @@ public class ReagentStockServiceImpl implements ReagentStockService {
             item.setCreateBy(creater);
             item.setUpdateBy(creater);
             item.setUpdateTime(timeNow);
-            item.setReagentCode(stock.getReagentId());
+            item.setReagentCode(stockDetails.get(i).get("reagent_code"));
             item.setQrCode(stockDetails.get(i).get("qr_code"));
             item.setCodeValue(stockDetails.get(i).get("code_value"));
 
@@ -457,10 +465,10 @@ public class ReagentStockServiceImpl implements ReagentStockService {
 
 
         Long time1 = new Date().getTime();
-        Random ne2 = new Random();//实例化一个random的对象ne
-        int x2 = ne2.nextInt(999 - 100 + 1) + 100;//为变量赋随机值100-999
-        String random_order2 = String.valueOf(x2);
-        String billCode = time1 + random_order2;
+        Random ne1 = new Random();//实例化一个random的对象ne
+        int x1 = ne1.nextInt(999 - 100 + 1) + 100;//为变量赋随机值100-999
+        String random_order1 = String.valueOf(x1);
+        String billCode = time1 + random_order1;
 
         outBill.setBillCode(billCode);
         outBill.setBillType("3");
@@ -489,10 +497,10 @@ public class ReagentStockServiceImpl implements ReagentStockService {
         for(int i=0;i<findcenter.size();i++) {
             //生成出库单详情号
             Long time2 = new Date().getTime();
-            Random ne3 = new Random();//实例化一个random的对象ne
-            int x3 = ne3.nextInt(999 - 100 + 1) + 100;//为变量赋随机值100-999
-            String random_order3 = String.valueOf(x3);
-            String outDetailId = time2 + random_order3;
+            Random ne2 = new Random();//实例化一个random的对象ne
+            int x2 = ne2.nextInt(999 - 100 + 1) + 100;//为变量赋随机值100-999
+            String random_order2 = String.valueOf(x2);
+            String outDetailId = time2 + random_order2;
 
 
             ReagentOutDetail outDetail = new ReagentOutDetail();
@@ -509,7 +517,7 @@ public class ReagentStockServiceImpl implements ReagentStockService {
             outDetail.setReagentUnit((String) findcenter.get(i).get(0).get("reagent_unit"));
             outDetail.setPrice((Double) findcenter.get(i).get(0).get("reagent_price"));
             outDetail.setQuantity(reagentCollectDetails.get(i).get("reagent_number"));
-            Double total = outDetail.getQuantity()*outDetail.getPrice();
+            Double total = (Double) findcenter.get(i).get(0).get("reagent_price")*reagentCollectDetails.get(i).get("reagent_number");
             outDetail.setTotal(total);
             outDetail.setCreateTime(timeNow);
             outDetail.setCreateBy(creater);
@@ -529,7 +537,7 @@ public class ReagentStockServiceImpl implements ReagentStockService {
                 item.setCreateBy(creater);
                 item.setUpdateBy(creater);
                 item.setUpdateTime(timeNow);
-                item.setReagentCode((String) findcenter.get(i).get(0).get("reagent_id"));
+                item.setReagentCode((String) findcenter.get(i).get(j).get("reagent_code"));
                 item.setQrCode((String) findcenter.get(i).get(j).get("qr_code"));
                 item.setCodeValue((String) findcenter.get(i).get(j).get("code_value"));
 
@@ -542,6 +550,85 @@ public class ReagentStockServiceImpl implements ReagentStockService {
 
 
 
+        //科室库入库汇总
+        //first
+        ReagentInBillVm inBillAll = new ReagentInBillVm();
+
+        Long time3 = new Date().getTime();
+        Random ne3 = new Random();//实例化一个random的对象ne
+        int x3 = ne3.nextInt(999 - 100 + 1) + 100;//为变量赋随机值100-999
+        String random_order3 = String.valueOf(x3);
+        String inBillCode = time3 + random_order3;
+
+        inBillAll.setBillCode(inBillCode);
+        inBillAll.setPreInBillCode(String.valueOf(id));
+        inBillAll.setBillType("3");
+        inBillAll.setCreateType("4");
+        inBillAll.setCreateBy(creater);
+        inBillAll.setBillDate(timeNow);
+        inBillAll.setBillStatus("1");
+        inBillAll.setBranch(destination);
+        inBillAll.setBillCreator(creater);
+        inBillAll.setUpdateTime(timeNow);
+        inBillAll.setCreateTime(timeNow);
+
+        inBillDao.insert(inBillAll);
+
+
+
+        //second
+        List<ReagentInBillDetail> reagentInDetailList = new ArrayList<>();
+        List<ReagentInDetailItem> reagentInDetailItemList = new ArrayList<>();
+        for(int i=0;i<findcenter.size();i++) {
+
+            Long time4 = new Date().getTime();
+            Random ne4 = new Random();//实例化一个random的对象ne
+            int x4 = ne4.nextInt(999 - 100 + 1) + 100;//为变量赋随机值100-999
+            String random_order4 = String.valueOf(x4);
+            String inDetailId = time4 + random_order4;
+
+            ReagentInBillDetail inDetail = new ReagentInBillDetail();
+
+            inDetail.setBillCode(inBillCode);
+            inDetail.setInDetailId(inDetailId);
+            inDetail.setReagentId((String) findcenter.get(i).get(0).get("reagent_id"));
+            inDetail.setReagentName((String) findcenter.get(i).get(0).get("reagent_name"));
+            inDetail.setReagentUnit((String) findcenter.get(i).get(0).get("reagent_unit"));
+            inDetail.setReagentSpecification((String) findcenter.get(i).get(0).get("specification"));
+            inDetail.setFactory((String) findcenter.get(i).get(0).get("manufacturer_name"));
+            inDetail.setPrice((Double) findcenter.get(i).get(0).get("reagent_price"));
+            inDetail.setQuantity(reagentCollectDetails.get(i).get("reagent_number"));
+            Double total = inDetail.getQuantity()*inDetail.getPrice();
+            inDetail.setTotal(total);
+            inDetail.setCreateBy(creater);
+            inDetail.setCreateTime(timeNow);
+
+            reagentInDetailList.add(inDetail);
+
+            for(int j=0;j<findcenter.get(i).size();j++){
+                ReagentInDetailItem item = new ReagentInDetailItem();
+                item.setBillCode(inBillCode);
+                item.setInDetailId(inDetailId);
+                item.setStatus("1");
+                item.setQrCode((String) findcenter.get(i).get(j).get("qr_code"));
+                item.setCodeValue((String) findcenter.get(i).get(j).get("code_value"));
+                item.setReagentCode((String) findcenter.get(i).get(j).get("reagent_code"));
+                item.setCreateTime(timeNow);
+                item.setCreateBy(creater);
+                reagentInDetailItemList.add(item);
+
+
+            }
+
+
+        }
+
+
+
+
+
+        inDetailDao.insertInDetail(reagentInDetailList);
+        inDetailItemDao.insertBillItem(reagentInDetailItemList);
 
 
             for (int i = 0; i < reagentCollectDetails.size(); i++) {

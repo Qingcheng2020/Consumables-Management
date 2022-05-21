@@ -82,6 +82,8 @@ public class ReagentStock implements Serializable {
 
     private String destination;
 
+    private String applier;
+
     private static final long serialVersionUID = 1L;
 
     public Long getId() {
@@ -308,6 +310,15 @@ public class ReagentStock implements Serializable {
         this.destination = destination;
     }
 
+    public String getapplier() {
+        return applier;
+    }
+
+    public void setapplier(String applier) {
+        this.applier = applier;
+    }
+
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -340,6 +351,7 @@ public class ReagentStock implements Serializable {
         sb.append(", deleteBy=").append(deleteBy);
         sb.append(", outNumber=").append(outNumber);
         sb.append(", destination=").append(destination);
+        sb.append(", applier=").append(applier);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

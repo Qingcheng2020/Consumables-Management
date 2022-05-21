@@ -549,7 +549,7 @@
     where code = #{reagentId,jdbcType=VARCHAR}
   </select>
   <select id="findfrombranch" resultType="java.util.HashMap">
-    select qr_code,code_value
+    select *
     from reagent_stock_detail
     where stock_no = #{stock_no,jdbcType=VARCHAR}
       and branch=#{name,jdbcType=VARCHAR}

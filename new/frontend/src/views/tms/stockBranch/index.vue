@@ -186,41 +186,41 @@ const defaultStockCentre = {
   branchName: null,
   applier: null,
 };
-const printFormColumn = [
-  {
-    field: 'reagentName',
-    name: '耗材名称',
-    columnSize: '200%'
-  },
-  {
-    field: 'reagentType',
-    name: '型号规格',
-    columnSize: '100%'
-  },
-  {
-    field: 'factory',
-    name: '生产厂家',
-  },
-  {
-    field: 'supplierName',
-    name: '供货商',
-  },
-  {
-    field: 'reagentUnit',
-    name: '单位',
-    columnSize: '60%'
-  },
-  {
-    field: 'quantity',
-    name: '数量',
-    columnSize: '60%'
-  },
-  {
-    field: 'reagentTemp',
-    name: '储存温度',
-    columnSize: '50%'
-  },
-];
+const printFormColumn = [ 
+  { 
+    field:  'reagentName',
+    name:  '耗材名称',
+    columnSize:  '200%'
+  }, 
+  { 
+    field:  'reagentType',
+    name:  '型号规格',
+    columnSize:  '100%'
+  }, 
+  { 
+    field:  'factory',
+    name:  '生产厂家',
+  }, 
+  { 
+    field:  'supplierName',
+    name:  '供货商',
+  }, 
+  { 
+    field:  'reagentUnit',
+    name:  '单位',
+    columnSize:  '60%'
+  }, 
+  { 
+    field:  'quantity',
+    name:  '数量',
+    columnSize:  '60%'
+  }, 
+  { 
+    field:  'reagentTemp',
+    name:  '储存温度',
+    columnSize:  '50%'
+  }, 
+]; 
 export default {
   name: 'StockCentreList',
   data() {
@@ -294,25 +294,25 @@ export default {
         return;
       }
 
-      const _data = this.list;
+      const _data = this.list; 
 
-      const _createTime = formatDate(new Date(), 'yyyy-MM-dd hh:mm:ss');
+      const _createTime = formatDate(new Date(), 'yyyy-MM-dd hh:mm:ss'); 
 
-      const pf = new PrintForm({
-        orderNumber: Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 9)),
-        creator: `${this.trueName}`,
-        createTime: _createTime,
-        title: '库存汇总',
-        properties: printFormColumn,
-        data: _data,
-        showIds: true,
-        total: {
-          field: 'quantity',
-          showChinese: false,
-        },
-      });
-      pf.toPrint();
-    },
+      const pf = new PrintForm({ 
+        orderNumber: Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 9)), 
+        creator: `${this.trueName}`, 
+        createTime: _createTime, 
+        title: '库存汇总', 
+        properties: printFormColumn, 
+        data: _data, 
+        showIds: true, 
+        total: { 
+          field: 'quantity', 
+          showChinese: false, 
+        }, 
+      }); 
+      pf.toPrint(); 
+    }, 
     //row,  每一行上的数据
     //column, 每一列上的数据
     //rowIndex,  行数的下标从0开始

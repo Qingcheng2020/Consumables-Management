@@ -319,7 +319,7 @@ export default {
       stockCentreDetail: [],
       stockCentre: [],
       multipleSelection: [],
-      isQr: '是',
+      isQr: null,
       allocDialogVisible: false,
       allocLossId: null,
       allocQrcode: null,
@@ -366,7 +366,7 @@ export default {
   created() {
     this.getList();
     this.getStock();
-  //  this.getIsQr();
+    this.getIsQr();
   },
   filters: {
     formatDateTime(time) {
@@ -379,7 +379,7 @@ export default {
   },
   methods: {
     getIsQr(){
-      getIsQr(this.listQuery.reagentCode).then(response => {
+      getIsQr(this.listQuery.reagentId).then(response => {
         this.isQr = response.data;
       })
     },

@@ -90,14 +90,14 @@
           </template>
         </el-table-column>
 
-        <el-table-column label="批号" min-width="90%" align="center">
+  <!---     <el-table-column label="批号" min-width="90%" align="center">
           <template slot-scope="scope">
             <span v-if="scope.row.show">
               <el-input size="mini" placeholder="请输入产品批号" v-model="scope.row.batchNo"></el-input>
             </span>
             <span v-else>{{ scope.row.batchNo }}</span>
           </template>
-        </el-table-column>
+        </el-table-column>--> 
 
         <el-table-column label="有效期" align="center">
           <template slot-scope="scope">

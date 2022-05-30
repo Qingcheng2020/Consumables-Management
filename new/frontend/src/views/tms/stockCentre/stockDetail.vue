@@ -379,7 +379,7 @@ export default {
   },
   methods: {
     getIsQr(){
-      getIsQr(this.listQuery.reagentId).then(response => {
+      getIsQr(this.listQuery).then(response => {
         this.isQr = response.data;
       })
     },

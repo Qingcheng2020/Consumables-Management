@@ -379,7 +379,7 @@ export default {
   },
   methods: {
     getIsQr(){
-      getIsQr(this.dataStock).then(response => {
+      getIsQr(this.$route.query.stockNo).then(response => {
         this.isQr = response.data;
       })
     },

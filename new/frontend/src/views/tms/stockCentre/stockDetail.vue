@@ -379,7 +379,7 @@ export default {
   },
   methods: {
     getIsQr(){
-      getIsQr(this.stockCentreDetail).then(response => {
+      getIsQr(this.dataStock).then(response => {
         this.isQr = response.data;
       })
     },

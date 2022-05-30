@@ -1,4 +1,4 @@
--- reagentdb.reagent_admin definition
+-- supplies.reagent_admin definition
 
 CREATE TABLE `reagent_admin` (
                                  `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -15,7 +15,7 @@ CREATE TABLE `reagent_admin` (
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COMMENT='后台用户表';
 
 
--- reagentdb.reagent_admin_login_log definition
+-- supplies.reagent_admin_login_log definition
 
 CREATE TABLE `reagent_admin_login_log` (
                                            `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -28,7 +28,7 @@ CREATE TABLE `reagent_admin_login_log` (
 ) ENGINE=InnoDB AUTO_INCREMENT=477 DEFAULT CHARSET=utf8 COMMENT='后台用户登录日志表';
 
 
--- reagentdb.reagent_admin_permission_relation definition
+-- supplies.reagent_admin_permission_relation definition
 
 CREATE TABLE `reagent_admin_permission_relation` (
                                                      `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -39,7 +39,7 @@ CREATE TABLE `reagent_admin_permission_relation` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='后台用户和权限关系表(除角色中定义的权限以外的加减权限)';
 
 
--- reagentdb.reagent_admin_role_relation definition
+-- supplies.reagent_admin_role_relation definition
 
 CREATE TABLE `reagent_admin_role_relation` (
                                                `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -49,7 +49,7 @@ CREATE TABLE `reagent_admin_role_relation` (
 ) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8 COMMENT='后台用户和角色关系表';
 
 
--- reagentdb.reagent_base_info definition
+-- supplies.reagent_base_info definition
 
 CREATE TABLE `reagent_base_info` (
                                      `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -76,7 +76,7 @@ CREATE TABLE `reagent_base_info` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='试剂基础情报';
 
 
--- reagentdb.reagent_branch definition
+-- supplies.reagent_branch definition
 
 CREATE TABLE `reagent_branch` (
                                   `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -95,7 +95,7 @@ CREATE TABLE `reagent_branch` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='科室';
 
 
--- reagentdb.reagent_growth_change_history definition
+-- supplies.reagent_growth_change_history definition
 
 CREATE TABLE `reagent_growth_change_history` (
                                                  `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -110,7 +110,7 @@ CREATE TABLE `reagent_growth_change_history` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='成长值变化历史记录表';
 
 
--- reagentdb.reagent_in_bill definition
+-- supplies.reagent_in_bill definition
 
 CREATE TABLE `reagent_in_bill` (
                                    `id` bigint(20) NOT NULL COMMENT 'id',
@@ -133,7 +133,7 @@ CREATE TABLE `reagent_in_bill` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='试剂耗材入库申请单（接收单）';
 
 
--- reagentdb.reagent_in_detail definition
+-- supplies.reagent_in_detail definition
 
 CREATE TABLE `reagent_in_detail` (
                                      `id` bigint(20) NOT NULL COMMENT 'id',
@@ -159,7 +159,7 @@ CREATE TABLE `reagent_in_detail` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='试剂耗材入库申请单详细';
 
 
--- reagentdb.reagent_in_detail_item definition
+-- supplies.reagent_in_detail_item definition
 
 CREATE TABLE `reagent_in_detail_item` (
                                           `id` bigint(20) NOT NULL COMMENT 'id',
@@ -177,7 +177,7 @@ CREATE TABLE `reagent_in_detail_item` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='试剂耗材入库申请单个体';
 
 
--- reagentdb.reagent_integration_change_history definition
+-- supplies.reagent_integration_change_history definition
 
 CREATE TABLE `reagent_integration_change_history` (
                                                       `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -192,7 +192,7 @@ CREATE TABLE `reagent_integration_change_history` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='积分变化历史记录表';
 
 
--- reagentdb.reagent_integration_consume_setting definition
+-- supplies.reagent_integration_consume_setting definition
 
 CREATE TABLE `reagent_integration_consume_setting` (
                                                        `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -204,7 +204,7 @@ CREATE TABLE `reagent_integration_consume_setting` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='积分消费设置';
 
 
--- reagentdb.reagent_member definition
+-- supplies.reagent_member definition
 
 CREATE TABLE `reagent_member` (
                                   `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -232,7 +232,7 @@ CREATE TABLE `reagent_member` (
 ) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COMMENT='会员表';
 
 
--- reagentdb.reagent_member_level definition
+-- supplies.reagent_member_level definition
 
 CREATE TABLE `reagent_member_level` (
                                         `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -252,7 +252,7 @@ CREATE TABLE `reagent_member_level` (
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COMMENT='会员等级表';
 
 
--- reagentdb.reagent_member_login_log definition
+-- supplies.reagent_member_login_log definition
 
 CREATE TABLE `reagent_member_login_log` (
                                             `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -266,7 +266,7 @@ CREATE TABLE `reagent_member_login_log` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='会员登录记录';
 
 
--- reagentdb.reagent_member_member_tag_relation definition
+-- supplies.reagent_member_member_tag_relation definition
 
 CREATE TABLE `reagent_member_member_tag_relation` (
                                                       `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -276,7 +276,7 @@ CREATE TABLE `reagent_member_member_tag_relation` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户和标签关系表';
 
 
--- reagentdb.reagent_member_product_category_relation definition
+-- supplies.reagent_member_product_category_relation definition
 
 CREATE TABLE `reagent_member_product_category_relation` (
                                                             `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -286,7 +286,7 @@ CREATE TABLE `reagent_member_product_category_relation` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='会员与产品分类关系表（用户喜欢的分类）';
 
 
--- reagentdb.reagent_member_receive_address definition
+-- supplies.reagent_member_receive_address definition
 
 CREATE TABLE `reagent_member_receive_address` (
                                                   `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -303,7 +303,7 @@ CREATE TABLE `reagent_member_receive_address` (
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COMMENT='会员收货地址表';
 
 
--- reagentdb.reagent_member_rule_setting definition
+-- supplies.reagent_member_rule_setting definition
 
 CREATE TABLE `reagent_member_rule_setting` (
                                                `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -317,7 +317,7 @@ CREATE TABLE `reagent_member_rule_setting` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='会员积分成长规则表';
 
 
--- reagentdb.reagent_member_statistics_info definition
+-- supplies.reagent_member_statistics_info definition
 
 CREATE TABLE `reagent_member_statistics_info` (
                                                   `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -340,7 +340,7 @@ CREATE TABLE `reagent_member_statistics_info` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='会员统计信息';
 
 
--- reagentdb.reagent_member_tag definition
+-- supplies.reagent_member_tag definition
 
 CREATE TABLE `reagent_member_tag` (
                                       `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -351,7 +351,7 @@ CREATE TABLE `reagent_member_tag` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户标签表';
 
 
--- reagentdb.reagent_member_task definition
+-- supplies.reagent_member_task definition
 
 CREATE TABLE `reagent_member_task` (
                                        `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -363,7 +363,7 @@ CREATE TABLE `reagent_member_task` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='会员任务表';
 
 
--- reagentdb.reagent_menu definition
+-- supplies.reagent_menu definition
 
 CREATE TABLE `reagent_menu` (
                                 `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -379,7 +379,7 @@ CREATE TABLE `reagent_menu` (
 ) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8 COMMENT='后台菜单表';
 
 
--- reagentdb.reagent_operation_log definition
+-- supplies.reagent_operation_log definition
 
 CREATE TABLE `reagent_operation_log` (
                                          `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -392,7 +392,7 @@ CREATE TABLE `reagent_operation_log` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='操作日志';
 
 
--- reagentdb.reagent_order definition
+-- supplies.reagent_order definition
 
 CREATE TABLE `reagent_order` (
                                  `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -417,7 +417,7 @@ CREATE TABLE `reagent_order` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='订单';
 
 
--- reagentdb.reagent_out_application definition
+-- supplies.reagent_out_application definition
 
 CREATE TABLE `reagent_out_application` (
                                            `id` bigint(20) NOT NULL COMMENT 'id',
@@ -438,7 +438,7 @@ CREATE TABLE `reagent_out_application` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='移库申请';
 
 
--- reagentdb.reagent_permission definition
+-- supplies.reagent_permission definition
 
 CREATE TABLE `reagent_permission` (
                                       `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -455,7 +455,7 @@ CREATE TABLE `reagent_permission` (
 ) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8 COMMENT='后台用户权限表';
 
 
--- reagentdb.reagent_resource definition
+-- supplies.reagent_resource definition
 
 CREATE TABLE `reagent_resource` (
                                     `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -468,7 +468,7 @@ CREATE TABLE `reagent_resource` (
 ) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8 COMMENT='后台资源表';
 
 
--- reagentdb.reagent_resource_category definition
+-- supplies.reagent_resource_category definition
 
 CREATE TABLE `reagent_resource_category` (
                                              `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -479,7 +479,7 @@ CREATE TABLE `reagent_resource_category` (
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COMMENT='资源分类表';
 
 
--- reagentdb.reagent_role definition
+-- supplies.reagent_role definition
 
 CREATE TABLE `reagent_role` (
                                 `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -493,7 +493,7 @@ CREATE TABLE `reagent_role` (
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='后台用户角色表';
 
 
--- reagentdb.reagent_role_menu_relation definition
+-- supplies.reagent_role_menu_relation definition
 
 CREATE TABLE `reagent_role_menu_relation` (
                                               `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -503,7 +503,7 @@ CREATE TABLE `reagent_role_menu_relation` (
 ) ENGINE=InnoDB AUTO_INCREMENT=102 DEFAULT CHARSET=utf8 COMMENT='后台角色菜单关系表';
 
 
--- reagentdb.reagent_role_permission_relation definition
+-- supplies.reagent_role_permission_relation definition
 
 CREATE TABLE `reagent_role_permission_relation` (
                                                     `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -513,7 +513,7 @@ CREATE TABLE `reagent_role_permission_relation` (
 ) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8 COMMENT='后台用户角色和权限关系表';
 
 
--- reagentdb.reagent_role_resource_relation definition
+-- supplies.reagent_role_resource_relation definition
 
 CREATE TABLE `reagent_role_resource_relation` (
                                                   `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -523,7 +523,7 @@ CREATE TABLE `reagent_role_resource_relation` (
 ) ENGINE=InnoDB AUTO_INCREMENT=219 DEFAULT CHARSET=utf8 COMMENT='后台角色资源关系表';
 
 
--- reagentdb.reagent_stock definition
+-- supplies.reagent_stock definition
 
 CREATE TABLE `reagent_stock` (
                                  `id` bigint(20) NOT NULL COMMENT 'id',
@@ -543,7 +543,7 @@ CREATE TABLE `reagent_stock` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='试剂耗材库存表';
 
 
--- reagentdb.reagent_stock_item definition
+-- supplies.reagent_stock_item definition
 
 CREATE TABLE `reagent_stock_item` (
                                       `id` bigint(20) NOT NULL COMMENT 'id',
@@ -561,7 +561,7 @@ CREATE TABLE `reagent_stock_item` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='试剂耗材库存个体';
 
 
--- reagentdb.reagent_supplier definition
+-- supplies.reagent_supplier definition
 
 CREATE TABLE `reagent_supplier` (
                                     `id` bigint(20) NOT NULL AUTO_INCREMENT,

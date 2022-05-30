@@ -5,7 +5,7 @@
  Source Server Type    : MySQL
  Source Server Version : 50734
  Source Host           : 121.4.95.202:3306
- Source Schema         : reagentdb
+ Source Schema         : supplies
 
  Target Server Type    : MySQL
  Target Server Version : 50734

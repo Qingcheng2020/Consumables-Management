@@ -566,4 +566,9 @@
       order by remain_day ASC
     limit ${number}
   </select>
+  <select id="getbranch" resultType="java.lang.String">
+    select branch_name
+    from reagent_branch
+    where branch_name!='中心库'
+  </select>
 </mapper>

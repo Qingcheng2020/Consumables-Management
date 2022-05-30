@@ -194,6 +194,14 @@ public class ReagentStockController {
         return CommonResult.success(stockList);
     }
 
+    @ApiOperation("所有科室查询")
+    @RequestMapping(value = "/getAllBranch", method = RequestMethod.GET)
+    @ResponseBody
+    public CommonResult<Integer> getAllBranch() {
+        List<String> branch=stockService.getbranch();
+        return CommonResult.success(1);
+    }
+
 
 
 }

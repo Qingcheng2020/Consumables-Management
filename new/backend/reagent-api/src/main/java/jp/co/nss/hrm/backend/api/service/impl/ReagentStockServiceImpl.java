@@ -455,6 +455,11 @@ public class ReagentStockServiceImpl implements ReagentStockService {
 
     }
 
+    public List<String> getbranch(){
+
+        return stockMapper.getbranch();
+    }
+
     public int outFromCentre(Long id,String destination){
         //中心库出库汇总
         //first
@@ -638,5 +643,7 @@ public class ReagentStockServiceImpl implements ReagentStockService {
             return 1;
 
     }
+
+
 }
 

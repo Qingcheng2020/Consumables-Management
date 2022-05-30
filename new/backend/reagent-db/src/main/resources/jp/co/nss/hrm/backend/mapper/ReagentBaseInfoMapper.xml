@@ -507,4 +507,9 @@
       isQR = #{isQR,jdbcType=TINYINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
+  <select id="getreagentid" resultType="java.lang.String">
+    select reagent_id
+    from reagent_stock
+    where stock_no=#{stocknum,jdbcType=VARCHAR}
+  </select>
 </mapper>

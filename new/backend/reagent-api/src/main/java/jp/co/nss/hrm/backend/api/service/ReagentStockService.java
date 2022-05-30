@@ -70,4 +70,6 @@ public interface ReagentStockService {
     int outFromBranch(ReagentStock stock);
 
     int outFromCentre(Long id, String branch);
+
+    List<String> getbranch();
 }

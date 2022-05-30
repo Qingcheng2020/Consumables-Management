@@ -47,4 +47,6 @@ public interface ReagentStockMapper {
     List<Map<String,String>> findfrombranch(@Param("stock_no") String stock_no, @Param("Number") Long Number, @Param("name")String name);
 
     List<Map<String,Object>> findFromCentre(@Param("branch")String branch,@Param("reagentcode")String reagentcode,@Param("number")Long number);
+
+    List<String> getbranch();
 }

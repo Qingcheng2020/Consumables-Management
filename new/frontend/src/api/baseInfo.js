@@ -1,10 +1,10 @@
 import request from '@/utils/request'
 
-export function getIsQr(params) {
+export function getIsQr(data) {
   return request({
     url: '/baseInfo/getisQR',
-    method: 'get',
-    params: params
+    method: 'post',
+    data: data
   })
 }
 

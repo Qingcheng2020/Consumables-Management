@@ -379,7 +379,7 @@ export default {
   },
   methods: {
     getIsQr(){
-      getIsQr(this.$route.query.stockNo).then(response => {
+      getIsQr(listQuery.reagentCode).then(response => {
         this.isQr = response.data;
       })
     },

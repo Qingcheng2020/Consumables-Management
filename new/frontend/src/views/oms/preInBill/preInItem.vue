@@ -6,6 +6,7 @@
       <span>随货同行单详情
         <el-button
           size="small"
+          :disabled="isQr == '否'"
           type="primary"
           icon="el-icon-printer"
           style="margin-bottom:20px;
@@ -35,7 +36,7 @@
         <el-table-column label="二维码" width="350%" align="center">
           <template slot-scope="scope">
             <div>
-              <div class="qrcode-pic" :class="'qrcode' + scope.row.newId" ref="codeItem">
+              <div class="qrcode-pic" :class="'qrcode' + scope.row.newId" ref="codeItem" v-show="isQr == '是'">
                 <vue-qr :text="scope.row.qrCode" :size="110" :margin="0"></vue-qr>
               </div>
               <div v-html="scope.row.codeValue" class="right" align="left"></div>
@@ -67,12 +68,18 @@
 <script>
 import {fetchList} from '@/api/preInItem'
 import {formatDate} from '@/utils/date';
+import {getIsQrAno} from '@/api/baseInfo'
 import VueQr from "vue-qr";
 
 const defaultListQuery = {
   pageNum: 1,
   pageSize: 50,
   keyword: null,
+  billCode: null,
+  reagentCode: null,
+  qrCode: null,
+  codeValue: null,
+  status: null
 };
 export default {
   name: "preInItemList",
@@ -85,6 +92,7 @@ export default {
       total: null,
       preInItem: null,
       multipleSelection: [],
+      isQr: null,
       //预入库单状态
       statusData: [
         {
@@ -103,6 +111,7 @@ export default {
   },
   created() {
     this.getList();
+    this.getIsQrAno();
   },
 
   filters: {
@@ -112,6 +121,22 @@ export default {
     },
   },
   methods: {
+    getIsQrAno(){
+      getIsQrAno(this.listQuery).then(response => {
+        this.isQr = response.data;
+      })
+      if (this.isQr == '否') {
+        this.timer = window.setTimeout(() => {
+          this.$notify({
+            title: '提示',
+            message: '二维码不可用！',
+            type: 'warning',
+            position: 'bottom-right',
+            // duration: 0
+          });
+        }, 0)
+      }
+    },
     rowClassName({row, rowIndex}) {
       //把每一行的索引放进row.id
       row.newId = (this.listQuery.pageSize * (this.listQuery.pageNum - 1)) + rowIndex + 1;
@@ -206,11 +231,22 @@ export default {
     getList() {
       this.listLoading = true;
       this.listQuery.keyword = this.$route.query.inDetailId;
-      fetchList(this.listQuery).then(response => {
+      let sendData = {
+        keyword: this.$route.query.inDetailId,
+        billCode: this.listQuery.billCode,
+        reagentCode: this.listQuery.reagentCode,
+        qrCode: this.listQuery.qrCode,
+        codeValue: this.listQuery.codeValue,
+        status: this.listQuery.status,
+        pageNum: this.listQuery.pageNum,
+        pageSize: this.listQuery.pageSize,
+      }
+      fetchList(this.sendData).then(response => {
         this.listLoading = false;
         this.preInItem = response.data.list;
         this.total = response.data.total;
       })
+      console.log(sendData)
     },
   }
 }

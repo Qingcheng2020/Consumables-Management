@@ -8,6 +8,14 @@ export function getIsQr(data) {
   })
 }
 
+export function getIsQrAno(data) {
+  return request({
+    url: '/baseInfo/getisQRAno',
+    method: 'post',
+    data: data
+  })
+}
+
 export function fetchList(params) {
   return request({
     url: '/baseInfo/list',

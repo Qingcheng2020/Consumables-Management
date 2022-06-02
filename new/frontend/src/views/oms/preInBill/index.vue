@@ -88,11 +88,11 @@
               @click="handleViewOrder(scope.$index, scope.row)"
             >查看
             </el-button>
-            <el-button
-              size="mini"
-              type="primary"
-              @click="handlePrint(scope.$index, scope.row)">打印二维码
-            </el-button>
+<!--            <el-button-->
+<!--              size="mini"-->
+<!--              type="primary"-->
+<!--              @click="handlePrint(scope.$index, scope.row)">打印二维码-->
+<!--            </el-button>-->
           </template>
         </el-table-column>
 

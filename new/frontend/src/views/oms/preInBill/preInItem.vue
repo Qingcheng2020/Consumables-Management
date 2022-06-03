@@ -75,11 +75,11 @@ const defaultListQuery = {
   pageNum: 1,
   pageSize: 50,
   keyword: null,
-  billCode: null,
+/*  billCode: null,
   reagentCode: null,
   qrCode: null,
   codeValue: null,
-  status: null
+  status: null*/
 };
 export default {
   name: "preInItemList",
@@ -231,7 +231,7 @@ export default {
     getList() {
       this.listLoading = true;
       this.listQuery.keyword = this.$route.query.inDetailId;
-      let sendData = {
+/*      let sendData = {
         keyword: this.$route.query.inDetailId,
         billCode: this.listQuery.billCode,
         reagentCode: this.listQuery.reagentCode,
@@ -240,13 +240,13 @@ export default {
         status: this.listQuery.status,
         pageNum: this.listQuery.pageNum,
         pageSize: this.listQuery.pageSize,
-      }
+      }*/
       fetchList(this.sendData).then(response => {
         this.listLoading = false;
         this.preInItem = response.data.list;
         this.total = response.data.total;
       })
-      console.log(sendData)
+//      console.log(sendData)
     },
   }
 }

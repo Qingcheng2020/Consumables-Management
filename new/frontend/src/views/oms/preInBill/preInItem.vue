@@ -241,7 +241,7 @@ export default {
         pageNum: this.listQuery.pageNum,
         pageSize: this.listQuery.pageSize,
       }*/
-      fetchList(this.sendData).then(response => {
+      fetchList(this.listQuery).then(response => {
         this.listLoading = false;
         this.preInItem = response.data.list;
         this.total = response.data.total;

@@ -38,7 +38,7 @@
         </el-table-column>
         <el-table-column label="耗材状态" align="center">
           <template slot-scope="scope">
-            {{ statusData[(scope.row.reagentStatus)].label }}
+            {{ scope.row.status ? statusData[(scope.row.status)].label : '库损' }}
           </template>
         </el-table-column>
         <el-table-column label="库损数量"  align="center">

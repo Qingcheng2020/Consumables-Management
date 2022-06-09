@@ -121,17 +121,15 @@
     </if>
   </delete>
   <insert id="insert" parameterType="jp.co.nss.hrm.backend.model.ReagentBaseInfo">
-    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
-      SELECT LAST_INSERT_ID()
-    </selectKey>
-    insert into reagent_base_info (code, name, unit, 
+
+    insert into reagent_base_info (id,code, name, unit,
       specification, manufacturer_name, registration_no, 
       supplier_id, supplier_short_name, price, 
       stock_type, expiration_limit, stock_limit, 
       use_day_limit, create_time, create_by, 
       update_time, update_by, delete_flag, 
       delete_time, delete_by,classify,consumClassify,isQR)
-    values (#{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{unit,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=BIGINT},#{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{unit,jdbcType=VARCHAR},
       #{specification,jdbcType=VARCHAR}, #{manufacturerName,jdbcType=VARCHAR}, #{registrationNo,jdbcType=VARCHAR}, 
       #{supplierId,jdbcType=VARCHAR}, #{supplierShortName,jdbcType=VARCHAR}, #{price,jdbcType=DOUBLE}, 
       #{stockType,jdbcType=VARCHAR}, #{expirationLimit,jdbcType=INTEGER}, #{stockLimit,jdbcType=INTEGER}, 
@@ -511,5 +509,10 @@
     select reagent_id
     from reagent_stock
     where stock_no=#{stocknum,jdbcType=VARCHAR}
+  </select>
+  <select id="getreagentidbynum" resultType="java.lang.String">
+    select reagent_code
+    from reagent_pre_in_detail
+    where in_detail_id=#{num,jdbcType=VARCHAR}
   </select>
 </mapper>

@@ -29,4 +29,6 @@ public interface ReagentBaseInfoMapper {
     int updateByPrimaryKey(ReagentBaseInfo record);
 
     String getreagentid(@Param("stocknum")String stocknum);
+
+    String getreagentidbynum(@Param("num")String num);
 }

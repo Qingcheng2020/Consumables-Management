@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import jp.co.nss.hrm.backend.common.util.SmsTentcent.*;
 
 /**
  * 订单信息管理Controller
@@ -54,44 +55,29 @@ public class ReagentOrderController {
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult create(@RequestBody ReagentOrderPost order) {
+
         Map<String, String> mapOrderNoSortBySupplierCode = orderService.create(order);
 
         List<ReagentOrderMess> orderSet = order.getOrderMessList();
 
-        // start: 微信通知供货商
+
+        // start: 通知供货商
         List<String> suppliersCode = new ArrayList<>();
         if (orderSet != null) {
             orderSet.forEach(item -> {
                 // 此处请求参数中的的 supplierId 实际是 supplierCode
                 suppliersCode.add(item.getSupplierId());
             });
-            List<WxUser> wxUsers = wxService.getWxUsersBySuppliersCode(suppliersCode);
 
-            for (WxUser wxUser: wxUsers) {
-                String openid = wxUser.getOpenid();
-                String orderNo = mapOrderNoSortBySupplierCode.get(wxUser.getSupplierCode());
-                SubscriptionMessage.sendOrderMsg(APPID, APP_SECRET, openid, orderNo, HOSPITAL_NAME);
-            }
+
         }
-        // end: 微信通知供货商
+        System.out.println(suppliersCode);
+        String []num= new String[suppliersCode.size()];
+        for(int i=0;i<suppliersCode.size();i++){
+            num[i]=orderService.getphonenum(suppliersCode.get(i));
+        }
 
-        // start: sms通知供货商
-//        List<String> supplierIdSet = new ArrayList<>();
-//
-//        if (orderSet != null) {
-//            orderSet.forEach(item -> {
-//                supplierIdSet.add(item.getSupplierId());
-//            });
-//
-//            String[] phoneSet = supplierService.getPhonesNumBySuppliersID(supplierIdSet);
-//
-//            if (phoneSet.length > 0) {
-//                Notify2Supplier.sendByGroup(phoneSet, "临沂市河东区妇幼保健院");
-////                String userOpenid = "o_iUi6drpEwKb8BIMQcxE4bgwIJ4";
-////                SubscriptionMessage.sendOrderMsg(APPID, APP_SECRET, userOpenid);
-//            }
-//        }
-        // end: sms通知供货商
+        Notify2Supplier.sendByGroup(num,"妇幼保健医院");
 
         if (mapOrderNoSortBySupplierCode.size() > 0) {
             return CommonResult.success(mapOrderNoSortBySupplierCode.size());

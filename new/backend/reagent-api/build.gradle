@@ -25,6 +25,8 @@ dependencies {
 
     //Validation
     implementation 'javax.validation:validation-api:2.0.1.Final'
+    implementation 'com.aliyun:aliyun-java-sdk-dysmsapi:2.2.1'
+    implementation 'com.aliyun:aliyun-java-sdk-aliyuncvc:1.0.14'
     runtimeOnly 'org.hibernate.validator:hibernate-validator:6.0.17.Final'
 
     //tool

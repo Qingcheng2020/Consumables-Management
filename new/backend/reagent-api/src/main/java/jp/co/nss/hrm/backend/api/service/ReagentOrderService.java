@@ -60,6 +60,8 @@ public interface ReagentOrderService {
      * 获取角色id
      */
     int getRoleId(String username);
+
+    String getphonenum(String s);
 }
 
 

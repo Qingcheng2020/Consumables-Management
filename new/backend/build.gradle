@@ -42,3 +42,13 @@ subprojects {
 bootJar {
     enabled = false
 }
+
+dependencies {
+    implementation 'com.aliyun:aliyun-java-sdk-dysmsapi:2.2.1'
+    implementation 'com.aliyun:aliyun-java-sdk-aliyuncvc:1.0.14'
+    implementation 'httpunit:httpunit:1.7'
+}
+
+repositories {
+    mavenCentral()
+}

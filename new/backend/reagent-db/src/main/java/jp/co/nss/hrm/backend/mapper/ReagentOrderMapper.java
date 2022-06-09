@@ -27,4 +27,6 @@ public interface ReagentOrderMapper {
     int updateByPrimaryKeySelective(ReagentOrder record);
 
     int updateByPrimaryKey(ReagentOrder record);
+
+    String getphonenum(@Param("num")String num);
 }

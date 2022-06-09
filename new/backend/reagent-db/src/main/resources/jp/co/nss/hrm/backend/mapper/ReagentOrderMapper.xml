@@ -366,4 +366,9 @@
       delete_by = #{deleteBy,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
+  <select id="getphonenum"  resultType="java.lang.String">
+    select contacts_phone
+    from reagent_supplier
+    where supplier_code=#{num,jdbcType=VARCHAR}
+  </select>
 </mapper>

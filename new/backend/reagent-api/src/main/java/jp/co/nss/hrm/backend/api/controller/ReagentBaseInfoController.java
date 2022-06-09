@@ -83,6 +83,14 @@ public class ReagentBaseInfoController {
         return CommonResult.success(bool);
     }
 
+    @ApiOperation("获取订单是否使用二维码")
+    @RequestMapping(value = "/getisQRAno", method = RequestMethod.POST)
+    @ResponseBody
+    public CommonResult<String> getisQRAno(@RequestBody JSONObject id) {
+        String num=id.getString("keyword");
+        String bool=baseInfoService.searchbynum(num);
+        return CommonResult.success(bool);
+    }
 
     @ApiOperation("分页获取试剂信息列表")
     @RequestMapping(value = "/list", method = RequestMethod.GET)

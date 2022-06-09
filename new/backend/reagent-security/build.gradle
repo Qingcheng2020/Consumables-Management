@@ -21,8 +21,10 @@ dependencies {
 
 	//base project
 	api  project(":reagent-common")
+    implementation 'com.aliyun:aliyun-java-sdk-dysmsapi:2.2.1'
+    implementation 'com.aliyun:aliyun-java-sdk-aliyuncvc:1.0.14'
 
-	compileOnly 'org.projectlombok:lombok'
+    compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {

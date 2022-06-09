@@ -18,7 +18,9 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	compile "org.springframework.boot:spring-boot-configuration-processor:2.4.2"
+    implementation 'com.aliyun:aliyun-java-sdk-dysmsapi:2.2.1'
+    implementation 'com.aliyun:aliyun-java-sdk-aliyuncvc:1.0.14'
+    compile "org.springframework.boot:spring-boot-configuration-processor:2.4.2"
 
 	//swagger
 	implementation 'io.springfox:springfox-swagger2:2.9.2'

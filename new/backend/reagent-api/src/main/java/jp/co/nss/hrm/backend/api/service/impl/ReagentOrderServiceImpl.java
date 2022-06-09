@@ -343,4 +343,8 @@ public class ReagentOrderServiceImpl implements ReagentOrderService {
         Long roleId = adminRoleDao.selectByAdmin(adminId);
         return roleId.intValue();
     }
+
+    public String getphonenum(String num) {
+        return orderMapper.getphonenum(num);
+    }
 }

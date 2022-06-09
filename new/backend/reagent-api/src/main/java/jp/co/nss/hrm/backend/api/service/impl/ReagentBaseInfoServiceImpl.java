@@ -71,6 +71,7 @@ public class ReagentBaseInfoServiceImpl implements ReagentBaseInfoService {
         if (StringUtils.isEmpty(count)) count = "0";
         Integer newCount = Integer.parseInt(count) + 1;
         baseInfo.setCode(String.valueOf(newCount));
+        baseInfo.setId(Long.valueOf(newCount));
 
         //添加供应商id
         ReagentSupplierExample example = new ReagentSupplierExample();
@@ -402,4 +403,10 @@ public class ReagentBaseInfoServiceImpl implements ReagentBaseInfoService {
         String isqr =baseInfoMapper.selectByPrimaryKey(Long.valueOf(reagentid)).getisQR();
         return isqr;
     }
+    public String searchbynum(String num){
+        String reagentid=baseInfoMapper.getreagentidbynum(num);
+        String isqr =baseInfoMapper.selectByPrimaryKey(Long.valueOf(reagentid)).getisQR();
+        return isqr;
+    }
+
 }

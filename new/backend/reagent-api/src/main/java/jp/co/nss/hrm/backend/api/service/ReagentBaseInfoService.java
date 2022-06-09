@@ -67,6 +67,8 @@ public interface ReagentBaseInfoService {
     PageInfo<ReagentBaseInfo> searchByOrder(String keyword, Integer pageSize, Integer pageNum);
 
     String searchbycode(String stocknum);
+
+    String searchbynum(String num);
 }
 
 

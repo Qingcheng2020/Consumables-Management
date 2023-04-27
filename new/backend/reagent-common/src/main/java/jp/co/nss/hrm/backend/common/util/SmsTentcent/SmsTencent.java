@@ -9,8 +9,8 @@ import com.tencentcloudapi.sms.v20210111.models.SendSmsResponse;
 
 public class SmsTencent {
 
-    private static final String SecretId = "AKIDfCWbUbSdZEdniVAeuypV0JRMxJSM2UjC";
-    private static final String SecretKey = "UlmX4OTIrwlTxEH8k8HFxQtHYcR1NVQ7";
+    private static final String SecretId = "AKIDUnpb6KHzQaU8WdT3NQChwtZy6yZtwjFW";
+    private static final String SecretKey = "2oKYVCdnfHdiV1HGyPZT5QUHn20jBMGt";
     private static final String Endpoint = "sms.tencentcloudapi.com";
     private static final String Region = "ap-beijing";
     private static final String SmsSdkAppId = "1400604278";

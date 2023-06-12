@@ -1,0 +1,212 @@
+import java.security.MessageDigest
+import groovy.json.JsonSlurper
+import groovy.json.JsonBuilder
+
+apply plugin: 'com.android.application'
+
+ext {
+    buildInfo =[
+        versionName: '1.3.0',
+        versionDes: "1. 修复部分bug，提升用户体验",
+        versionCode: 1,
+        updatePath: 'app/release',
+        updateInfoFilename: 'appInfo.json',
+        updateBaseUrl: ''
+    ]
+}
+
+void generateUpdateInfo(String apkName) {
+    println("------------------ Generating version info ------------------")
+    // 把apk文件从build目录复制到根项目的update文件夹下
+    def apkFile = project.file("release/${apkName}")
+    if (!apkFile.exists()) {
+        throw new GradleScriptException("apk file not exist!")
+    }
+    def toDir = rootProject.file(buildInfo.updatePath)
+    String apkHash = generateMD5(apkFile)
+    def updateJsonFile = new File(toDir, buildInfo.updateInfoFilename)
+    def writeNewFile = true
+
+    // 如果有以前的json文件，检查这次打包是否有改变
+    if (updateJsonFile.exists()) {
+        try {
+            def oldUpdateInfo = new JsonSlurper().parse(updateJsonFile)
+            if (buildInfo.versionCode <= oldUpdateInfo.code && apkHash == oldUpdateInfo.hash) {
+                writeNewFile = false
+            }
+        } catch (Exception e) {
+            writeNewFile = true
+            e.printStackTrace()
+            updateJsonFile.delete()
+        }
+    }
+
+    if (writeNewFile) {
+        def oldFiles = toDir.listFiles()
+        oldFiles.each {
+            if ((it.getName() == buildInfo.updateInfoFilename) && !it.delete()) {
+                it.deleteOnExit()
+            }
+        }
+//         copy {
+//             from(apkFile)
+//             into(toDir)
+//         }
+
+        // 创建json的实体类
+        // Expando可以简单理解为Map
+        def updateInfo = new Expando(
+                versionCode: buildInfo.versionCode,
+                versionName: buildInfo.versionName,
+                filename: apkFile.name,
+                updateUrl: "${buildInfo.updateBaseUrl}${apkFile.name}?token=a123",
+                time: System.currentTimeMillis(),
+                des: "${buildInfo.versionDes}",
+                size: apkFile.length(),
+                md5: apkHash
+        )
+        String newApkHash = generateMD5(new File(toDir, apkName))
+        println("new apk md5: $newApkHash")
+        def outputJson = new JsonBuilder(updateInfo).toPrettyString()
+        println(outputJson)
+        // 将json写入文件中，用于查询更新
+        updateJsonFile.write(outputJson)
+    } else {
+        // 不需要更新
+        println("This version is already released.\n" +
+                "VersionCode = ${buildInfo.versionCode}\n" +
+                "Skip generateUpdateInfo.")
+    }
+    println("------------------ Finish Generating version info ------------------")
+}
+
+static String generateMD5(File file) {
+    if (!file.exists() || !file.isFile()) {
+        return null
+    }
+    def digest = MessageDigest.getInstance("MD5")
+    file.withInputStream() { is ->
+        byte[] buffer = new byte[8192]
+        int read
+        while ((read = is.read(buffer)) > 0) {
+            digest.update(buffer, 0, read)
+        }
+    }
+    return digest.digest().encodeHex().toString()
+}
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "jp.co.nss.wms"
+        minSdkVersion 18
+        //noinspection ExpiredTargetSdkVersion
+        targetSdkVersion 27
+        versionCode getSelfDefinedVersion("code")
+        versionName buildInfo.versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary   true
+
+    }
+
+    buildTypes.all { buildType ->
+        buildType.buildConfigField("String", "RAW_URL", "\"${buildInfo.updateBaseUrl}\"")
+        buildType.buildConfigField("String", "APK_NAME", "\"${"app-release-v${defaultConfig.versionName}.apk"}\"")
+        buildType.buildConfigField("String", "INFO_FILE_NAME", "\"${buildInfo.updateInfoFilename}\"")
+    }
+
+    buildTypes {
+        release {
+            postprocessing {
+                removeUnusedCode false
+                removeUnusedResources false
+                obfuscate false
+                optimizeCode false
+                proguardFile 'proguard-rules.pro'
+            }
+        }
+    }
+
+    //ADD THESE LINES:
+    packagingOptions {
+        exclude 'LICENSE.txt'
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+    buildToolsVersion '30.0.3'
+
+    android.applicationVariants.all { variant ->
+        def apkName = "app-release-v${defaultConfig.versionName}.apk"
+        variant.outputs.all { output ->
+//            def outputFile = output.outputFile
+//            if (outputFile!=null && outputFile.name.endsWith('.apk')) {
+//                def fileName = "app-release-v${defaultConfig.versionName}.apk"
+//                outputFileName = fileName
+//            }
+            outputFileName = apkName
+        }
+        if (variant.buildType.name == "release") {
+            // 直接添加到Task的Action队尾，build执行完成后就可以执行这个函数
+            variant.assembleProvider.get().doLast {
+                generateUpdateInfo(apkName)
+            }
+        }
+
+    }
+
+}
+
+def getSelfDefinedVersion(type) {
+    Process process = "git rev-list --count HEAD".execute()
+    process.waitFor()
+    int count = process.getText().toInteger()
+
+    if ("code" == type) {
+        buildInfo.versionCode = count
+        count
+    } else if ("name" == type) {
+//        String today = new Date().format("yyMMdd")
+//        process = "git describe --always".execute()
+//        process.waitFor()
+//        String sha1 = process.getText().trim()
+//        "$aa.$bb.$count.$today.$sha1"
+    }
+}
+
+dependencies {
+    implementation project(':library')
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support:design:27.1.1'
+    implementation 'com.squareup.retrofit2:retrofit:2.6.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    compile 'com.jakewharton:butterknife:8.4.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+    compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    implementation 'com.squareup.okhttp3:okhttp:4.9.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.0'
+    debugCompile 'com.facebook.stetho:stetho:1.1.1'
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    compile 'com.google.code.gson:gson:2.8.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    compile 'com.zhy:percent-support-extends:1.1.1'
+    compile 'com.android.support:cardview-v7:27.1.1'
+    compile 'eu.the4thfloor.volley:com.android.volley:2015.05.28'
+    compile 'com.android.support:recyclerview-v7:27.1.1'
+    compile 'com.jcodecraeer:xrecyclerview:1.3.2'
+    compile 'com.nhaarman.listviewanimations:lib-core:3.1.0@aar'
+    compile 'com.nhaarman.listviewanimations:lib-manipulation:3.1.0@aar'
+    compile 'com.nhaarman.listviewanimations:lib-core-slh:3.1.0@aar'
+    compile 'com.nineoldandroids:library:2.4.0'
+    compile 'com.wang.avi:library:1.0.0'
+    compile 'com.nineoldandroids:library:2.4.0'
+    compile 'com.hjm:BottomTabBar:1.2.0'
+    compileOnly 'org.projectlombok:lombok:1.18.16'
+    annotationProcessor 'org.projectlombok:lombok:1.18.16'
+
+}

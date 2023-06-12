@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/activity_googlecards_new" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="30dp"
+        android:background="@drawable/edge"
+        android:gravity="bottom"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_refund"
+                android:layout_width="80dp"
+                android:layout_height="55dp"
+                android:layout_weight="1"
+                android:text="@string/btn_operator_refund"
+                />
+
+            <Button
+                android:id="@+id/btn_loss"
+                android:layout_width="80dp"
+                android:layout_height="55dp"
+                android:layout_weight="1"
+                android:layout_marginStart="15dp"
+                android:text="@string/btn_operator_loss"
+                />
+
+            <Button
+                android:id="@+id/btn_associate_device"
+                android:layout_width="80dp"
+                android:layout_height="55dp"
+                android:layout_weight="1"
+                android:layout_marginStart="15dp"
+                android:text="@string/device_associate"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="15dp"
+            >
+
+            <Button
+                android:id="@+id/btn_change_date"
+                android:layout_width="80dp"
+                android:layout_height="55dp"
+                android:layout_weight="1"
+                android:text="@string/btn_operator_change_date"
+                />
+
+            <Button
+                android:id="@+id/btn_close"
+                android:layout_width="80dp"
+                android:layout_height="55dp"
+                android:layout_weight="1"
+                android:layout_marginStart="30dp"
+                android:text="@string/btn_operator_close"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,86 @@
+package jp.co.nss.wms.ui.adapter;
+
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+
+import org.greenrobot.eventbus.EventBus;
+
+import java.util.List;
+
+import jp.co.nss.wms.bean.bean.MessageEvent;
+import jp.co.nss.wms.bean.vm.GoodsInfoVm;
+import jp.co.nss.wms.ui.itemview.GoodsInfoItemView;
+import jp.co.nss.wms.util.LoadingUtil;
+
+/**
+ * Created by nss.
+ */
+
+public class GoodsInfoAdaper extends BaseAdapter {
+
+    Context mContext;
+
+    private List<GoodsInfoVm> obj;
+    public void setGoodsInfoList(List<GoodsInfoVm> obj){
+        this.obj=obj;
+    }
+    public GoodsInfoAdaper(Context context){
+        mContext=context;
+    }
+
+    @Override
+    public int getCount() {
+        return obj==null?0:obj.size();
+    }
+
+    @Override
+    public Object getItem(int i) {
+        return null;
+    }
+
+    @Override
+    public long getItemId(int i) {
+        return 0;
+    }
+
+    @Override
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        GoodsInfoItemView itemView=null;
+        if(view==null){
+            itemView=new GoodsInfoItemView(mContext);
+            view=itemView.getmView();
+            view.setTag(itemView);
+        }else{
+            itemView= (GoodsInfoItemView) view.getTag();
+        }
+        itemView.bind(obj.get(i),i);
+        itemView.setListent(new GoodsInfoItemView.GoodsInfoListent() {
+            @Override
+            public void save(int position) {
+                remove(position);
+            }
+            @Override
+            public void saveVm(int position, String ChZhXiang, String KuZhXiang, String GaoZhXiang, String ZhlKg, String MpDanCeng, String MpCengGao, String BzhiQi, String shptiaoma, String tiji) {
+                obj.get(position).setChZhXiang(ChZhXiang);
+                obj.get(position).setKuZhXiang(KuZhXiang);
+                obj.get(position).setGaoZhXiang(GaoZhXiang);
+                obj.get(position).setZhlKg(ZhlKg);
+                obj.get(position).setMpDanCeng(MpDanCeng);
+                obj.get(position).setMpCengGao(MpCengGao);
+                obj.get(position).setBzhiQi(BzhiQi);
+                obj.get(position).setShpTiaoMa(shptiaoma);
+                obj.get(position).setTiJiCm(tiji);
+            }
+        });
+        return view;
+    }
+
+    public void remove(int position){
+        LoadingUtil.hideLoading();
+        EventBus.getDefault().post(new MessageEvent(""));
+//        obj.remove(position);
+//        notifyDataSetChanged();
+    }
+}

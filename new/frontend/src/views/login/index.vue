@@ -9,7 +9,7 @@
         <div style="text-align: center">
           <svg-icon icon-class="login-mall" style="width: 56px;height: 56px;color: #409EFF"></svg-icon>
         </div>
-        <h2 class="login-title color-main">耗材精细化管理平台</h2>
+        <h2 class="login-title color-main">医疗耗材全生命周期智能化管理系统</h2>
         <el-form-item prop="username">
           <el-input name="username"
                     type="text"

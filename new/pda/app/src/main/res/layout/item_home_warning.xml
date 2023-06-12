@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/ll_root"
+    android:gravity="center"
+    >
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_heightPercent="10%w"/>
+    <TextView
+        android:id="@+id/tv_warning_num"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:textColor="@color/red"
+        android:textSize="24sp"
+        android:text="0"
+        android:textAlignment="center"
+        />
+<!--    <jp.co.nss.wms.ui.view.CircleImageView-->
+<!--        android:id="@+id/img_homeitem"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="0dp"-->
+<!--        app:layout_widthPercent="50%w"-->
+<!--        app:layout_heightPercent="50%w"-->
+<!--        android:background="@color/transparent"-->
+<!--        android:layout_gravity="center_horizontal"-->
+<!--        app:layout_marginTopPercent="8%w"-->
+<!--        />-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+<!--        <TextView-->
+<!--            android:id="@+id/img_home_warning_item"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:gravity="center"-->
+<!--            android:text="@string/iconfont_close"-->
+<!--            />-->
+
+        <TextView
+            android:id="@+id/tv_homename"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:text="123"
+            android:textColor="@color/brack"
+            />
+
+    </LinearLayout>
+
+
+
+
+</com.zhy.android.percent.support.PercentLinearLayout>

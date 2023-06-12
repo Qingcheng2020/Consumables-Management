@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:background="@color/white"
+        >
+        <AutoCompleteTextView
+            android:id="@+id/et_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:layout_weight="1"
+            android:imeOptions="actionGo"
+            android:hint="@string/search2"
+            />
+
+        <Button
+            android:id="@+id/btn_open_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_browser"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <TextView
+            style="@style/ItemPickdetailLeftStyle"
+            android:layout_width="100dp"
+            android:text="@string/pre_in_bill_no" />
+
+        <TextView
+            android:id="@+id/tv_billInNo"
+            android:maxLines="4"
+            android:maxWidth="200dp"
+            android:scrollbars="vertical"
+            style="@style/ItemPickdetailRightStyle" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <TextView
+            style="@style/ItemPickdetailLeftStyle"
+            android:layout_width="80dp"
+            android:text="@string/supplier1" />
+
+        <TextView
+            android:id="@+id/tv_supplier"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            style="@style/ItemPickdetailRightStyle" />
+
+        <TextView
+            style="@style/ItemPickdetailLeftStyle"
+            android:layout_width="50dp"
+            android:text="@string/date" />
+
+        <TextView
+            android:id="@+id/tv_operationDate"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            style="@style/ItemPickdetailRightStyle" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:background="@color/white"
+        >
+
+        <Button
+            android:id="@+id/btn_read"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_read"
+            />
+
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_weight="1"
+            android:layout_marginLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_save"
+            />
+
+        <Button
+            android:id="@+id/btn_to_in"
+            android:layout_weight="1"
+            android:layout_marginLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_to_in"
+            />
+
+    </LinearLayout>
+
+
+    <include layout="@layout/activity_googlecards" />
+</LinearLayout>

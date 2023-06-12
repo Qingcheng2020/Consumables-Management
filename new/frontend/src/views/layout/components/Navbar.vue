@@ -3,7 +3,7 @@
 
     <el-menu class="navbar" mode="horizontal">
       <hamburger class="hamburger-container" :toggleClick="toggleSideBar" :isActive="sidebar.opened"></hamburger>
-      <div>耗材精细化管理平台 (临沂市河东区妇幼保健院)
+      <div>医疗耗材全生命周期智能化管理系统
 
         <div class="username">
           <span>{{ trueName }}({{ roleName }})</span>

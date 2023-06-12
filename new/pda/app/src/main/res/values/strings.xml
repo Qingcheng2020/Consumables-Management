@@ -1,0 +1,184 @@
+<resources>
+    <string name="app_name">试剂管理</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="large_text">
+        "when a user tries to pick up one of cards.\n\n"
+    </string>
+    <string name="action_settings">Settings</string>
+    <string name="huozhu">货主：</string>
+    <string name="fahuotongzhi">发货通知：</string>
+    <string name="tuopanhao">托盘号：</string>
+    <string name="xiajiacunwei">下架储位：</string>
+    <string name="shangjiacunwei">上架储位：</string>
+    <string name="shuliang">数量：</string>
+    <string name="chuwei">储位：</string>
+    <string name="pinming">品名：</string>
+    <string name="jianyituopan">托盘：</string>
+    <string name="pici">批次：</string>
+    <string name="danwei">单位：</string>
+    <string name="条码">条码：</string>
+
+    <string name="batchNo">批号：</string>
+    <string name="reagName">试剂名：</string>
+    <string name="reagent_name">试剂名称：</string>
+    <string name="specification">规格型号：</string>
+    <string name="expireDate">有效期限：</string>
+    <string name="remainder">过期预警：</string>
+    <string name="maker">生产厂家：</string>
+    <string name="supplier">供货厂家：</string>
+    <string name="supplier1">供货厂家</string>
+    <string name="supplier2">供货商：</string>
+    <string name="qrCode">二维码：</string>
+    <string name="quantity">库存：</string>
+
+
+    <string name="billInNo">进货单:</string>
+    <string name="date">日期</string>
+    <string name="operationDate">日期：</string>
+
+    <string name="billMoveNo">科室出库单：</string>
+    <string name="branch">科室：</string>
+
+    <string name="billOutNo">出库单：</string>
+    <string name="consumer">使用人：</string>
+
+
+
+    <string name="beizhu">备注：</string>
+    <string name="baocun">保存</string>
+    <string name="shouhuotongzhi">收货通知：</string>
+    <string name="tihi">TiHi：</string>
+    <string name="shouhuoshuliang">收货数量：</string>
+    <string name="shengchanriqi">生产日期：</string>
+    <string name="shouhuowendu">收货温度：</string>
+    <string name="kucunleixing">条码：</string>
+    <string name="yuqishuliang">预期数量：</string>
+    <string name="yishoushuliang">已收数量：</string>
+    <string name="chang">长：</string>
+    <string name="kuang">宽：</string>
+    <string name="gao">高：</string>
+    <string name="tiji">体积：</string>
+    <string name="zhongliang">重量：</string>
+    <string name="dancengshuliang">单层数量：</string>
+    <string name="cenggao">层高：</string>
+    <string name="baozhiqi">保质期：</string>
+    <string name="shangpinbianma">商品编码：</string>
+    <string name="kehubianma">客户编码：</string>
+    <string name="pandianchuwei">盘点储位：</string>
+    <string name="shijishuliang">实际数量：</string>
+    <string name="yichutuopan">移出托盘：</string>
+    <string name="yichuchuwei">移出储位：</string>
+    <string name="yirutuopan">移入托盘：</string>
+    <string name="yiruchuwei">移入储位：</string>
+    <string name="shuliang1">数量1：</string>
+    <string name="shuliang2">数量2：</string>
+    <string name="yuanchuwei">源储位：</string>
+    <string name="mubiaochuwei">目标储位：</string>
+    <string name="tiaoma">条码：</string>
+    <string name="tuopan">托盘：</string>
+    <string name="kehu">客户：</string>
+    <string name="sousuo">搜索</string>
+    <string name="save">保存</string>
+    <string name="reset">重置</string>
+    <string name="refresh">刷新</string>
+
+    <string name="sy_dialog_default_title">这里是标题</string>
+    <string name="sy_dialog_ok">确定</string>
+    <string name="sy_dialog_cancel">取消</string>
+    <string name="querenriqi">确认日期：</string>
+    <string name="fuheshuliang">复核数量：</string>
+    <string name="search1">请扫描批号</string>
+    <string name="searchgoods">请扫描商品编码</string>
+    <string name="search2">请扫描二维码</string>
+    <string name="searchByNumOrName">随货同行单号</string>
+
+    <string name="reagent_item_status">状态：</string>
+    <string name="btn_reagent_item_similar">查看同类试剂</string>
+    <string name="reagent_stock_total">库存余量：</string>
+
+    <string name="inbill_type">单据类型</string>
+    <string name="pre_in_bill_no">随货同行单号</string>
+    <string name="preinbill_no">入库单号：</string>
+    <string name="prein_order_no">订单号：</string>
+    <string name="prein_order_date">下单日期：</string>
+    <string name="prein_order_creator">下单人员：</string>
+    <string name="preinbill_status">单据状态：</string>
+    <string name="preinbill_creator">制单人员：</string>
+    <string name="btn_filter">筛选</string>
+    <string name="btn_to_scan">扫码入库</string>
+    <string name="btn_detail">详情</string>
+    <string name="btn_read">读取</string>
+    <string name="btn_save">保存</string>
+    <string name="btn_browser">查看同行单详情</string>
+    <string name="btn_to_in">入库</string>
+    <string name="btn_in_click">一键入库</string>
+
+    <string name="inbill_no">入库单号：</string>
+    <string name="inbill_date">单据日期：</string>
+    <string name="inbill_creator">制单人：</string>
+
+
+    // start: 移库
+    <string name="reagent_move_search_hint">申请单号/申请人</string>
+    <string name="reagent_move_no">申请单号：</string>
+    <string name="reagent_move_applicant">申请人：</string>
+    <string name="reagent_move_branch">申请科室：</string>
+    <string name="reagent_move_date">日期：</string>
+    <string name="reagent_move_status">状态：</string>
+    <string name="btn_move">移库</string>
+
+    <string name="btn_move_browser">查看移库单详情</string>
+    // end: 移库
+
+    // start: 试剂操作员
+    <string name="time_left">距离过期：</string>
+    <string name="expire_date">库存有效期：</string>
+    <string name="effect_date">开启有效期：</string>
+    <string name="btn_operator_refund">退货</string>
+    <string name="btn_operator_loss">库损</string>
+    <string name="btn_operator_change_date">更改开启有效期</string>
+    <string name="btn_operator_close">用尽</string>
+    // end: 试剂操作员
+
+
+    <string name="stock_search_name">请输入试剂名称</string>
+    <string name="stock_search_qrcode">请扫描二维码</string>
+
+    <string name="orderdh">单号</string>
+    <string name="orderydh">运单号</string>
+    <string name="orderbz">备注</string>
+    <string name="ordersp">请扫描商品</string>
+
+    <string name="search3">请扫描储位</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="jiaojiedan">交接单</string>
+    <string name="fangweima">防伪码</string>
+    <string name="wuliaohao">物料号</string>
+    <string name="jiaojieshuliang">交接数</string>
+    <string name="daishangjiashuliang">待上架</string>
+    <string name="heji">合计</string>
+
+    <string name="wuliaohaos">物料号：</string>
+    <string name="shangjiachuweis">上架储位：</string>
+    <string name="shuliangs">数量：</string>
+    <string name="zhanyongchuwei">占用储位：</string>
+
+    <string name="home_page">主界面</string>
+    <string name="logout">退出登录</string>
+    <string name="operator_index">汇总表</string>
+
+    <string name="iconfont_close">&#xe622;</string>
+<!--    <string name="iconfont_warning1">&#xe6fc;</string>-->
+<!--    <string name="iconfont_warning2">&#xe620;</string>-->
+
+    <string name="device_search_qrcode">请扫描设备二维码</string>
+    <string name="device_name">设备名称：</string>
+    <string name="device_code">设备编号：</string>
+    <string name="device_associate">上机</string>
+
+    <string name="go_out">出库</string>
+
+</resources>
